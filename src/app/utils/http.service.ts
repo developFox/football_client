@@ -57,11 +57,6 @@ export class HttpService {
             } else {
               resolve(result);
             }
-
-            if (typeof result.session_id !== 'undefined' && result.session_id !== '') {
-              this.sessionStorage.pubId = result.session_id;
-            }
-
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
               this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};

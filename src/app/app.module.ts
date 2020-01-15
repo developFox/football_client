@@ -13,12 +13,14 @@ import {AuthService} from './components/auth/auth.service';
 import {MessageAlertComponent} from './components/message_alert/message_alert.component';
 import {GlobalParamsMessage} from './components/message_alert/global-params-message';
 import {SessionStorageService} from './storage/session-storage.service';
+import {ClientMenuComponent} from './components/client_menu/client_menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    MessageAlertComponent
+    MessageAlertComponent,
+    ClientMenuComponent
   ],
   imports: [
     BrowserModule,
