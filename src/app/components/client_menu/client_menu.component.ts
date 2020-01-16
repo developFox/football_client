@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SessionStorageService} from '../../storage/session-storage.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-client-menu',
@@ -15,5 +16,9 @@ export class ClientMenuComponent implements OnInit {
     this.sessionStorage.authenticated.subscribe((data) => {
       this.show = data;
     });
+  }
+
+  exit() {
+    this.sessionStorage.exit();
   }
 }

@@ -6,6 +6,7 @@ import {SessionStorageService} from '../storage/session-storage.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+  // выкидываем на главную если не авторизован
   canActivate() {
     this.sessionStorage.getAuthenticatedStatic().then((data) => {
         if (data !== true) {
@@ -15,8 +16,6 @@ export class AuthGuard implements CanActivate {
       (error) => {
         console.log('Ошибка при получении авторизации клиента: ', error);
       });
-
-    console.log('AuthGuard#canActivate called');
     return true;
   }
 

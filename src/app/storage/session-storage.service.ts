@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 export class SessionStorageService {
   authenticated: EventEmitter<any> = new EventEmitter(false);
 
-  constructor(private router: Router) {
+  constructor(private router:Router) {
   }
 
   get pubId(): string {
@@ -17,17 +17,17 @@ export class SessionStorageService {
     this.authenticated.emit(true);
   }
 
-  // выход
-  exit() {
-    localStorage.removeItem('pubId');
-    this.authenticated.emit(false);
-    this.router.navigate(['/']);
-  }
-
   // возврат статического значения
   getAuthenticatedStatic() {
     return new Promise((resolve) => {
       resolve(this.pubId !== '' && this.pubId !== null );
     });
+  }
+
+  // выход
+  public exit() {
+    localStorage.removeItem('pubId');
+    this.authenticated.emit(false);
+    this.router.navigate(['/']);
   }
 }
