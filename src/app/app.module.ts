@@ -14,6 +14,7 @@ import {MessageAlertComponent} from './components/message_alert/message_alert.co
 import {GlobalParamsMessage} from './components/message_alert/global-params-message';
 import {SessionStorageService} from './storage/session-storage.service';
 import {ClientMenuComponent} from './components/client_menu/client_menu.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ClientMenuComponent} from './components/client_menu/client_menu.componen
     GlobalParamsMessage,
     SessionStorageService,
     MainService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

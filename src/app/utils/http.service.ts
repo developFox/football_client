@@ -55,7 +55,7 @@ export class HttpService {
               console.log('Результат ответа: ', rez);
               resolve(rez);
             } else {
-              resolve(result);
+              resolve('');
             }
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {

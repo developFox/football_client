@@ -13,7 +13,10 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/check-auth', '')
         .then((result: string) => {
-            this.sessionStorage.pubId = result;
+            if (result !== '') {
+              this.sessionStorage.pubId = result;
+            }
+
             resolve();
           },
           (error) => {
