@@ -34,7 +34,7 @@ export class HttpService {
 
   constructor(private http: HttpClient,
               private sessionStorage: SessionStorageService,
-              private  globalParamsMessage: GlobalParamsMessage) {
+              private globalParamsMessage: GlobalParamsMessage) {
   }
 
   public prepareQuery(url: string = 'noUrl', data = '') {
@@ -60,7 +60,7 @@ export class HttpService {
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
               this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
-              this.sessionStorage.exit();
+              //this.sessionStorage.exit();
             } else {
               this.globalParamsMessage.data = {title: 'Ошибка', body: result.msg, type: 'error'};
             }

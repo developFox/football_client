@@ -9,7 +9,8 @@ import {AuthService} from '../auth/auth.service';
 export class ClientMenuComponent implements OnInit {
   show = false;
 
-  constructor(private sessionStorage: SessionStorageService) {
+  constructor(private sessionStorage: SessionStorageService,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -19,6 +20,6 @@ export class ClientMenuComponent implements OnInit {
   }
 
   exit() {
-    this.sessionStorage.exit();
+    this.authService.exit();
   }
 }

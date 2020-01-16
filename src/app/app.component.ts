@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './components/auth/auth.service';
+import {HttpService} from './utils/http.service';
+import {SessionStorageService} from './storage/session-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +15,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.checkAuth().then(() => {},
+    this.authService.checkAuth().then(() => {
+      },
       (error) => {
         console.log('Ошибка при получении авторизации клиента: ', error);
       });

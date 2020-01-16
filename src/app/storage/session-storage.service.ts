@@ -1,11 +1,12 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import {HttpService} from '../utils/http.service';
 
 @Injectable()
 export class SessionStorageService {
   authenticated: EventEmitter<any> = new EventEmitter(false);
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   get pubId(): string {
@@ -24,10 +25,5 @@ export class SessionStorageService {
     });
   }
 
-  // выход
-  public exit() {
-    localStorage.removeItem('pubId');
-    this.authenticated.emit(false);
-    this.router.navigate(['/']);
-  }
+
 }
