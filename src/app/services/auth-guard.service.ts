@@ -8,7 +8,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate() {
     this.sessionStorage.getAuthenticatedStatic().then((data) => {
-        console.log(1, data);
         if (data !== true) {
           this.router.navigate(['/']);
         }
