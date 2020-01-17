@@ -15,13 +15,19 @@ import {GlobalParamsMessage} from './components/message_alert/global-params-mess
 import {SessionStorageService} from './storage/session-storage.service';
 import {ClientMenuComponent} from './components/client_menu/client_menu.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {MenuHeaderComponent} from './components/menu_header/menu_header.component';
+import {MenuFooterComponent} from './components/menu_footer/menu_footer.component';
+import {NewsComponent} from './components/news/news.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     MessageAlertComponent,
-    ClientMenuComponent
+    ClientMenuComponent,
+    MenuHeaderComponent,
+    MenuFooterComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
