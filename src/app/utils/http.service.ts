@@ -37,7 +37,7 @@ export class HttpService {
               private globalParamsMessage: GlobalParamsMessage) {
   }
 
-  public prepareQuery(url: string = 'noUrl', data = '') {
+  public prepareQuery(url: string = 'noUrl', data:any = '') {
     if (data !== '') {
       console.log('url: ', url);
       console.log('Отправляем данные: ', data);
@@ -56,6 +56,10 @@ export class HttpService {
               resolve(rez);
             } else {
               resolve('');
+            }
+
+            if (typeof result.session_id !== 'undefined') {
+              this.sessionStorage.pubId = result.session_id;
             }
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {

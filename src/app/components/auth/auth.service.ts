@@ -29,6 +29,39 @@ export class AuthService {
     });
   }
 
+  // авторизация (логин,пароль)
+  public auth(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-auth', data)
+        .then((result: string) => {
+            if (result !== '') {
+              this.sessionStorage.pubId = result;
+            }
+            resolve();
+          },
+          () => {
+            console.log('Ошибка при авторизации');
+            reject();
+          }
+        );
+    });
+  }
+
+  // авторизация (sms-code)
+  public sendCode(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/send-sms-code', {sms_code: data, session_id: this.sessionStorage.pubId})
+        .then((result: string) => {
+            resolve(result);
+          },
+          () => {
+            console.log('Ошибка при авторизации');
+            reject();
+          }
+        );
+    });
+  }
+
   // выход
   public exit() {
     /*return new Promise((resolve, reject) => {

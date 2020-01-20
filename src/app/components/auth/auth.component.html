@@ -1,0 +1,11 @@
+<div *ngIf="state===1">
+  <input type="text" placeholder="Телефон" [(ngModel)]="phone">
+  <input type="text" placeholder="Пароль" [(ngModel)]="password">
+  <div (click)="auth()">Войти</div>
+</div>
+
+
+<div *ngIf="state===2">
+    <input type="text" placeholder="smsCode" [(ngModel)]="smsCode">
+    <div (click)="sendCode()">Отправить</div>
+</div>

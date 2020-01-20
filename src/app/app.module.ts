@@ -18,16 +18,20 @@ import {AuthGuard} from './services/auth-guard.service';
 import {MenuHeaderComponent} from './components/menu_header/menu_header.component';
 import {MenuFooterComponent} from './components/menu_footer/menu_footer.component';
 import {NewsComponent} from './components/news/news.component';
+import {AuthComponent} from './components/auth/auth.component';
+import {SmsComponent} from './components/sms/sms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    AuthComponent,
     MessageAlertComponent,
     ClientMenuComponent,
     MenuHeaderComponent,
     MenuFooterComponent,
-    NewsComponent
+    NewsComponent,
+    SmsComponent
   ],
   imports: [
     BrowserModule,

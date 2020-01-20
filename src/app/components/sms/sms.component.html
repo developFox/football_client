@@ -1,0 +1,4 @@
+<div *ngIf="showSmsCode">
+  <input type="text" placeholder="smsCode" [(ngModel)]="smsCode">
+  <div (click)="auth()">Отправить</div>
+</div>
