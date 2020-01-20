@@ -30,29 +30,19 @@ export class AuthService {
   }
 
   // авторизация (логин,пароль)
-  public auth(data) {
+  public auth(phone, password, smsCode) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-auth', data)
+      this.httpService.prepareQuery('api/get-auth', {
+        phone: phone,
+        password: password,
+        sms_code: smsCode,
+        session_id: this.sessionStorage.pubId
+      })
         .then((result: string) => {
             if (result !== '') {
               this.sessionStorage.pubId = result;
             }
             resolve();
-          },
-          () => {
-            console.log('Ошибка при авторизации');
-            reject();
-          }
-        );
-    });
-  }
-
-  // авторизация (sms-code)
-  public sendCode(data) {
-    return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/send-sms-code', {sms_code: data, session_id: this.sessionStorage.pubId})
-        .then((result: string) => {
-            resolve(result);
           },
           () => {
             console.log('Ошибка при авторизации');

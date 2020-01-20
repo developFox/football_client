@@ -21,25 +21,16 @@ export class AuthComponent implements OnInit {
   }
 
   auth() {
-    this.authService.auth({phone: this.phone, password: this.password}).then(() => {
-        this.state = 2;
-        this.phone = '';
-        this.password = '';
-        this.smsCode = '';
-      },
-      () => {
-        console.log('Ошибка при авторизации');
-      });
-  }
-
-  sendCode() {
-    this.authService.sendCode(this.smsCode).then((result: { code: string }) => {
+    this.authService.auth(this.phone, this.password, this.smsCode).then((result: { code: string }) => {
         if (result.code === 'restart') {
           this.router.navigate(['/']);
         } else if (result.code === 'ok') {
           console.log('Авторизация прошла');
         }
 
+        this.state = 2;
+        this.phone = '';
+        this.password = '';
         this.smsCode = '';
       },
       () => {
