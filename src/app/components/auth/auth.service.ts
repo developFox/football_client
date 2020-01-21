@@ -38,11 +38,8 @@ export class AuthService {
         sms_code: smsCode,
         session_id: this.sessionStorage.pubId
       })
-        .then((result: string) => {
-            if (result !== '') {
-              this.sessionStorage.pubId = result;
-            }
-            resolve();
+        .then((result: { code: string }) => {
+            resolve(result);
           },
           () => {
             console.log('Ошибка при авторизации');

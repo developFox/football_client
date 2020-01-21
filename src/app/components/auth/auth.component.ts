@@ -24,7 +24,7 @@ export class AuthComponent implements OnInit {
     this.authService.auth(this.phone, this.password, this.smsCode).then((result: { code: string }) => {
         if (result.code === 'restart') {
           this.router.navigate(['/']);
-        } else if (result.code === 'ok') {
+        } else if (result.code === 'ok' && this.state === 2) {
           console.log('Авторизация прошла');
         }
 
