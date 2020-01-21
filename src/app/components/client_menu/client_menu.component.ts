@@ -9,18 +9,13 @@ import {AuthService} from '../auth/auth.service';
 export class ClientMenuComponent implements OnInit {
   show = false;
 
-  constructor(private sessionStorage: SessionStorageService,
-              private authService: AuthService) {
+  constructor(private sessionStorage: SessionStorageService) {
   }
 
   ngOnInit() {
     this.sessionStorage.authenticated.subscribe((data) => {
       this.show = data;
     });
-  }
-
-  exit() {
-    this.authService.exit();
   }
 }
 

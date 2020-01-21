@@ -49,9 +49,21 @@ export class AuthService {
 
   // выход
   public exit() {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/exit', {})
+        .then((result: { code: string }) => {
+            resolve(result);
+          },
+          () => {
+            console.log('Ошибка при авторизации');
+            reject();
+          }
+        );
+
       localStorage.removeItem('pubId');
       this.sessionStorage.authenticated.emit(false);
       this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
       this.router.navigate(['/']);
+    });
   }
 }
