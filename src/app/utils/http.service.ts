@@ -5,6 +5,8 @@ import {catchError} from 'rxjs/internal/operators';
 import {Base64} from 'js-base64';
 import {SessionStorageService} from '../storage/session-storage.service';
 import {GlobalParamsMessage} from '../components/message_alert/global-params-message';
+import {Router} from '@angular/router';
+import {UserStorageService} from '../storage/user-storage.service';
 
 @Injectable()
 export class HttpService {
@@ -34,10 +36,12 @@ export class HttpService {
 
   constructor(private http: HttpClient,
               private sessionStorage: SessionStorageService,
+              private userStorageService: UserStorageService,
+              private router: Router,
               private globalParamsMessage: GlobalParamsMessage) {
   }
 
-  public prepareQuery(url: string = 'noUrl', data:any = '') {
+  public prepareQuery(url: string = 'noUrl', data: any = '') {
     if (data !== '') {
       console.log('url: ', url);
       console.log('Отправляем данные: ', data);
@@ -64,7 +68,10 @@ export class HttpService {
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
               this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
-              //this.sessionStorage.exit();
+              localStorage.removeItem('pubId');
+              this.sessionStorage.authenticated.emit(false);
+              this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
+              this.router.navigate(['/']);
             } else {
               this.globalParamsMessage.data = {title: 'Ошибка', body: result.msg, type: 'error'};
             }

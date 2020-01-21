@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from './components/main/main.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {AuthComponent} from './components/auth/auth.component';
+import {PlayerComponent} from './components/player/player.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    component: AuthComponent,
+    component: AuthComponent
+  },
+  {
+    path: 'player',
+    component: PlayerComponent,
     canActivate: [AuthGuard]
   }
 ];

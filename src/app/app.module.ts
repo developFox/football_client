@@ -21,6 +21,7 @@ import {NewsComponent} from './components/news/news.component';
 import {AuthComponent} from './components/auth/auth.component';
 import {SmsComponent} from './components/sms/sms.component';
 import {UserStorageService} from './storage/user-storage.service';
+import {PlayerComponent} from './components/player/player.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {UserStorageService} from './storage/user-storage.service';
     MenuHeaderComponent,
     MenuFooterComponent,
     NewsComponent,
-    SmsComponent
+    SmsComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,

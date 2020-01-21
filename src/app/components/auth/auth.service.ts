@@ -2,24 +2,22 @@ import {Injectable} from '@angular/core';
 import {HttpService} from '../../utils/http.service';
 import {SessionStorageService} from '../../storage/session-storage.service';
 import {Router} from '@angular/router';
+import {UserStorageService} from '../../storage/user-storage.service';
 
 @Injectable()
 export class AuthService {
   constructor(private httpService: HttpService,
               private sessionStorage: SessionStorageService,
+              private userStorageService: UserStorageService,
               private router: Router) {
   }
 
   // Проверка на авторизацию
   public checkAuth() {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/check-auth', '')
-        .then((result: string) => {
-            if (result !== '') {
-              this.sessionStorage.pubId = result;
-            }
-
-            resolve();
+      this.httpService.prepareQuery('api/check-auth', {session_id: this.sessionStorage.pubId})
+        .then((result: InterFaceAuthResult) => {
+            resolve(result);
           },
           (error) => {
             console.log('Ошибка при проверке на авторизацию', error);
@@ -51,24 +49,9 @@ export class AuthService {
 
   // выход
   public exit() {
-    /*return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/exit', '')
-        .then(() => {
-            localStorage.removeItem('pubId');
-            this.sessionStorage.authenticated.emit(false);
-            this.router.navigate(['/']);
-
-            resolve();
-          },
-          (error) => {
-            console.log('Ошибка при проверке на авторизацию', error);
-            reject();
-          }
-        );
-    });*/
-
-    localStorage.removeItem('pubId');
-    this.sessionStorage.authenticated.emit(false);
-    this.router.navigate(['/']);
+      localStorage.removeItem('pubId');
+      this.sessionStorage.authenticated.emit(false);
+      this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
+      this.router.navigate(['/']);
   }
 }

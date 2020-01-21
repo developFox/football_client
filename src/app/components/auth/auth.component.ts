@@ -25,12 +25,12 @@ export class AuthComponent {
         this.smsCode = '';
 
         if (result.code === 'restart') {
-          this.router.navigate(['/']);
+          this.authService.exit();
         } else if (result.code === 'ok' && this.state === 1) {
           this.state = 2;
         } else if (result.code === 'ok' && this.state === 2) {
           this.userStorageService.userData = result.data;
-          console.log('Авторизация прошла', result.data);
+          this.router.navigate(['/player']);
         }
       },
       () => {
