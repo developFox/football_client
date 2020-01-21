@@ -25,7 +25,7 @@ export class AuthComponent {
         this.smsCode = '';
 
         if (result.code === 'restart') {
-          this.authService.exit();
+          this.authService.clear();
         } else if (result.code === 'ok' && this.state === 1) {
           this.state = 2;
         } else if (result.code === 'ok' && this.state === 2) {
