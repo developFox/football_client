@@ -20,6 +20,7 @@ import {MenuFooterComponent} from './components/menu_footer/menu_footer.componen
 import {NewsComponent} from './components/news/news.component';
 import {AuthComponent} from './components/auth/auth.component';
 import {SmsComponent} from './components/sms/sms.component';
+import {UserStorageService} from './storage/user-storage.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {SmsComponent} from './components/sms/sms.component';
     HttpService,
     GlobalParamsMessage,
     SessionStorageService,
+    UserStorageService,
     MainService,
     AuthService,
     AuthGuard
