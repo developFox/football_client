@@ -47,6 +47,13 @@ export class AuthService {
     });
   }
 
+  clear() {
+    localStorage.removeItem('pubId');
+    this.sessionStorage.authenticated.emit(false);
+    this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
+    this.router.navigate(['/']);
+  }
+
   // выход
   public exit() {
     return new Promise((resolve, reject) => {

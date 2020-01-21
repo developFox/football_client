@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
           this.userStorageService.userData = result.data;
         }
         if (result.code === 'exit') {
-          this.authService.exit();
+          this.authService.clear();
         }
       },
       (error) => {
