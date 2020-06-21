@@ -22,6 +22,7 @@ import {AuthComponent} from './components/auth/auth.component';
 import {SmsComponent} from './components/sms/sms.component';
 import {UserStorageService} from './storage/user-storage.service';
 import {PlayerComponent} from './components/player/player.component';
+import {PlayerService} from './components/player/player.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {PlayerComponent} from './components/player/player.component';
     UserStorageService,
     MainService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    PlayerService
   ],
   bootstrap: [AppComponent]
 })
