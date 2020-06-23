@@ -6,17 +6,17 @@ import {PlayerService} from './player.service';
   templateUrl: './player.component.html',
 })
 export class PlayerComponent implements OnInit {
-  players: InterFacePlayers[] = [];
+  players: InterFacePlayerInfo[] = [];
 
   constructor(private playerService: PlayerService) {
   }
 
   ngOnInit() {
-    this.playerService.getPlayers().then((data: InterFacePlayers[]) => {
+    this.playerService.getPlayers().then((data: InterFacePlayerInfo[]) => {
         this.players = data;
       },
       (error) => {
-        console.log('Ошибка при получении детальной информации по клиенту: ', error);
+        console.log('Ошибка при получении списка футболистов: ', error);
       });
   }
 }

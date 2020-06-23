@@ -23,6 +23,8 @@ import {SmsComponent} from './components/sms/sms.component';
 import {UserStorageService} from './storage/user-storage.service';
 import {PlayerComponent} from './components/player/player.component';
 import {PlayerService} from './components/player/player.service';
+import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
+import {PlayerInfoService} from './components/playerInfo/playerInfo.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {PlayerService} from './components/player/player.service';
     MenuFooterComponent,
     NewsComponent,
     SmsComponent,
-    PlayerComponent
+    PlayerComponent,
+    PlayerInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import {PlayerService} from './components/player/player.service';
     MainService,
     AuthService,
     AuthGuard,
-    PlayerService
+    PlayerService,
+    PlayerInfoService
   ],
   bootstrap: [AppComponent]
 })
