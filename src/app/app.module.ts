@@ -25,6 +25,7 @@ import {PlayerComponent} from './components/player/player.component';
 import {PlayerService} from './components/player/player.service';
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 import {PlayerInfoService} from './components/playerInfo/playerInfo.service';
+import {NewsService} from './components/news/news.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {PlayerInfoService} from './components/playerInfo/playerInfo.service';
     AuthService,
     AuthGuard,
     PlayerService,
-    PlayerInfoService
+    PlayerInfoService,
+    NewsService
   ],
   bootstrap: [AppComponent]
 })
