@@ -6,13 +6,13 @@ import {CoachService} from './coach.service';
   templateUrl: './coaches.component.html',
 })
 export class CoachesComponent implements OnInit {
-  coaches: InterFaceRatings[] = [];
+  coaches: InterFaceTop[] = [];
 
   constructor(private coachService: CoachService) {
   }
 
   ngOnInit() {
-    this.coachService.getCoaches().then((data: InterFaceRatings[]) => {
+    this.coachService.getCoaches().then((data: InterFaceTop[]) => {
         this.coaches = data;
       },
       (error) => {

@@ -6,13 +6,13 @@ import {RatingsService} from './ratings.service';
   templateUrl: './ratings.component.html',
 })
 export class RatingsComponent implements OnInit {
-  ratings: InterFaceRatings[] = [];
+  ratings: InterFaceTop[] = [];
 
   constructor(private ratingsService: RatingsService) {
   }
 
   ngOnInit() {
-    this.ratingsService.getRatings().then((data: InterFaceRatings[]) => {
+    this.ratingsService.getRatings().then((data: InterFaceTop[]) => {
         this.ratings = data;
       },
       (error) => {
