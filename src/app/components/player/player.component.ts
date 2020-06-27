@@ -6,13 +6,13 @@ import {PlayerService} from './player.service';
   templateUrl: './player.component.html',
 })
 export class PlayerComponent implements OnInit {
-  players: InterFacePlayerInfo[] = [];
+  players: InterFacePlayers[] = [];
 
   constructor(private playerService: PlayerService) {
   }
 
   ngOnInit() {
-    this.playerService.getPlayers().then((data: InterFacePlayerInfo[]) => {
+    this.playerService.getPlayers().then((data: InterFacePlayers[]) => {
         this.players = data;
       },
       (error) => {

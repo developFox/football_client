@@ -26,6 +26,10 @@ import {PlayerService} from './components/player/player.service';
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 import {PlayerInfoService} from './components/playerInfo/playerInfo.service';
 import {NewsService} from './components/news/news.service';
+import {CoachService} from './components/coach/coach.service';
+import {CoachesComponent} from './components/coach/coaches.component';
+import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
+import {CoachInfoService} from './components/coachInfo/coachInfo.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import {NewsService} from './components/news/news.service';
     NewsComponent,
     SmsComponent,
     PlayerComponent,
-    PlayerInfoComponent
+    PlayerInfoComponent,
+    CoachesComponent,
+    CoachInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,9 @@ import {NewsService} from './components/news/news.service';
     AuthGuard,
     PlayerService,
     PlayerInfoService,
-    NewsService
+    NewsService,
+    CoachService,
+    CoachInfoService
   ],
   bootstrap: [AppComponent]
 })
