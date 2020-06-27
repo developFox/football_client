@@ -30,6 +30,8 @@ import {CoachService} from './components/coach/coach.service';
 import {CoachesComponent} from './components/coach/coaches.component';
 import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
 import {CoachInfoService} from './components/coachInfo/coachInfo.service';
+import {RatingsComponent} from './components/ratings/ratings.component';
+import {RatingsService} from './components/ratings/ratings.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {CoachInfoService} from './components/coachInfo/coachInfo.service';
     PlayerComponent,
     PlayerInfoComponent,
     CoachesComponent,
-    CoachInfoComponent
+    CoachInfoComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import {CoachInfoService} from './components/coachInfo/coachInfo.service';
     PlayerInfoService,
     NewsService,
     CoachService,
-    CoachInfoService
+    CoachInfoService,
+    RatingsService
   ],
   bootstrap: [AppComponent]
 })

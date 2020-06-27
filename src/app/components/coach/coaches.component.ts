@@ -6,14 +6,14 @@ import {CoachService} from './coach.service';
   templateUrl: './coaches.component.html',
 })
 export class CoachesComponent implements OnInit {
-  players: InterFaceCoaches[] = [];
+  coaches: InterFaceRatings[] = [];
 
   constructor(private coachService: CoachService) {
   }
 
   ngOnInit() {
-    this.coachService.getCoaches().then((data: InterFaceCoaches[]) => {
-        this.players = data;
+    this.coachService.getCoaches().then((data: InterFaceRatings[]) => {
+        this.coaches = data;
       },
       (error) => {
         console.log('Ошибка при получении списка тренеров: ', error);

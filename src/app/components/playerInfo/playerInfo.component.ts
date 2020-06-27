@@ -6,14 +6,14 @@ import {PlayerInfoService} from './playerInfo.service';
   templateUrl: './playerInfo.component.html',
 })
 export class PlayerInfoComponent implements OnInit {
-  players: InterFaceCoachInfo[] = [];
+  playerInfo: InterFaceCoachInfo[] = [];
 
   constructor(private playerInfoService: PlayerInfoService) {
   }
 
   ngOnInit() {
     this.playerInfoService.getPlayerInfo().then((data: InterFaceCoachInfo[]) => {
-        this.players = data;
+        this.playerInfo = data;
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по футболисту: ', error);
