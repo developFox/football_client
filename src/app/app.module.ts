@@ -34,6 +34,8 @@ import {RatingsComponent} from './components/ratings/ratings.component';
 import {RatingsService} from './components/ratings/ratings.service';
 import {TopComponent} from './components/top/top.component';
 import {TopService} from './components/top/top.service';
+import {ClubsService} from './components/clubs/clubs.service';
+import {ClubsComponent} from './components/clubs/clubs.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import {TopService} from './components/top/top.service';
     CoachesComponent,
     CoachInfoComponent,
     RatingsComponent,
-    TopComponent
+    TopComponent,
+    ClubsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import {TopService} from './components/top/top.service';
     CoachService,
     CoachInfoService,
     RatingsService,
-    TopService
+    TopService,
+    ClubsService
   ],
   bootstrap: [AppComponent]
 })
