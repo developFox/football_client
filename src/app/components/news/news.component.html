@@ -4,59 +4,20 @@
 </div>
 
 <div class="news-list d-flex flex-wrap col-12">
-  <div class="news col-12 col-sm-6 col-lg-3">
+
+
+  <div class="news col-12 col-sm-6 col-lg-3" *ngFor="let data of news">
     <div class="news__inner col-12">
       <a href="" class="news__image col-12">
         <div class="news__image-inner d-flex col-12">
-          <img src="/src/assets/images/news-img1.png" class="news__image-img transition" alt="news photo">
+          <img [src]="'/src/assets/images/'+data.img" class="news__image-img transition" alt="news photo">
         </div>
       </a>
       <a href="" class="news__title transition col-12">
-        Все результаты и расписание Лиги чемпионов
+        {{data.title}}
       </a>
-      <span class="news__text">6 марта 2019 года, Среда</span>
+      <span class="news__text">{{data.date_create}}</span>
     </div>
   </div>
 
-  <div class="news col-12 col-sm-6 col-lg-3">
-    <div class="news__inner col-12">
-      <a href="" class="news__image col-12">
-        <div class="news__image-inner d-flex col-12">
-          <img src="/src/assets/images/news-img2.png" class="news__image-img transition" alt="news photo">
-        </div>
-      </a>
-      <a href="" class="news__title transition col-12">
-        Девять ассоциаций претендуют на финалы 2021 года
-      </a>
-      <span class="news__text">22 февраля 2019 года, Пятница</span>
-    </div>
-  </div>
-
-  <div class="news col-12 col-sm-6 col-lg-3">
-    <div class="news__inner col-12">
-      <a href="" class="news__image col-12">
-        <div class="news__image-inner d-flex col-12">
-          <img src="/src/assets/images/news-img3.png" class="news__image-img transition" alt="news photo">
-        </div>
-      </a>
-      <a href="" class="news__title transition col-12">
-        Вирджил ван Дейк передал МККК чек от УЕФА
-      </a>
-      <span class="news__text">19 февраля 2019 года, Вторник</span>
-    </div>
-  </div>
-
-  <div class="news col-12 col-sm-6 col-lg-3">
-    <div class="news__inner col-12">
-      <a href="" class="news__image col-12">
-        <div class="news__image-inner d-flex col-12">
-          <img src="/src/assets/images/news-img4.png" class="news__image-img transition" alt="news photo">
-        </div>
-      </a>
-      <a href="" class="news__title transition col-12">
-        Скаут-отчет: Вингер "Вильяреала" Саму Чуквуэзе
-      </a>
-      <span class="news__text">Камчатский край</span>
-    </div>
-  </div>
 </div>

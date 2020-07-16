@@ -1,4 +1,6 @@
 interface InterFaceNews {
-  sale: number;
-  branch: number;
+  id: number;
+  title: string;
+  img: string;
+  date_create: string;
 }
