@@ -6,16 +6,16 @@ import {AuthComponent} from './components/auth/auth.component';
 import {PlayerComponent} from './components/player/player.component';
 
 const routes: Routes = [
-  {
+  /*{
     path: '',
     component: MainComponent
-  },
+  },*/
   {
     path: 'auth',
     component: AuthComponent
   },
   {
-    path: 'player',
+    path: '',
     component: PlayerComponent,
     canActivate: [AuthGuard]
   }

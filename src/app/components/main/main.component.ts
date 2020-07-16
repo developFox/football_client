@@ -5,11 +5,8 @@ import {MainService} from './main.service';
   selector: 'app-main',
   templateUrl: './main.component.html',
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
   constructor(private mainService: MainService) {
-  }
-
-  ngOnInit() {
 
   }
 }

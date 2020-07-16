@@ -9,9 +9,9 @@ export class PlayerService {
   }
 
   // получение списка игроков
-  public getPlayers() {
+  public getPlayers(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-players', {})
+      this.httpService.prepareQuery('api/get-players', {data: data})
         .then((result) => {
             resolve(result);
           },
