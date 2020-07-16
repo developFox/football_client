@@ -1,5 +1,22 @@
-<app-menu-header></app-menu-header>
 <app-sms></app-sms>
-<router-outlet></router-outlet>
-<app-news></app-news>
-<app-menu-footer></app-menu-footer>
+
+<div class="container-fluid">
+  <div class="row">
+    <app-menu-header class="header col-12"></app-menu-header>
+
+    <div class="content col-12">
+      <div class="breadcrumbs col-12">
+        <div class="breadcrumbs__item">
+          <a href="" class="breadcrumbs__item-link transition">главная</a>
+        </div>
+        <div class="breadcrumbs__item">
+          <span class="breadcrumbs__item-text">каталог</span>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+      <app-news class="news-block d-flex flex-wrap col-12"></app-news>
+    </div>
+
+    <app-menu-footer class="footer col-12"></app-menu-footer>
+  </div>
+</div>

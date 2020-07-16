@@ -1,0 +1,56 @@
+.breadcrumbs {
+    padding: 10px 10%;
+
+    &__item {
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.15px;
+        padding: 0 20px 0 0;
+        position: relative;
+        display: inline-block;
+
+        &:after {
+            position: absolute;
+            color: rgba(26, 39, 51, 0.3);
+            content: '<';
+            right: 6px;
+            top: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+
+            &:after {
+                display: none;
+            }
+        }
+        &-link {
+            color: rgba(26, 39, 51, 0.3);
+            cursor: pointer;
+            text-transform: uppercase;
+
+            &:hover {
+                color: #2e48a7;
+            }
+        }
+        &-text {
+            color: rgba(26, 39, 51, 0.3);
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1540px){
+    .breadcrumbs {
+        padding: 10px 5%;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 1199px){
+    .breadcrumbs {
+        padding: 10px 15px;
+
+        &__item {
+            font-size: 10px;
+        }
+    }
+}

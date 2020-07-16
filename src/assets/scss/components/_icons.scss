@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'foot-capital';
+    src:  url('../fonts/foot-capital.eot');
+    src:  url('../fonts/foot-capital.eot') format('embedded-opentype'),
+    url('../fonts/foot-capital.ttf') format('truetype'),
+    url('../fonts/foot-capital.woff') format('woff'),
+    url('../fonts/foot-capital.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'foot-capital' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+    content: "\e900";
+}
+.icon-filter:before {
+    content: "\e901";
+}
+.icon-check:before {
+    content: "\e902";
+}
+.icon-arrow-right:before {
+    content: "\e903";
+}
+.icon-arrow-down:before {
+    content: "\e904";
+}
+.icon-instagram:before {
+    content: "\e905";
+}
+.icon-vkontakte:before {
+    content: "\e906";
+}
+.icon-youtube:before {
+    content: "\e907";
+}

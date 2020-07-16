@@ -1,2 +1,91 @@
-Верхнее меню
-<div routerLink="/auth">Авторизация</div>
+ <div class="header__top col-12"><!-- add/remove class 'active' after click '.navbar-header' -->
+    <div class="header__top-left"></div>
+
+    <div class="top-menu d-flex flex-wrap col-12">
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">О проекте</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Сотрудничество</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Новости проекта</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Ваши предложения</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Ответы на вопросы</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Что я получу вступив?</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Контакты</a>
+      </div>
+      <div class="top-menu__item">
+        <a href="" class="top-menu__item-link transition">Регистрация футболиста</a>
+      </div>
+    </div>
+
+    <div class="header__top-right"></div>
+  </div>
+
+  <div class="header__bottom d-flex col-12">
+    <a href="" class="header__logo">
+      <img src="/src/assets/images/logo.png" class="header__logo-img" alt="logo">
+    </a>
+
+    <div class="header-menu d-flex flex-wrap">
+      <div class="header-menu__item">
+        <span class="header-menu__item-link">Каталог</span>
+
+        <div class="header-menu__submenu">
+          <div class="header-menu__submenu-item col-12">
+            <a href="" class="header-menu__submenu-link">Футболисты</a>
+          </div>
+          <div class="header-menu__submenu-item col-12">
+            <a href="" class="header-menu__submenu-link">Тренеры</a>
+          </div>
+        </div>
+      </div>
+      <div class="header-menu__item">
+        <a href="" class="header-menu__item-link transition">Рейтинги</a>
+      </div>
+      <div class="header-menu__item">
+        <a href="" class="header-menu__item-link transition">Топ 100</a>
+      </div>
+      <div class="header-menu__item">
+        <a href="" class="header-menu__item-link transition">Клубы</a>
+      </div>
+      <div class="header-menu__item">
+        <a href="" class="header-menu__item-link transition">Карта</a>
+      </div>
+    </div>
+
+    <div class="header__search d-flex">
+      <span class="icon-search"></span>
+      <input type="text" class="header__search-input" placeholder="Поиск">
+      <a href="" class="header__search-link d-flex">
+        <span class="icon-filter"></span>
+      </a>
+    </div>
+
+    <div class="header-auth d-flex">
+      <div class="header-auth__photo d-flex">
+        <img src="/src/assets/images/user-img.png" class="header-auth__photo-img" alt="user photo">
+      </div>
+      <div class="header-auth__block d-flex">
+        <span class="header-auth__block-text d-none d-lg-block">Виталий</span>
+
+        <span class="icon-arrow-down"></span>
+      </div>
+      <div class="navbar-header d-flex d-lg-none">
+        <button type="button" class="navbar-toggle collapsed"><!-- add/remove class 'active' after click '.navbar-header' -->
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>

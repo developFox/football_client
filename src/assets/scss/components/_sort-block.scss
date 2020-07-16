@@ -1,0 +1,40 @@
+.sort-block {
+    align-items: center;
+
+    &__text {
+        color: #222d3a;
+        font-weight: normal;
+        font-size: 13px;
+        margin-right: 25px;
+    }
+    &__select {
+        height: 30px;
+        width: 190px;
+        padding: 0 15px;
+        align-items: center;
+        color: #2e48a7;
+        background: #FFF;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 95% 100%, 0 100%);
+        position: relative;
+        font-size: 14px;
+
+        .icon-arrow-down {
+            color: #2e48a7;
+            position: absolute;
+            right: 20px;
+            font-size: 12px;
+        }
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .sort-block {
+
+        &__text {
+            font-size: 13px;
+            margin-right: 10px;
+        }
+        &__select {
+            width: 170px;
+        }
+    }
+}
