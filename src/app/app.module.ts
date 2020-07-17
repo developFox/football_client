@@ -36,6 +36,7 @@ import {TopComponent} from './components/top/top.component';
 import {TopService} from './components/top/top.service';
 import {ClubsService} from './components/clubs/clubs.service';
 import {ClubsComponent} from './components/clubs/clubs.component';
+import {Ng5SliderModule} from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {ClubsComponent} from './components/clubs/clubs.component';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng5SliderModule
   ],
   providers: [
     HttpService,

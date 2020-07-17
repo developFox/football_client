@@ -5,15 +5,21 @@
     <div class="catalog__search-sort d-flex col">
       <div class="catalog__search d-flex">
         <span class="icon-search"></span>
-        <input type="text" class="catalog__search-input" placeholder="Поиск по имени, фамилии и городу">
+        <input type="text" (keyup)="getPlayers()" [(ngModel)]="filter.like" class="catalog__search-input"
+               placeholder="Поиск по имени, фамилии и городу">
       </div>
 
       <div class="sort-block d-flex">
         <span class="sort-block__text">Сортировка</span>
         <div class="sort-block__select d-flex">
-          По популярности
+          <select [(ngModel)]="filter.sort" (change)="getPlayers()">
+            <option *ngFor="let sort of sorts" [ngValue]="sort.id">
+              {{sort.name}}
+            </option>
+          </select>
           <span class="icon-arrow-down"></span>
         </div>
+
       </div>
     </div>
   </div>
@@ -33,22 +39,24 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Коэффициент</span>
           <div class="filters__item-select d-flex col-12">
-            range slider
+            <ng5-slider [(value)]="filter.coefficient_start" (valueChange)="getPlayers()" [(highValue)]="filter.coefficient_end" [options]="options"></ng5-slider>
           </div>
         </div>
 
         <div class="filters__item">
           <span class="filters__item-text col-12">Возраст</span>
           <div class="filters__item-select d-flex col-12">
-            От 12 до 13 лет
-            <span class="icon-arrow-down"></span>
+            <ng5-slider [(value)]="filter.year_start" (valueChange)="getPlayers()" [(highValue)]="filter.year_end" [options]="optionsYear"></ng5-slider>
           </div>
         </div>
 
         <div class="filters__item">
           <span class="filters__item-text col-12">Пол</span>
           <div class="filters__item-select d-flex col-12">
-            Мужской
+            <select [(ngModel)]="filter.floor" (change)="getPlayers()">
+              <option [ngValue]="1">Мужской</option>
+              <option [ngValue]="2">Женский</option>
+            </select>
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -56,7 +64,11 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Регион</span>
           <div class="filters__item-select d-flex col-12">
-            Московская область
+            <select [(ngModel)]="filter.region" (change)="getPlayers()">
+              <option *ngFor="let region of regions" [ngValue]="region">
+                {{region.name}}
+              </option>
+            </select>
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -64,7 +76,11 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Насел. пункт</span>
           <div class="filters__item-select d-flex col-12">
-            Город Королёв
+            <select [(ngModel)]="filter.city" (change)="getPlayers()">
+              <option *ngFor="let city of filter.region.city" [ngValue]="city.id">
+                {{city.name}}
+              </option>
+            </select>
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -86,23 +102,15 @@
         </div>
 
         <div class="filters__item">
-          <span class="filters__item-text col-12">Результативность</span>
+          <span class="filters__item-text col-12">Побед</span>
           <div class="filters__item-select d-flex col-12">
-            От 10 побед
-            <span class="icon-arrow-down"></span>
-          </div>
-        </div>
-
-        <div class="filters__item">
-          <span class="filters__item-text col-12">Скорость</span>
-          <div class="filters__item-select d-flex col-12">
-            От 8 м/c
+            <ng5-slider [(value)]="filter.wins_start" (valueChange)="getPlayers()" [(highValue)]="filter.wins_end" [options]="optionsWins"></ng5-slider>
             <span class="icon-arrow-down"></span>
           </div>
         </div>
 
         <div class="filters__reset-wrapper col-12">
-          <input type="reset" class="filters__reset d-flex transition col-12" value="Очистить">
+          <div (click)="clear()" class="filters__reset d-flex transition col-12">Очистить</div>
         </div>
       </div>
     </div>
