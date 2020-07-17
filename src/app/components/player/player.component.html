@@ -39,14 +39,16 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Коэффициент</span>
           <div class="filters__item-select d-flex col-12">
-            <ng5-slider [(value)]="filter.coefficient_start" (valueChange)="getPlayers()" [(highValue)]="filter.coefficient_end" [options]="options"></ng5-slider>
+            <ng5-slider [(value)]="filter.coefficient_start" (valueChange)="getPlayers()"
+                        [(highValue)]="filter.coefficient_end" [options]="options"></ng5-slider>
           </div>
         </div>
 
         <div class="filters__item">
           <span class="filters__item-text col-12">Возраст</span>
           <div class="filters__item-select d-flex col-12">
-            <ng5-slider [(value)]="filter.year_start" (valueChange)="getPlayers()" [(highValue)]="filter.year_end" [options]="optionsYear"></ng5-slider>
+            <ng5-slider [(value)]="filter.year_start" (valueChange)="getPlayers()" [(highValue)]="filter.year_end"
+                        [options]="optionsYear"></ng5-slider>
           </div>
         </div>
 
@@ -64,8 +66,9 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Регион</span>
           <div class="filters__item-select d-flex col-12">
-            <select [(ngModel)]="filter.region" (change)="getPlayers()">
-              <option *ngFor="let region of regions" [ngValue]="region">
+            <select [(ngModel)]="filter.region" (change)="getChangeRegion()">
+              <option [ngValue]="0">Выбрите регион</option>
+              <option *ngFor="let region of regions" [ngValue]="region.id">
                 {{region.name}}
               </option>
             </select>
@@ -77,7 +80,8 @@
           <span class="filters__item-text col-12">Насел. пункт</span>
           <div class="filters__item-select d-flex col-12">
             <select [(ngModel)]="filter.city" (change)="getPlayers()">
-              <option *ngFor="let city of filter.region.city" [ngValue]="city.id">
+              <option [ngValue]="0">Выбрать насел. пункт</option>
+              <option *ngFor="let city of cities" [ngValue]="city.id">
                 {{city.name}}
               </option>
             </select>
@@ -86,25 +90,22 @@
         </div>
 
         <div class="filters__item">
-          <span class="filters__item-text col-12">Спортивная школа</span>
-          <div class="filters__item-select d-flex col-12">
-            Выбрать школу
-            <span class="icon-arrow-down"></span>
-          </div>
-        </div>
-
-        <div class="filters__item">
           <span class="filters__item-text col-12">Клуб</span>
           <div class="filters__item-select d-flex col-12">
-            Выбрать клуб
-            <span class="icon-arrow-down"></span>
+            <select [(ngModel)]="filter.club" (change)="getPlayers()">
+              <option [ngValue]="0">Выбрать клуб</option>
+              <option *ngFor="let club of clubs" [ngValue]="club.id">
+                {{club.name}}
+              </option>
+            </select>
           </div>
         </div>
 
         <div class="filters__item">
           <span class="filters__item-text col-12">Побед</span>
           <div class="filters__item-select d-flex col-12">
-            <ng5-slider [(value)]="filter.wins_start" (valueChange)="getPlayers()" [(highValue)]="filter.wins_end" [options]="optionsWins"></ng5-slider>
+            <ng5-slider [(value)]="filter.wins_start" (valueChange)="getPlayers()" [(highValue)]="filter.wins_end"
+                        [options]="optionsWins"></ng5-slider>
             <span class="icon-arrow-down"></span>
           </div>
         </div>

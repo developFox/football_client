@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PlayerService} from './player.service';
 import {Options} from 'ng5-slider';
+import {ClubsService} from '../clubs/clubs.service';
 
 @Component({
   selector: 'app-player',
@@ -14,16 +15,19 @@ export class PlayerComponent {
     year_start: 10,
     year_end: 30,
     floor: 1,
-    region: {id: null, name: '', city: []},
-    city: '',
+    region: 0,
+    city: 0,
     wins_start: 0,
     wins_end: 100,
     like: '',
     sort: 'coefficient',
-    limit: 5
+    limit: 5,
+    club: 0
   };
 
+  cities: { id: number, name: string }[] = [];
   regions: InterFaceRegions[] = [];
+  clubs: InterFaceClubsList[] = [];
 
   // сортировка
   sorts = [
@@ -48,7 +52,8 @@ export class PlayerComponent {
     ceil: this.filter.wins_end
   };
 
-  constructor(private playerService: PlayerService) {
+  constructor(private playerService: PlayerService,
+              private clubsService: ClubsService) {
     this.getPlayers();
 
     this.playerService.getRegions().then((data: InterFaceRegions[]) => {
@@ -57,6 +62,18 @@ export class PlayerComponent {
       (error) => {
         console.log('Ошибка при получении списка футболистов: ', error);
       });
+
+    this.clubsService.getClubsList().then((data: InterFaceClubsList[]) => {
+        this.clubs = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении списка футболистов: ', error);
+      });
+  }
+
+  getChangeRegion() {
+    const cities = this.regions.filter(item => item.id === this.filter.region);
+    this.cities = cities.length > 0 ? cities[0].city : [];
   }
 
   getPlayers() {
@@ -66,13 +83,14 @@ export class PlayerComponent {
       year_start: this.filter.year_start,
       year_end: this.filter.year_end,
       floor: this.filter.floor,
-      region: this.filter.region.id,
+      region: this.filter.region,
       city: this.filter.city,
       wins_start: this.filter.wins_start,
       wins_end: this.filter.wins_end,
       like: this.filter.like,
       sort: this.filter.sort,
       limit: this.filter.limit,
+      club: this.filter.club,
     }).then((data: InterFacePlayers[]) => {
         this.players = data;
       },
@@ -83,6 +101,7 @@ export class PlayerComponent {
 
   morePlayers() {
     this.filter.limit += 5;
+    this.getPlayers();
   }
 
   clear() {
@@ -92,13 +111,14 @@ export class PlayerComponent {
       year_start: 10,
       year_end: 30,
       floor: 1,
-      region: {id: null, name: '', city: []},
-      city: '',
+      region: 0,
+      city: 0,
       wins_start: 0,
       wins_end: 100,
       like: '',
       sort: 'coefficient',
-      limit: 5
+      limit: 5,
+      club: 0
     };
 
     this.getPlayers();
