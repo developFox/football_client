@@ -1,1 +1,57 @@
-Клубы
+<section class="clubs col-12">
+  <div class="clubs__top d-flex col-12">
+    <span class="title">Футбольные клубы</span>
+
+    <div class="sort-block d-flex">
+      <span class="sort-block__text">Сортировка</span>
+      <div class="sort-block__select d-flex">
+        <select [(ngModel)]="filter.sort" (change)="getClubs()">
+          <option [ngValue]="'id'">Крупные</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="clubs-list d-flex flex-wrap col-12">
+    <div class="club-wrapper d-flex flex-wrap col-12 col-lg-6" *ngFor="let club of clubs">
+      <div class="club d-flex flex-wrap col-12">
+        <div class="club__info-block d-flex flex-wrap col-12">
+          <div class="club__logo">
+            <img [src]="'src/assets/images/'+club.img" class="club__logo-img" alt="club icon">
+          </div>
+          <div class="club__info d-flex flex-wrap col">
+            <span class="club__info-title col-12">{{club.name}}</span>
+            <span class="club__info-location col-12">{{club.address}}</span>
+          </div>
+        </div>
+
+        <div class="club__players d-flex flex-wrap col-12">
+          <span class="club__players-title col-12">Футболисты клуба</span>
+
+          <div class="players-list d-flex flex-wrap col-12">
+            <div class="player d-flex" *ngFor="let player of club.players">
+              <a href="" class="player__photo d-flex">
+                <img [src]="'/src/assets/images/'+player.img" class="player__photo-img" alt="club icon">
+              </a>
+              <div class="player__info d-flex flex-wrap col">
+                <a href="" class="player__info-name transition col-12">{{player.name}}</a>
+                <span
+                  class="player__info-location col-12">{{player.address}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div (click)="morePlayers()" class="club__players-all d-flex transition">Все игроки <span
+            class="icon-arrow-right transition"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="players__more-wrapper col-12">
+      <div class="players__more d-flex transition col-12">
+        <span class="icon-arrow-down transition"></span>
+        Загрузить больше
+      </div>
+    </div>
+  </div>
+</section>

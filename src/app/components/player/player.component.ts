@@ -19,7 +19,8 @@ export class PlayerComponent {
     wins_start: 0,
     wins_end: 100,
     like: '',
-    sort: 'coefficient'
+    sort: 'coefficient',
+    limit: 5
   };
 
   regions: InterFaceRegions[] = [];
@@ -71,12 +72,17 @@ export class PlayerComponent {
       wins_end: this.filter.wins_end,
       like: this.filter.like,
       sort: this.filter.sort,
+      limit: this.filter.limit,
     }).then((data: InterFacePlayers[]) => {
         this.players = data;
       },
       (error) => {
         console.log('Ошибка при получении списка футболистов: ', error);
       });
+  }
+
+  morePlayers() {
+    this.filter.limit += 5;
   }
 
   clear() {
@@ -91,7 +97,8 @@ export class PlayerComponent {
       wins_start: 0,
       wins_end: 100,
       like: '',
-      sort: 'coefficient'
+      sort: 'coefficient',
+      limit: 5
     };
 
     this.getPlayers();

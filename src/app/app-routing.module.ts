@@ -4,19 +4,25 @@ import {MainComponent} from './components/main/main.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {AuthComponent} from './components/auth/auth.component';
 import {PlayerComponent} from './components/player/player.component';
+import {ClubsComponent} from './components/clubs/clubs.component';
 
 const routes: Routes = [
-  /*{
+  {
     path: '',
     component: MainComponent
-  },*/
+  },
   {
     path: 'auth',
     component: AuthComponent
   },
   {
-    path: '',
+    path: 'players',
     component: PlayerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'clubs',
+    component: ClubsComponent,
     canActivate: [AuthGuard]
   }
 ];

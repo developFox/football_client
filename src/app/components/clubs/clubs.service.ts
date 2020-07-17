@@ -8,9 +8,9 @@ export class ClubsService {
   }
 
   // получение списка тренеров
-  public getClubs() {
+  public getClubs(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-clubs', {})
+      this.httpService.prepareQuery('api/get-clubs', data)
         .then((result) => {
             resolve(result);
           },

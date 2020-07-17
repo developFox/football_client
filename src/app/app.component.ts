@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './components/auth/auth.service';
-import {HttpService} from './utils/http.service';
-import {SessionStorageService} from './storage/session-storage.service';
-import {Router} from '@angular/router';
 import {UserStorageService} from './storage/user-storage.service';
 
 @Component({
