@@ -18,7 +18,7 @@
     <div class="directions">
       <div class="directions__title col-12">
         Направления
-        <div class="directions__btn d-flex" [ngClass]="{'show':showFilter===true}">
+        <div class="directions__btn d-flex d-md-none" [ngClass]="{'show':showFilter===false}">
           <span class="icon-filter"></span>
           <div class="directions__btn-show" (click)="changeShowFilter()">Показать направления</div>
           <div class="directions__btn-hide" (click)="changeShowFilter()">Скрыть направления</div>

@@ -28,14 +28,14 @@
     <div class="filters">
       <div class="filters__title col-12">
         Фильтры
-        <div class="filters__btn d-flex" [ngClass]="{'show':showFilter===true}"><!-- add/remove class 'show' after click '.filters__btn' -->
+        <div class="filters__btn d-flex d-md-none" [ngClass]="{'show':showFilter===false}">
           <span class="icon-filter"></span>
           <span class="filters__btn-show" (click)="changeShowFilter()">Показать фильтр</span>
           <span class="filters__btn-hide" (click)="changeShowFilter()">Скрыть фильтр</span>
         </div>
       </div>
 
-      <div class="filters__items flex-wrap col-12"><!-- add/remove class 'show' after click '.filters__btn' -->
+      <div class="filters__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
         <div class="filters__item">
           <span class="filters__item-text col-12">Коэффициент</span>
           <div class="filters__item-select d-flex col-12">
