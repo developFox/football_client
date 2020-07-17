@@ -25,6 +25,7 @@ export class PlayerComponent {
     club: 0
   };
 
+  showFilter = true;
   cities: { id: number, name: string }[] = [];
   regions: InterFaceRegions[] = [];
   clubs: InterFaceClubsList[] = [];
@@ -122,6 +123,10 @@ export class PlayerComponent {
     };
 
     this.getPlayers();
+  }
+
+  changeShowFilter() {
+    this.showFilter = !this.showFilter;
   }
 }
 

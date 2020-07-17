@@ -28,10 +28,10 @@
     <div class="filters">
       <div class="filters__title col-12">
         Фильтры
-        <div class="filters__btn d-flex d-md-none"><!-- add/remove class 'show' after click '.filters__btn' -->
+        <div class="filters__btn d-flex" [ngClass]="{'show':showFilter===true}"><!-- add/remove class 'show' after click '.filters__btn' -->
           <span class="icon-filter"></span>
-          <span class="filters__btn-show">Показать фильтр</span>
-          <span class="filters__btn-hide">Скрыть фильтр</span>
+          <span class="filters__btn-show" (click)="changeShowFilter()">Показать фильтр</span>
+          <span class="filters__btn-hide" (click)="changeShowFilter()">Скрыть фильтр</span>
         </div>
       </div>
 

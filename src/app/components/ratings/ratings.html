@@ -1,0 +1,117 @@
+<section class="ratings d-flex flex-wrap col-12">
+  <div class="ratings__top d-flex col-12">
+    <span class="title">Рейтинги</span>
+
+    <div class="sort-block d-flex">
+      <span class="sort-block__text">По годам</span>
+      <div class="sort-block__select d-flex">
+        <select [(ngModel)]="filter.sort" (change)="getPlayers()">
+          <option *ngFor="let sort of years" [ngValue]="sort">
+            {{sort}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="ratings__content d-flex flex-wrap col-12">
+    <div class="directions">
+      <div class="directions__title col-12">
+        Направления
+        <div class="directions__btn d-flex" [ngClass]="{'show':showFilter===true}">
+          <span class="icon-filter"></span>
+          <div class="directions__btn-show" (click)="changeShowFilter()">Показать направления</div>
+          <div class="directions__btn-hide" (click)="changeShowFilter()">Скрыть направления</div>
+        </div>
+      </div>
+
+      <div class="directions__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Дриблинг
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Лучшие в обороне
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Лучшая сила удара
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Исполнение штрафных
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Самые быстрые
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Голкиперы
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Физическая подготовка
+          </a>
+        </div>
+
+        <div class="directions__item">
+          <a href="" class="directions__item-link d-flex transition col-12">
+            Лучшие пасы
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="players d-flex flex-wrap col">
+      <div class="player active col-12 col-sm-6 col-xl-4" *ngFor="let player of ratings">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <span class="icon-check"></span>
+          <div class="player__photo d-flex">
+            <img [src]="'/src/assets/images/'+player.images" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">{{player.fio}}</span>
+            <span class="player__info-text transition col-12">{{player.year}} / {{player.branch}}</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">{{player.coefficient}}</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">{{player.played}}</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">{{player.wins}}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="players__more-wrapper col-12">
+        <div class="players__more d-flex transition col-12" (click)="morePlayers()">
+          <span class="icon-arrow-down transition"></span>
+          Загрузить больше
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

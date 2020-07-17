@@ -9,9 +9,9 @@ export class RatingsService {
   }
 
   // получение списка рейтинга
-  public getRatings() {
+  public getRatings(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-ratings', {})
+      this.httpService.prepareQuery('api/get-ratings', data)
         .then((result) => {
             resolve(result);
           },
