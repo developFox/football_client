@@ -5,6 +5,7 @@ import {AuthGuard} from './services/auth-guard.service';
 import {AuthComponent} from './components/auth/auth.component';
 import {PlayerComponent} from './components/player/player.component';
 import {ClubsComponent} from './components/clubs/clubs.component';
+import {TopComponent} from './components/top/top.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'clubs',
     component: ClubsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'top',
+    component: TopComponent,
     canActivate: [AuthGuard]
   }
 ];

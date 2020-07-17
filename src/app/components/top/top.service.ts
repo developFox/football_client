@@ -8,9 +8,9 @@ export class TopService {
   }
 
   // получение списка топ 100
-  public getTops() {
+  public getTops(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-top', {})
+      this.httpService.prepareQuery('api/get-top', data)
         .then((result) => {
             resolve(result);
           },
