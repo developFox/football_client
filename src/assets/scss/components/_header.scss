@@ -205,17 +205,20 @@
             height: 40px;
             clip-path: polygon(14% 0, 100% 0, 86% 100%, 0% 100%);
             background: #F3F5F9;
-            color: #1a2733;
-            font-size: 14px;
+
             position: relative;
             align-items: center;
             padding: 0 35px 0 45px;
             font-weight: 600;
+            justify-content: center;
 
-            .icon-arrow-down {
-                color: #2e48a7;
-                position: absolute;
-                right: 25px;
+            &-wrapper {
+                color: #1a2733;
+                font-size: 14px;
+
+                &:hover {
+                    color: #2e48a7;
+                }
             }
         }
         &__photo {
@@ -235,6 +238,9 @@
                 height: 100%;
                 -o-object-fit: cover;
                 object-fit: cover;
+            }
+            .icon-user {
+                font-size: 35px;
             }
         }
         .navbar-header {

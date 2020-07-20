@@ -134,6 +134,12 @@
                         justify-content: center;
                         margin-right: 15px;
 
+                        &:hover {
+
+                            & + .player__info .player__info-name {
+                                color: #2e48a7;
+                            }
+                        }
                         &-img {
                             width: 100%;
                             height: 100%;

@@ -1,0 +1,267 @@
+.examples {
+    padding: 50px 0 10px 0;
+
+    &__title {
+        padding: 0 10%;
+        font-size: 36px;
+        font-weight: 800;
+        color: #2e48a7;
+        margin-bottom: 30px;
+        display: block;
+        line-height: normal;
+    }
+    &-item {
+        padding: 0 10% 40px 10%;
+        border-bottom: 1px solid #e0e5ef;
+        margin-bottom: 25px;
+
+        &:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+        &__image {
+            width: 330px;
+            height: 305px;
+            overflow: hidden;
+            align-items: flex-end;
+            justify-content: flex-start;
+            position: relative;
+            margin-right: 30px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                background: #2e48a7;
+                width: 320px;
+                height: 305px;
+                z-index: 5;
+                clip-path: polygon(0 15%, 0% 100%, 95% 100%);
+                left: 0;
+                bottom: 0;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                background: #ff4644;
+                width: 240px;
+                height: 235px;
+                z-index: 7;
+                clip-path: polygon(0 15%, 0% 100%, 95% 100%);
+                left: 60px;
+                bottom: 50px;
+            }
+            .triangle {
+                position: absolute;
+                background: #2e48a7;
+                width: 50px;
+                height: 50px;
+                z-index: 5;
+                clip-path: polygon(0 0, 100% 100%, 100% 0);
+                right: 0;
+                top: 50px;
+            }
+            &-img {
+                max-width: 80%;
+                position: relative;
+                z-index: 10;
+            }
+        }
+        &__info {
+            padding: 30px 0 0 0;
+
+            &-date {
+                display: block;
+                padding: 0;
+                font-size: 14px;
+                font-weight: normal;
+                color: rgba(26, 39, 51, 0.5);
+                margin-bottom: 5px;
+            }
+            &-name {
+                display: block;
+                padding: 0;
+                font-size: 21px;
+                font-weight: 800;
+                color: #1a2733;
+                margin-bottom: 7px;
+            }
+            &-text {
+                display: block;
+                padding: 0;
+                font-size: 16px;
+                font-weight: normal;
+                color: #2e48a7;
+                margin-bottom: 15px;
+            }
+            &-description{
+                display: block;
+                padding: 0;
+                font-size: 17px;
+                font-weight: normal;
+                color: #1a2733;
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1540px){
+    .examples {
+
+        &__title {
+            padding: 0 5%;
+        }
+        &-item {
+            padding: 0 5% 40px 5%;
+        }
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .examples {
+        padding: 35px 0 0 0;
+
+        &__title {
+            padding: 0 15px;
+        }
+        &-item {
+            padding: 0 15px 25px 15px;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .examples {
+        padding: 35px 0 0 0;
+
+        &__title {
+            padding: 0 15px;
+        }
+        &-item {
+            margin-bottom: 15px;
+            padding: 0 15px 25px 15px;
+
+            &__image {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 767px){
+    .examples {
+
+        &-item {
+
+            &__image {
+                width: 175px;
+                height: 165px;
+
+                &:before {
+                    width: 175px;
+                    height: 180px;
+                }
+                &:after {
+                    width: 135px;
+                    height: 135px;
+                    left: 30px;
+                    bottom: 30px;
+                }
+                .triangle {
+                    width: 30px;
+                    height: 30px;
+                    top: 30px;
+                }
+            }
+            &__info {
+                padding: 15px 0 0 0;
+
+                &-date {
+                    font-size: 12px;
+                }
+                &-name {
+                    font-size: 18px;
+                }
+                &-text {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+                &-description {
+                    font-size: 15px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 575px){
+    .examples {
+
+        &-item {
+
+            &__image {
+                width: 290px;
+                height: 280px;
+                margin-bottom: 15px;
+
+                &:before {
+                    width: 280px;
+                    height: 270px;
+                }
+                &:after {
+                    width: 220px;
+                    height: 205px;
+                    left: 45px;
+                    bottom: 45px;
+                }
+                .triangle {
+                    width: 60px;
+                    height: 60px;
+                    top: 50px;
+                }
+            }
+            &__info {
+                padding: 0;
+                min-width: 100%;
+
+                &-date {
+                    font-size: 12px;
+                }
+                &-name {
+                    font-size: 18px;
+                }
+                &-text {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+                &-description {
+                    font-size: 15px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .examples {
+        padding: 35px 0 0 0;
+
+        &__title {
+            padding: 0 15px;
+            font-size: 26px;
+            margin-bottom: 15px;
+
+            br {
+                display: none;
+            }
+        }
+        &-item {
+            margin-bottom: 15px;
+            padding: 0 15px 25px 15px;
+
+            &__image {
+                margin-right: 15px;
+            }
+        }
+    }
+}
