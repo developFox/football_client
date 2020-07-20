@@ -42,6 +42,11 @@ export class RatingsComponent {
     this.getPlayers();
   }
 
+  changeFilter(data) {
+    this.filter.filter = data;
+    this.getPlayers();
+  }
+
   changeShowFilter() {
     this.showFilter = !this.showFilter;
   }

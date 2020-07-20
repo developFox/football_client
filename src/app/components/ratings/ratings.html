@@ -27,51 +27,51 @@
 
       <div class="directions__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('dribling')" class="directions__item-link d-flex transition col-12">
             Дриблинг
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('oborona')" class="directions__item-link d-flex transition col-12">
             Лучшие в обороне
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('udar')" class="directions__item-link d-flex transition col-12">
             Лучшая сила удара
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('shtrafnoi')" class="directions__item-link d-flex transition col-12">
             Исполнение штрафных
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('skorost')" class="directions__item-link d-flex transition col-12">
             Самые быстрые
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('golgiper')" class="directions__item-link d-flex transition col-12">
             Голкиперы
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('fiz_podgotovka')" class="directions__item-link d-flex transition col-12">
             Физическая подготовка
-          </a>
+          </div>
         </div>
 
         <div class="directions__item">
-          <a href="" class="directions__item-link d-flex transition col-12">
+          <div (click)="changeFilter('pass')" class="directions__item-link d-flex transition col-12">
             Лучшие пасы
-          </a>
+          </div>
         </div>
       </div>
     </div>
