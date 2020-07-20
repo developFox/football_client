@@ -7,6 +7,7 @@ import {PlayerComponent} from './components/player/player.component';
 import {ClubsComponent} from './components/clubs/clubs.component';
 import {TopComponent} from './components/top/top.component';
 import {RatingsComponent} from './components/ratings/ratings.component';
+import {AboutComponent} from './components/about/about.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'ratings',
     component: RatingsComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   }
 ];
 
