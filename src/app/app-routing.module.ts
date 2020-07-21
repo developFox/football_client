@@ -8,6 +8,7 @@ import {ClubsComponent} from './components/clubs/clubs.component';
 import {TopComponent} from './components/top/top.component';
 import {RatingsComponent} from './components/ratings/ratings.component';
 import {AboutComponent} from './components/about/about.component';
+import {NewsProjectComponent} from './components/news_project/news_project.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'news-project',
+    component: NewsProjectComponent
   }
 ];
 

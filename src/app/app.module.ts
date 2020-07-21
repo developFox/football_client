@@ -38,6 +38,7 @@ import {ClubsService} from './components/clubs/clubs.service';
 import {ClubsComponent} from './components/clubs/clubs.component';
 import {Ng5SliderModule} from 'ng5-slider';
 import {AboutComponent} from './components/about/about.component';
+import {NewsProjectComponent} from './components/news_project/news_project.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {AboutComponent} from './components/about/about.component';
     RatingsComponent,
     TopComponent,
     ClubsComponent,
-    AboutComponent
+    AboutComponent,
+    NewsProjectComponent
   ],
   imports: [
     BrowserModule,

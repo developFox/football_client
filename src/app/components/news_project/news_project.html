@@ -1,0 +1,28 @@
+<section class="news-page col-12">
+  <div class="news-page__top d-flex col-12">
+    <span class="title">Новости проекта</span>
+  </div>
+
+  <div class="news-list d-flex flex-wrap col-12">
+    <div class="news col-12 col-sm-6"  *ngFor="let data of news">
+      <div class="news__inner col-12">
+        <a href="" class="news__image col-12">
+          <div class="news__image-inner d-flex col-12">
+            <img [src]="'src/assets/images/'+data.img" class="news__image-img transition" alt="news photo">
+          </div>
+        </a>
+        <a href="" class="news__title transition col-12">
+          {{data.title}}
+        </a>
+        <span class="news__text">{{data.date_create}}</span>
+      </div>
+    </div>
+
+    <div class="news__more-wrapper col-12">
+      <div class="news__more d-flex transition col-12" (click)="moreNews()">
+        <span class="icon-arrow-down transition"></span>
+        Загрузить больше
+      </div>
+    </div>
+  </div>
+</section>

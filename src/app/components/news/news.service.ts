@@ -22,4 +22,18 @@ export class NewsService {
     });
   }
 
+  // получение списка новостей
+  public getNewsProject(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-news-project', data)
+        .then((result) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении списка новостей проекта', error);
+            reject();
+          }
+        );
+    });
+  }
 }
