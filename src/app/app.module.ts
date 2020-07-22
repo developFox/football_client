@@ -39,6 +39,7 @@ import {ClubsComponent} from './components/clubs/clubs.component';
 import {Ng5SliderModule} from 'ng5-slider';
 import {AboutComponent} from './components/about/about.component';
 import {NewsProjectComponent} from './components/news_project/news_project.component';
+import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {NewsProjectComponent} from './components/news_project/news_project.compo
     TopComponent,
     ClubsComponent,
     AboutComponent,
-    NewsProjectComponent
+    NewsProjectComponent,
+    NewsProjectInfoComponent
   ],
   imports: [
     BrowserModule,

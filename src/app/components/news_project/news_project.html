@@ -4,9 +4,9 @@
   </div>
 
   <div class="news-list d-flex flex-wrap col-12">
-    <div class="news col-12 col-sm-6"  *ngFor="let data of news">
+    <div class="news col-12 col-sm-6" *ngFor="let data of news">
       <div class="news__inner col-12">
-        <a href="" class="news__image col-12">
+        <a [routerLink]="'/news-project/'+data.id" class="news__image col-12">
           <div class="news__image-inner d-flex col-12">
             <img [src]="'src/assets/images/'+data.img" class="news__image-img transition" alt="news photo">
           </div>
