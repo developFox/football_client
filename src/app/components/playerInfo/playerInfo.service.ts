@@ -9,9 +9,9 @@ export class PlayerInfoService {
   }
 
   // получение информации об игроке
-  public getPlayerInfo() {
+  public getPlayerInfo(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-player-info', {})
+      this.httpService.prepareQuery('api/get-player-info', data)
         .then((result) => {
             resolve(result);
           },

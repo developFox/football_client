@@ -10,6 +10,7 @@ import {RatingsComponent} from './components/ratings/ratings.component';
 import {AboutComponent} from './components/about/about.component';
 import {NewsProjectComponent} from './components/news_project/news_project.component';
 import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
+import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'players',
     component: PlayerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'player/:id',
+    component: PlayerInfoComponent,
     canActivate: [AuthGuard]
   },
   {

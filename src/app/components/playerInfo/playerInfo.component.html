@@ -1,1 +1,1218 @@
-Информация об игроке
+<section class="player-page col-12">
+  <div class="player-page__top d-flex flex-wrap col-12">
+    <div class="player-page__info-block d-flex flex-wrap">
+      <div class="player-image d-flex">
+        <img [src]="'/src/assets/images/'+player.images" class="player-image__img" alt="player photo">
+      </div>
+
+      <div class="player-page__info d-flex flex-wrap">
+        <div class="player-page__info-top d-flex">
+          <span class="player-page__info-id d-flex">#{{player.id}}</span>
+          <span class="player-page__info-text">{{player.year}}</span>
+          <span class="player-page__info-text">{{player.region}}</span>
+          <span class="player-page__info-text">{{player.city}}</span>
+        </div>
+
+        <span class="player-page__info-name">{{player.fio}}</span>
+      </div>
+    </div>
+
+    <div class="main-statistic d-flex">
+      <div class="main-statistic__item d-flex">
+        <div class="progress-circle d-flex" data-progress="39.5">
+          <!-- data-progress = value * 10, но надо смотреть какой максимальный показатель - сейчас если максимальный показатель = 5 -->
+          <span class="icon-lightning"></span>
+        </div>
+
+        <div class="main-statistic__item-info d-flex">
+          <span class="main-statistic__item-title">коэффициент</span>
+          <span class="main-statistic__item-value">{{player.coefficient}}</span>
+        </div>
+      </div>
+      <div class="main-statistic__item d-flex">
+        <div class="main-statistic__item-icon d-flex">
+          <span class="icon-played"></span>
+        </div>
+        <div class="main-statistic__item-info d-flex">
+          <span class="main-statistic__item-title">сыграно</span>
+          <span class="main-statistic__item-value">{{player.played}}</span>
+        </div>
+      </div>
+      <div class="main-statistic__item d-flex">
+        <div class="main-statistic__item-icon d-flex">
+          <span class="icon-victories"></span>
+        </div>
+        <div class="main-statistic__item-info d-flex">
+          <span class="main-statistic__item-title">побед</span>
+          <span class="main-statistic__item-value">{{player.wins}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="player-page__tabs-wrapper d-flex flex-wrap col-12">
+    <div class="player-page__tabs-text d-none d-lg-flex">Информация</div>
+
+    <div class="player-page__tabs-block d-flex col">
+      <ul class="nav player-page__tabs d-none d-md-flex flex-wrap">
+        <li class="player-page__tab">
+          <a class="player-page__tab-link active d-flex transition" data-toggle="tab" href="#main">
+            Оснвовное
+          </a>
+        </li>
+        <li class="player-page__tab">
+          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#competition">
+            Соревнования
+          </a>
+        </li>
+        <li class="player-page__tab">
+          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#awards">
+            Награды
+          </a>
+        </li>
+        <li class="player-page__tab">
+          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#photos">
+            Фотографии
+          </a>
+        </li>
+        <li class="player-page__tab">
+          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#videos">
+            Видео
+          </a>
+        </li>
+      </ul>
+
+      <div class="player-page__tabs-email d-flex transition"><span class="icon-mail"></span> Написать игроку</div>
+    </div>
+  </div>
+
+  <div class="player-page__content-wrapper d-flex flex-wrap col-12">
+    <div class="player-page__aside">
+      <div class="verified-account d-flex col-12">
+        <span class="icon-check"></span>
+        <span class="verified-account__text">Подтвержденный аккаунт</span>
+      </div>
+
+      <!-- if account not verified -->
+
+      <!--<div class="notverified-account d-flex col-12">
+          <span class="icon-question"></span>
+          <span class="notverified-account__text">Аккаунт не подтвержден</span>
+      </div>-->
+
+      <!-- if account not verified (END) -->
+
+      <div class="aside-items d-flex flex-wrap col-12"><!-- not all fields are available if account not verified -->
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Дата рождения</span>
+          <div class="aside-items__item-block col-12">
+            {{player.birth_date}}
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Место рождения</span>
+          <div class="aside-items__item-block col-12">
+            {{player.city}}
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Адрес жительства</span>
+          <div class="aside-items__item-block col-12">
+            {{player.address}}
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Родители (Опекуны)</span>
+          <div class="aside-items__item-block col-12">
+            <div class="aside-items__item-subitem d-flex col-12" *ngIf="player.mother!==''">
+              <span class="aside-items__item-text">Мать:</span> {{player.mother}}
+            </div>
+            <div class="aside-items__item-subitem d-flex col-12" *ngIf="player.father!==''">
+              <span class="aside-items__item-text">Отец:</span> {{player.father}}
+            </div>
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Контакты родителей</span>
+          <div class="aside-items__item-block col-12">
+            <div *ngIf="player.father_telephone!=''">{{player.father_telephone|telephoneNumber}}</div>
+            <div *ngIf="player.mother_telephone!=''">{{player.mother_telephone|telephoneNumber}}</div>
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
+          <div class="aside-items__item-block col-12">
+            ДЮСШ №2, “Заря”
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
+          <div class="aside-items__item-block col-12">
+            <div class="aside-trainer d-flex col-12">
+              <div class="aside-trainer__photo d-flex">
+                <img src="/src/assets/images/trainer-photo.png" class="aside-trainer__photo-img" alt="trainer photo">
+              </div>
+              <div class="aside-trainer__info">
+                <span class="aside-trainer__info-name">Олег Фомин</span>
+                <span class="aside-trainer__info-club">ДЮСШ №2, “Заря”</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12" *ngIf="player.email!=null">
+          <span class="aside-items__item-title col-12">Электронная почта</span>
+          <div class="aside-items__item-block col-12">
+            <a href="mailto:nikitinmama@gmail.com">{{player.email}}</a>
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
+          <span class="aside-items__item-title col-12">Номер телефона</span>
+          <div class="aside-items__item-block col-12">
+            <a href="tel:+79564536280">{{player.phone|telephoneNumber}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-page__content d-flex flex-wrap">
+      <div class="tab-content profile-edit__tabs-content col-12">
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Оснвовное
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade show active col-12" id="main">
+          <div class="growth-chart col-12">
+            <div class="growth-chart__top d-flex flex-wrap col-12">
+              <span class="growth-chart__top-title">График роста показателей</span>
+
+              <div class="sort-block d-flex">
+                <span class="sort-block__text">Фильтр</span>
+                <div class="sort-block__select d-flex">
+                  Игровые данные
+                  <span class="icon-arrow-down"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="growth-chart__items d-flex flex-wrap col-12">
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 44px"></div>
+                <!-- height = value * 20, но надо смотреть какой максимальный показатель - сейчас если максимальный показатель = 5 -->
+                <span class="growth-chart__item-text col-12">2013</span>
+                <span class="growth-chart__item-value col-12">2.2</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 60px"></div>
+                <span class="growth-chart__item-text col-12">2014</span>
+                <span class="growth-chart__item-value col-12">3</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 78px"></div>
+                <span class="growth-chart__item-text col-12">2015</span>
+                <span class="growth-chart__item-value col-12">3.9</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 76px"></div>
+                <span class="growth-chart__item-text col-12">2016</span>
+                <span class="growth-chart__item-value col-12">3.8</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 92px"></div>
+                <span class="growth-chart__item-text col-12">2017</span>
+                <span class="growth-chart__item-value col-12">4.6</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 88px"></div>
+                <span class="growth-chart__item-text col-12">2018</span>
+                <span class="growth-chart__item-value col-12">4.4</span>
+              </div>
+              <div class="growth-chart__item d-flex flex-wrap col">
+                <div class="growth-chart__item-area" style="height: 82px"></div>
+                <span class="growth-chart__item-text col-12">2019</span>
+                <span class="growth-chart__item-value col-12">4.1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="other-data d-flex flex-wrap col-12">
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Физические данные</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-gto"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      ГТО
+                      <div class="data-block__item-value d-flex">
+                        9.6
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Тренировочные данные</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-gto"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      ГТО
+                      <div class="data-block__item-value d-flex">
+                        9.6
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Данные с мячом</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-gto"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      ГТО
+                      <div class="data-block__item-value d-flex">
+                        9.6
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Данные без мяча</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-gto"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      ГТО
+                      <div class="data-block__item-value d-flex">
+                        9.6
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Игровые данные</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-gto"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      ГТО
+                      <div class="data-block__item-value d-flex">
+                        9.6
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 70%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-block d-flex col-12 col-sm-6 col-md-4">
+              <div class="data-block__inner col-12">
+                <span class="data-block__title col-12">Медицинские факторы</span>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-tendency"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Скорость
+                      <div class="data-block__item-value d-flex">
+                        33,25
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 75%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-passing-game"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Игра в пас
+                      <div class="data-block__item-value d-flex">
+                        0:36:15,30
+                        <span class="data-block__item-param">час</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-power"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Сила удара
+                      <div class="data-block__item-value d-flex">
+                        125
+                        <span class="data-block__item-param">км/ч</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 90%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <span class="data-block__item-icon icon-jump"></span>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Прыжок
+                      <div class="data-block__item-value d-flex">
+                        210
+                        <span class="data-block__item-param">см</span>
+                      </div>
+                    </div>
+                    <div class="data-block__item-progress col-12">
+                      <div class="progress-value" style="width: 50%"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="data-block__item d-flex col-12">
+                  <div class="data-block__item-empty d-flex">
+                    <span class="icon-close"></span>
+                  </div>
+                  <div class="data-block__item-info col">
+                    <div class="data-block__item-title d-flex col-12">
+                      Хроничесие заболевания
+                    </div>
+                    <span class="data-block__item-text col-12">Нет заболеваний</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="player-page__description col-12">
+            <span class="player-page__description-title">Краткая биография</span>
+            <p class="player-page__description-text col-12">Родился в Новокузнецке 12 октября 2006г. С раннего детства
+              увлекся футболом, постоянно играл с мальчишками во дворе. В 8 лет, тренер ДЮСШ № 2 "Заря" Олег Фомин,
+              наблюдавший за их игрой во дворе, пригласил пройти отбор в ДЮСШ. Пройдя отбор стал заниматься в ДЮСШ № 2
+              Заря, регулярно участвовал в турнирах за команду ДЮСШ. Ездил на просмотр в академию ФК "Томь" г. Томск,
+              где тренер футболистов 2006г. рождения сказал, что в интернат на полное обеспечение академии не примут, но
+              если бы он жил в Томске... примеру семья переехала сюда на постоянное место жительства, то он мог бы
+              проходить обучение в академии в соответствии с утвержденными тарифами. Приглашался на просмотр в академии
+              ФК "Урал" г. Екатеринбург и ФК "Крылья Советов" г. Самара. Однако по финансовым причинам родители решили
+              не ездить пока на просмотры и остаться заниматься в ДЮСШ "Заря".</p>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Соревнования
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="competition">
+          <div class="competition-statistic d-flex flex-wrap col-12">
+            <div class="competition-statistic__item d-flex col">
+              <div class="competition-statistic__item-icon d-flex">
+                <span class="icon-played"></span>
+              </div>
+              <div class="competition-statistic__item-info d-flex">
+                <span class="competition-statistic__item-title">матчей</span>
+                <span class="competition-statistic__item-value">201</span>
+              </div>
+            </div>
+            <div class="competition-statistic__item d-flex col">
+              <div class="competition-statistic__item-icon d-flex">
+                <span class="icon-played"></span>
+              </div>
+              <div class="competition-statistic__item-info d-flex">
+                <span class="competition-statistic__item-title">побед</span>
+                <span class="competition-statistic__item-value">201</span>
+              </div>
+            </div>
+            <div class="competition-statistic__item d-flex col">
+              <div class="competition-statistic__item-icon d-flex">
+                <span class="icon-played"></span>
+              </div>
+              <div class="competition-statistic__item-info d-flex">
+                <span class="competition-statistic__item-title">ничей</span>
+                <span class="competition-statistic__item-value">201</span>
+              </div>
+            </div>
+            <div class="competition-statistic__item d-flex col">
+              <div class="competition-statistic__item-icon d-flex">
+                <span class="icon-played"></span>
+              </div>
+              <div class="competition-statistic__item-info d-flex">
+                <span class="competition-statistic__item-title">голов</span>
+                <span class="competition-statistic__item-value">201</span>
+              </div>
+            </div>
+            <div class="competition-statistic__item d-flex col">
+              <div class="competition-statistic__item-icon d-flex">
+                <span class="icon-played"></span>
+              </div>
+              <div class="competition-statistic__item-info d-flex">
+                <span class="competition-statistic__item-title">передач</span>
+                <span class="competition-statistic__item-value">201</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="competition-results col-12">
+            <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
+
+            <div class="competition-results__filter d-flex flex-wrap col-12">
+              <div class="competition-results__filter-item d-flex transition active">Все</div>
+              <div class="competition-results__filter-item d-flex transition">2019</div>
+              <div class="competition-results__filter-item d-flex transition">2018</div>
+              <div class="competition-results__filter-item d-flex transition">2017</div>
+              <div class="competition-results__filter-item d-flex transition">2016</div>
+            </div>
+
+            <div class="competition-list col-12">
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Nogliki</div>
+                <div class="competition-item__match-result d-flex">5 - 1</div>
+                <div class="competition-item__team">СКА Хабаровск II</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-on"></span>
+                  <span class="competition-item__title-text">Второй дивизион</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Торпедо Москва</div>
+                <div class="competition-item__match-result d-flex">0 - 2</div>
+                <div class="competition-item__team">Квант</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Wonderful Life</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Salyut-Belgorod</div>
+                <div class="competition-item__match-result d-flex">1 - 1</div>
+                <div class="competition-item__team">Химки II</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Fire Water Burn</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Динамо Брянск</div>
+                <div class="competition-item__match-result d-flex">0 - 4</div>
+                <div class="competition-item__team">Металлург Липецк</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-on"></span>
+                  <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Ротор-2</div>
+                <div class="competition-item__match-result d-flex">5 - 1</div>
+                <div class="competition-item__team">Химик Новомосковск</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">I Woke Up Today</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Звезда Рязань</div>
+                <div class="competition-item__match-result d-flex">2 - 1</div>
+                <div class="competition-item__team">Строгино</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                </div>
+                <div class="competition-item__team competition-item__team--left">Nogliki</div>
+                <div class="competition-item__match-result d-flex">5 - 1</div>
+                <div class="competition-item__team">СКА Хабаровск II</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="competition-results__more-wrapper col-12">
+              <div class="competition-results__more d-flex transition col-12">
+                <span class="icon-arrow-down transition"></span>
+                Загрузить больше
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Награды
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="awards">
+          <div class="awards col-12">
+            <span class="awards__title col-12">Награды на соревнованиях</span>
+
+            <div class="awards__list d-flex flex-wrap col-12">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="/src/assets/images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Фотографии
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="photos">
+          <div class="photos col-12">
+            <span class="photos__title col-12">Фотографии с соревнований</span>
+
+            <div class="big-slider col-12">
+              <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of player.imagesList">
+                <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
+                     alt="slider image">
+              </div>
+            </div>
+
+            <div class="small-slider d-flex flex-wrap col-12">
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of player.imagesList">
+                  <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
+                       alt="slider image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab last transition d-flex d-md-none col-12">
+          Видео
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="videos">
+          <div class="videos col-12">
+            <span class="videos__title col-12">Видео с соревнований</span>
+
+            <div class="videos__list d-flex flex-wrap col-12">
+              <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of player.videosList">
+                <div class="video">
+                  <div class="video__inner col-12 js-videoWrapper">
+                    <video #videoPlayer class="video__container js-videoIframe" controls>
+                      <source [src]="video"
+                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-players col-12">
+  <div class="compare-players__title col-12">Похожие игроки по рейтингу</div>
+
+  <div class="compare-slider d-flex flex-wrap col-12">
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="player col-12">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <div class="player__photo d-flex">
+            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">Леонид Кочура</span>
+            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">4.3</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">4.3</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">84</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="player col-12">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <div class="player__photo d-flex">
+            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">Леонид Кочура</span>
+            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">4.3</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">4.3</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">84</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="player col-12">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <div class="player__photo d-flex">
+            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">Леонид Кочура</span>
+            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">4.3</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">4.3</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">84</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="player col-12">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <div class="player__photo d-flex">
+            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">Леонид Кочура</span>
+            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">4.3</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">4.3</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">84</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="player col-12">
+        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+          <div class="player__photo d-flex">
+            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+          </div>
+
+          <div class="player__info col">
+            <span class="player__info-name transition col-12">Леонид Кочура</span>
+            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+          </div>
+
+          <div class="player__statistic d-flex col-12">
+            <div class="statistic-coefficient col">
+              <span class="statistic-coefficient__text col-12">коэффициент</span>
+              <span class="statistic-coefficient__value col-12">4.3</span>
+            </div>
+            <div class="statistic-played col">
+              <span class="statistic-played__text col-12">сыграно</span>
+              <span class="statistic-played__value col-12">4.3</span>
+            </div>
+            <div class="statistic-victories col">
+              <span class="statistic-victories__text col-12">побед</span>
+              <span class="statistic-victories__value col-12">84</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

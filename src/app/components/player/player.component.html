@@ -118,7 +118,7 @@
 
     <div class="players d-flex flex-wrap col">
       <div class="player col-12 col-sm-6 col-xl-4" *ngFor="let data of players">
-        <a href="" class="player__inner transition active d-flex flex-wrap col-12">
+        <a [routerLink]="'/player/'+data.id" class="player__inner transition active d-flex flex-wrap col-12">
           <span class="icon-check"></span>
           <div class="player__photo d-flex">
             <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
