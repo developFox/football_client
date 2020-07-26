@@ -951,7 +951,8 @@
             <span class="awards__title col-12">Награды на соревнованиях</span>
 
             <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let awards of player.awardsList">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
+                   *ngFor="let awards of player.awardsList">
                 <div class="awards__item-image col-12">
                   <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
                 </div>
@@ -1016,150 +1017,30 @@
   <div class="compare-players__title col-12">Похожие игроки по рейтингу</div>
 
   <div class="compare-slider d-flex flex-wrap col-12">
-    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let player of playersSimilar">
       <div class="player col-12">
         <a href="" class="player__inner transition d-flex flex-wrap col-12">
           <div class="player__photo d-flex">
-            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
+            <img [src]="'/src/assets/images/'+player.images" class="player__photo-img" alt="player photo">
           </div>
 
           <div class="player__info col">
-            <span class="player__info-name transition col-12">Леонид Кочура</span>
-            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
+            <span class="player__info-name transition col-12">{{player.fio}}</span>
+            <span class="player__info-text transition col-12">{{player.year}} / {{player.branch}}</span>
           </div>
 
           <div class="player__statistic d-flex col-12">
             <div class="statistic-coefficient col">
               <span class="statistic-coefficient__text col-12">коэффициент</span>
-              <span class="statistic-coefficient__value col-12">4.3</span>
+              <span class="statistic-coefficient__value col-12">{{player.coefficient}}</span>
             </div>
             <div class="statistic-played col">
               <span class="statistic-played__text col-12">сыграно</span>
-              <span class="statistic-played__value col-12">4.3</span>
+              <span class="statistic-played__value col-12">{{player.played}}</span>
             </div>
             <div class="statistic-victories col">
               <span class="statistic-victories__text col-12">побед</span>
-              <span class="statistic-victories__value col-12">84</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="player col-12">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
-          <div class="player__photo d-flex">
-            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
-          </div>
-
-          <div class="player__info col">
-            <span class="player__info-name transition col-12">Леонид Кочура</span>
-            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
-          </div>
-
-          <div class="player__statistic d-flex col-12">
-            <div class="statistic-coefficient col">
-              <span class="statistic-coefficient__text col-12">коэффициент</span>
-              <span class="statistic-coefficient__value col-12">4.3</span>
-            </div>
-            <div class="statistic-played col">
-              <span class="statistic-played__text col-12">сыграно</span>
-              <span class="statistic-played__value col-12">4.3</span>
-            </div>
-            <div class="statistic-victories col">
-              <span class="statistic-victories__text col-12">побед</span>
-              <span class="statistic-victories__value col-12">84</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="player col-12">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
-          <div class="player__photo d-flex">
-            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
-          </div>
-
-          <div class="player__info col">
-            <span class="player__info-name transition col-12">Леонид Кочура</span>
-            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
-          </div>
-
-          <div class="player__statistic d-flex col-12">
-            <div class="statistic-coefficient col">
-              <span class="statistic-coefficient__text col-12">коэффициент</span>
-              <span class="statistic-coefficient__value col-12">4.3</span>
-            </div>
-            <div class="statistic-played col">
-              <span class="statistic-played__text col-12">сыграно</span>
-              <span class="statistic-played__value col-12">4.3</span>
-            </div>
-            <div class="statistic-victories col">
-              <span class="statistic-victories__text col-12">побед</span>
-              <span class="statistic-victories__value col-12">84</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="player col-12">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
-          <div class="player__photo d-flex">
-            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
-          </div>
-
-          <div class="player__info col">
-            <span class="player__info-name transition col-12">Леонид Кочура</span>
-            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
-          </div>
-
-          <div class="player__statistic d-flex col-12">
-            <div class="statistic-coefficient col">
-              <span class="statistic-coefficient__text col-12">коэффициент</span>
-              <span class="statistic-coefficient__value col-12">4.3</span>
-            </div>
-            <div class="statistic-played col">
-              <span class="statistic-played__text col-12">сыграно</span>
-              <span class="statistic-played__value col-12">4.3</span>
-            </div>
-            <div class="statistic-victories col">
-              <span class="statistic-victories__text col-12">побед</span>
-              <span class="statistic-victories__value col-12">84</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="compare-slider__slide col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="player col-12">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
-          <div class="player__photo d-flex">
-            <img src="/src/assets/images/player-img.png" class="player__photo-img" alt="player photo">
-          </div>
-
-          <div class="player__info col">
-            <span class="player__info-name transition col-12">Леонид Кочура</span>
-            <span class="player__info-text transition col-12">12 лет / Калужская область</span>
-          </div>
-
-          <div class="player__statistic d-flex col-12">
-            <div class="statistic-coefficient col">
-              <span class="statistic-coefficient__text col-12">коэффициент</span>
-              <span class="statistic-coefficient__value col-12">4.3</span>
-            </div>
-            <div class="statistic-played col">
-              <span class="statistic-played__text col-12">сыграно</span>
-              <span class="statistic-played__value col-12">4.3</span>
-            </div>
-            <div class="statistic-victories col">
-              <span class="statistic-victories__text col-12">побед</span>
-              <span class="statistic-victories__value col-12">84</span>
+              <span class="statistic-victories__value col-12">{{player.wins}}</span>
             </div>
           </div>
         </a>

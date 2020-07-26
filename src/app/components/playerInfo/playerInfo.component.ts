@@ -6,7 +6,7 @@ import {ActivatedRoute, Params} from '@angular/router';
   selector: 'app-player',
   templateUrl: './playerInfo.component.html',
 })
-export class PlayerInfoComponent implements OnInit {
+export class PlayerInfoComponent {
   player: InterFacePlayerInfo = {
     id: null,
     year: '',
@@ -31,22 +31,35 @@ export class PlayerInfoComponent implements OnInit {
     description: ''
   };
   playerId: null;
+  playersSimilar: InterFacePlayers[] = [];
 
   constructor(private playerInfoService: PlayerInfoService,
               private router: ActivatedRoute) {
     this.router.params.subscribe(
       (params: Params): void => {
         this.playerId = params.id;
+
+        this.getPlayers();
+        this.getSimilarPlayers();
       }
     );
   }
 
-  ngOnInit() {
+  getPlayers() {
     this.playerInfoService.getPlayerInfo({id: this.playerId}).then((data: InterFacePlayerInfo) => {
         this.player = data;
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по футболисту: ', error);
+      });
+  }
+
+  getSimilarPlayers() {
+    this.playerInfoService.getSimilarPlayers({id: this.playerId}).then((data: InterFacePlayers[]) => {
+        this.playersSimilar = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении списка фыутболистов: ', error);
       });
   }
 }

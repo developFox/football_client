@@ -23,4 +23,19 @@ export class PlayerInfoService {
     });
   }
 
+  // получение информации похожих игроков
+  public getSimilarPlayers(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-similar-player', data)
+        .then((result) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении похожих игороков', error);
+            reject();
+          }
+        );
+    });
+  }
+
 }
