@@ -18,4 +18,6 @@ interface InterFacePlayerInfo {
   email: string;
   imagesList: any;
   videosList: any;
+  awardsList: { photo: string, name: string }[];
+  description: string;
 }

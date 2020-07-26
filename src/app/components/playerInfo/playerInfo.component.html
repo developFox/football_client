@@ -753,15 +753,7 @@
 
           <div class="player-page__description col-12">
             <span class="player-page__description-title">Краткая биография</span>
-            <p class="player-page__description-text col-12">Родился в Новокузнецке 12 октября 2006г. С раннего детства
-              увлекся футболом, постоянно играл с мальчишками во дворе. В 8 лет, тренер ДЮСШ № 2 "Заря" Олег Фомин,
-              наблюдавший за их игрой во дворе, пригласил пройти отбор в ДЮСШ. Пройдя отбор стал заниматься в ДЮСШ № 2
-              Заря, регулярно участвовал в турнирах за команду ДЮСШ. Ездил на просмотр в академию ФК "Томь" г. Томск,
-              где тренер футболистов 2006г. рождения сказал, что в интернат на полное обеспечение академии не примут, но
-              если бы он жил в Томске... примеру семья переехала сюда на постоянное место жительства, то он мог бы
-              проходить обучение в академии в соответствии с утвержденными тарифами. Приглашался на просмотр в академии
-              ФК "Урал" г. Екатеринбург и ФК "Крылья Советов" г. Самара. Однако по финансовым причинам родители решили
-              не ездить пока на просмотры и остаться заниматься в ДЮСШ "Заря".</p>
+            <p class="player-page__description-text col-12">{{player.description}}</p>
           </div>
         </div>
         <div class="mobile-tab transition d-flex d-md-none col-12">
@@ -959,52 +951,11 @@
             <span class="awards__title col-12">Награды на соревнованиях</span>
 
             <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let awards of player.awardsList">
                 <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
+                  <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
                 </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="/src/assets/images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
+                <span class="awards__item-title col-12">{{awards.name}}</span>
               </div>
             </div>
           </div>
@@ -1216,3 +1167,190 @@
     </div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function () {
+
+    <!-- Mobile tabs  -->
+    $('.player-page__content .tab-content .mobile-tab').click(function () {
+
+      if ($(this).hasClass('active')) {
+        $(this).toggleClass('active');
+        $(this).next().slideToggle();
+      } else {
+        $('.player-page__content .tab-content .mobile-tab.active').next().slideToggle('fast');
+        $('.player-page__content .tab-content .mobile-tab.active').toggleClass('active');
+        $(this).toggleClass('active');
+        $(this).next().slideDown(400, "linear", function () {
+          let thisTopPos = $(this).offset().top;
+
+          $('body, html').animate({
+            scrollTop: thisTopPos - 50
+          }, 400);
+        });
+      }
+    });
+    <!-- Mobile tabs  (END) -->
+
+    $('.compare-slider').slick({
+      autoplay: false,
+      infinite: true,
+      speed: 300,
+      draggable: true,
+      dots: false,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    $('.big-slider').slick({
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      asNavFor: '.small-slider'
+    });
+
+    $('.small-slider').slick({
+      infinite: false,
+      slidesToShow: 10,
+      slidesToScroll: 1,
+      arrows: true,
+      asNavFor: '.big-slider',
+      focusOnSelect: true,
+      responsive: [
+        {
+          breakpoint: 1540,
+          settings: {
+            slidesToShow: 8,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    $('.big-slider').slick('resize');
+    $('.small-slider').slick('resize');
+
+    $('[href="#photos"]').on("shown.bs.tab", function (e) {
+      $('.big-slider').slick("refresh");
+      $('.small-slider').slick("refresh");
+    })
+
+    $('.mobile-tab').click(function () {
+      $('.big-slider').slick("refresh");
+      $('.small-slider').slick("refresh");
+    });
+
+    /* Youtube player */
+    var k = []; // id local player
+    var currentActivePlayer = '';
+    var i = 0;
+
+    function onPlayerStateChange(event) {
+
+      if (event.data == 1) {
+
+        k.forEach(function (elem) {
+          firstvideo = document.getElementById(elem);
+          firstvideo.pause();
+        });
+
+        if (currentActivePlayer != event.target && i <= 0) {
+          currentActivePlayer = event.target;
+          i++;
+        } else {
+          if (currentActivePlayer != event.target) {
+            currentActivePlayer.pauseVideo();
+            currentActivePlayer = event.target;
+            // currentActivePlayer.playVideo();
+          }
+        }
+      }
+    }
+
+    var players = [];
+
+    $("body").on("click", ".js-videoIframe", function () {
+      let $playerBlock = $(this);
+
+      players.push(new YT.Player($playerBlock.attr('id'), {
+        videoId: $playerBlock.data('video-id'),
+        playerVars: {
+          autoplay: 1,
+          rel: 0
+        },
+        events: {
+          onStateChange: onPlayerStateChange
+        }
+      }));
+    });
+
+    /* Youtube player (END) */
+
+  });
+</script>

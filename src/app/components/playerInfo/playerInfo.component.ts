@@ -26,7 +26,9 @@ export class PlayerInfoComponent implements OnInit {
     phone: '',
     email: '',
     imagesList: [],
-    videosList: []
+    videosList: [],
+    awardsList: [],
+    description: ''
   };
   playerId: null;
 
