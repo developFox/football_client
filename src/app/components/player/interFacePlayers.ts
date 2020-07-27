@@ -7,4 +7,5 @@ interface InterFacePlayers {
   images: string;
   played: string;
   wins: number;
+  confirmation: string;
 }
