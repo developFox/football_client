@@ -28,7 +28,15 @@ export class PlayerInfoComponent {
     imagesList: [],
     videosList: [],
     awardsList: [],
-    description: ''
+    description: '',
+    marks: [{
+      name: '',
+      params: [{
+        name: '',
+        markcol: '',
+        val: ''
+      }]
+    }]
   };
   playerId: null;
   playersSimilar: InterFacePlayers[] = [];

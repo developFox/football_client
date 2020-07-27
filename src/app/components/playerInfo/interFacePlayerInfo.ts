@@ -20,4 +20,12 @@ interface InterFacePlayerInfo {
   videosList: any;
   awardsList: { photo: string, name: string }[];
   description: string;
+  marks: {
+    name: string;
+    params: {
+      name: string;
+      markcol: string;
+      val: string;
+    }[];
+  }[];
 }
