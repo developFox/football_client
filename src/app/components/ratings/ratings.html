@@ -26,51 +26,13 @@
       </div>
 
       <div class="directions__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
-        <div class="directions__item">
-          <div (click)="changeFilter('dribling')" class="directions__item-link d-flex transition col-12">
-            Дриблинг
-          </div>
-        </div>
+        <div class="directions__item" *ngFor="let data of ratingsFilter">
+          <div class="directions__item-link d-flex transition col-12">
+            {{data.name}}
 
-        <div class="directions__item">
-          <div (click)="changeFilter('oborona')" class="directions__item-link d-flex transition col-12">
-            Лучшие в обороне
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('udar')" class="directions__item-link d-flex transition col-12">
-            Лучшая сила удара
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('shtrafnoi')" class="directions__item-link d-flex transition col-12">
-            Исполнение штрафных
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('skorost')" class="directions__item-link d-flex transition col-12">
-            Самые быстрые
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('golgiper')" class="directions__item-link d-flex transition col-12">
-            Голкиперы
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('fiz_podgotovka')" class="directions__item-link d-flex transition col-12">
-            Физическая подготовка
-          </div>
-        </div>
-
-        <div class="directions__item">
-          <div (click)="changeFilter('pass')" class="directions__item-link d-flex transition col-12">
-            Лучшие пасы
+            <div *ngFor="let sData of data.mark" (click)="changeFilter(sData.id)">
+              {{sData.name}}
+            </div>
           </div>
         </div>
       </div>

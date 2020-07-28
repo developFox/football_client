@@ -23,4 +23,19 @@ export class RatingsService {
     });
   }
 
+  // получение списка фильтров для поиска и сортировки
+  public getPlayersFilter() {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-ratings-filter', '')
+        .then((result) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении фильтра', error);
+            reject();
+          }
+        );
+    });
+  }
+
 }

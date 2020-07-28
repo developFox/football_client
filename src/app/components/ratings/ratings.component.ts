@@ -10,14 +10,15 @@ export class RatingsComponent {
   filter = {
     limit: 5,
     sort: 1990,
-    filter: ''
+    filter: null
   };
-
+  ratingsFilter: InterFaceFilterRatings[] = [];
   years = [];
   showFilter = true;
 
   constructor(private ratingsService: RatingsService) {
     this.getPlayers();
+    this.getPlayersFilter();
 
     for (let i = 1990; i < 2010; i++) {
       this.years.push(i);
@@ -34,6 +35,15 @@ export class RatingsComponent {
       },
       (error) => {
         console.log('Ошибка при получении рейтинга: ', error);
+      });
+  }
+
+  getPlayersFilter() {
+    this.ratingsService.getPlayersFilter().then((data: InterFaceFilterRatings[]) => {
+        this.ratingsFilter = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении фильтра для рейтинга: ', error);
       });
   }
 
