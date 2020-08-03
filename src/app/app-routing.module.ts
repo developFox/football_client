@@ -11,6 +11,7 @@ import {AboutComponent} from './components/about/about.component';
 import {NewsProjectComponent} from './components/news_project/news_project.component';
 import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
+import {CooperationComponent} from './components/cooperation/cooperation.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path: 'news-project/:id',
     component: NewsProjectInfoComponent
+  },
+  {
+    path: 'cooperation',
+    component: CooperationComponent
   }
 ];
 

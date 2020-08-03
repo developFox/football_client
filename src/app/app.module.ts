@@ -41,6 +41,7 @@ import {AboutComponent} from './components/about/about.component';
 import {NewsProjectComponent} from './components/news_project/news_project.component';
 import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
 import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
+import {CooperationComponent} from './components/cooperation/cooperation.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
     AboutComponent,
     NewsProjectComponent,
     NewsProjectInfoComponent,
-    TelephoneNumberPipe
+    TelephoneNumberPipe,
+    CooperationComponent
   ],
   imports: [
     BrowserModule,

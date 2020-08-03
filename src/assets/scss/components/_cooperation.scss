@@ -1,0 +1,187 @@
+.cooperation-page {
+    padding: 0;
+
+    &__top {
+        padding: 0 10% 15px 10%;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            height: 4px;
+            width: 45px;
+            background: #2e48a7;
+        }
+        .title {
+            line-height: normal;
+        }
+    }
+    .cooperation-list {
+        padding: 50px calc(10% - 50px);
+        background: #FFF;
+
+        .cooperation {
+            padding: 0 50px 50px 50px;
+            margin-bottom: 10px;
+
+            &__inner {
+                padding: 0;
+            }
+            &__image {
+                height: 175px;
+                width: 175px;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 5;
+                    background: #f3f5f9;
+                    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+                }
+                &-img {
+                    max-width: 75%;
+                    z-index: 10;
+                }
+            }
+            &__title {
+                display: block;
+                margin-bottom: 30px;
+                padding: 0;
+                font-size: 26px;
+                font-weight: 800;
+                color: #2e48a7;
+                line-height: normal;
+            }
+            &__description {
+                display: block;
+                padding: 0;
+                font-size: 18px;
+                font-weight: normal;
+                color: #1a2733;
+            }
+            &__link {
+                align-items: center;
+                justify-content: center;
+                width: 200px;
+                height: 40px;
+                background: #2e48a7;
+                clip-path: polygon(6% 0%, 100% 0, 100% 65%, 94% 100%, 0 100%, 0% 35%);
+                position: relative;
+                z-index: 10;
+                cursor: pointer;
+                color: #FFF;
+                font-size: 13px;
+                font-weight: 600;
+                margin-top: 30px;
+
+                &:hover {
+                    background: #2A324E;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 1200px) and (max-width: 1540px){
+    .cooperation-page {
+
+        &__top {
+            padding: 0 5% 15px 5%;
+
+            &:before {
+                left: 5%;
+            }
+        }
+        .cooperation-list {
+            padding: 40px calc(5% - 25px);
+
+            .cooperation {
+                padding: 0 25px 25px 25px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    .cooperation-page {
+
+        &__top {
+            padding: 0 15px 15px 15px;
+
+            &:before {
+                left: 15px;
+            }
+        }
+        .cooperation-list {
+            padding: 40px 0;
+
+            .cooperation {
+                padding: 0 15px 25px 15px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .cooperation-page {
+
+        &__top {
+            padding: 0 15px 15px 15px;
+
+            &:before {
+                left: 15px;
+            }
+        }
+        .cooperation-list {
+            padding: 30px 5px;
+
+            .cooperation {
+                padding: 0 10px 25px 10px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .cooperation-page {
+
+        &__top {
+            padding: 0 15px 15px 15px;
+
+            &:before {
+                left: 15px;
+            }
+            .title {
+                font-size: 26px;
+            }
+        }
+        .cooperation-list {
+            padding: 30px 7.5px;
+
+            .cooperation {
+                padding: 0 7.5px 25px 7.5px;
+
+                &__image {
+                    margin-bottom: 20px;
+                }
+                &__title {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                }
+                &__description {
+                    font-size: 16px;
+                    line-height: normal;
+                }
+                &__link {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
