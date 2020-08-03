@@ -12,6 +12,8 @@ import {NewsProjectComponent} from './components/news_project/news_project.compo
 import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 import {CooperationComponent} from './components/cooperation/cooperation.component';
+import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
+import {YourOffersComponents} from './components/your_offers/your_offers.component';
 
 const routes: Routes = [
   {
@@ -62,6 +64,14 @@ const routes: Routes = [
   {
     path: 'cooperation',
     component: CooperationComponent
+  },
+  {
+    path: 'what-i-get',
+    component: WhatIGetComponent
+  },
+  {
+    path: 'your-offers',
+    component: YourOffersComponents
   }
 ];
 

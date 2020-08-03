@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {NewsProjectComponent} from '../news_project/news_project.component';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-cooperation',

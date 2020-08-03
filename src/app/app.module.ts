@@ -42,6 +42,8 @@ import {NewsProjectComponent} from './components/news_project/news_project.compo
 import {NewsProjectInfoComponent} from './components/news_project_info/news_project_info.component';
 import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
 import {CooperationComponent} from './components/cooperation/cooperation.component';
+import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
+import {YourOffersComponents} from './components/your_offers/your_offers.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import {CooperationComponent} from './components/cooperation/cooperation.compone
     NewsProjectComponent,
     NewsProjectInfoComponent,
     TelephoneNumberPipe,
-    CooperationComponent
+    CooperationComponent,
+    WhatIGetComponent,
+    YourOffersComponents
   ],
   imports: [
     BrowserModule,
