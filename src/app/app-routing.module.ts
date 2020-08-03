@@ -14,6 +14,7 @@ import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component'
 import {CooperationComponent} from './components/cooperation/cooperation.component';
 import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
 import {YourOffersComponents} from './components/your_offers/your_offers.component';
+import {FaqComponent} from './components/faq/faq.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: 'your-offers',
     component: YourOffersComponents
+  },
+  {
+    path: 'faq',
+    component: FaqComponent
   }
 ];
 

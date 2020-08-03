@@ -44,6 +44,7 @@ import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
 import {CooperationComponent} from './components/cooperation/cooperation.component';
 import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
 import {YourOffersComponents} from './components/your_offers/your_offers.component';
+import {FaqComponent} from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {YourOffersComponents} from './components/your_offers/your_offers.compone
     TelephoneNumberPipe,
     CooperationComponent,
     WhatIGetComponent,
-    YourOffersComponents
+    YourOffersComponents,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
