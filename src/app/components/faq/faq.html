@@ -89,22 +89,22 @@
         <div class="faq__form-title col-12">Задать свой вопрос</div>
         <div class="faq__form-fields col-12">
           <div class="faq__form-field col-12">
-            <input type="text" class="faq__form-input error d-flex col-12" placeholder="Ваше имя">
+            <input type="text" [ngModel]='params.name' class="faq__form-input error d-flex col-12" placeholder="Ваше имя">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
           <div class="faq__form-field col-12">
-            <input type="text" class="faq__form-input d-flex col-12" placeholder="Номер телефона">
+            <input type="text" [ngModel]='params.phone' class="faq__form-input d-flex col-12" placeholder="Номер телефона">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
           <div class="faq__form-field col-12">
-            <input type="text" class="faq__form-input d-flex col-12" placeholder="Ваш город">
+            <input type="text" [ngModel]='params.city' class="faq__form-input d-flex col-12" placeholder="Ваш город">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
           <div class="faq__form-field col-12">
-            <textarea class="faq__form-textarea col-12" placeholder="Ваш вопрос"></textarea>
+            <textarea [ngModel]='params.question' class="faq__form-textarea col-12" placeholder="Ваш вопрос"></textarea>
           </div>
 
-          <input type="submit" class="faq__form-button d-flex transition" value="Отправить">
+          <input type="submit" (click)="sendQuestion()" class="faq__form-button d-flex transition" value="Отправить">
 
           <div class="form-checkbox">
             <input id="professional" type="checkbox" class="form-checkbox__input" checked="">

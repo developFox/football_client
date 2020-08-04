@@ -5,5 +5,15 @@ import {Component} from '@angular/core';
   templateUrl: './faq.html',
 })
 export class FaqComponent {
+  params = {
+    name: '',
+    phone: '',
+    city: '',
+    question: ''
+  };
 
+
+  sendQuestion() {
+    // заявка отправлена
+  }
 }
