@@ -15,6 +15,8 @@ import {CooperationComponent} from './components/cooperation/cooperation.compone
 import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
 import {YourOffersComponents} from './components/your_offers/your_offers.component';
 import {FaqComponent} from './components/faq/faq.component';
+import {ContactsComponent} from './components/contacts/contacts.component';
+import {MapComponent} from './components/map/map.component';
 
 const routes: Routes = [
   {
@@ -77,6 +79,14 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
   }
 ];
 
