@@ -9,9 +9,9 @@ export class CoachInfoService {
   }
 
   // получение информации о тренере
-  public getCoachInfo() {
+  public getCoachInfo(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/get-coach-info', {})
+      this.httpService.prepareQuery('api/get-coach-info', data)
         .then((result) => {
             resolve(result);
           },
@@ -22,5 +22,4 @@ export class CoachInfoService {
         );
     });
   }
-
 }

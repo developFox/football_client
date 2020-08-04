@@ -1,1 +1,724 @@
-Информация о тренере
+<section class="coachInfo-page col-12">
+  <div class="trainer-page__top d-flex flex-wrap col-12">
+    <div class="trainer-page__info-block d-flex flex-wrap">
+      <div class="trainer-image d-flex">
+        <img [src]="'/src/assets/images/'+coachInfo.images" class="trainer-image__img" alt="coachInfo photo">
+      </div>
+
+      <div class="trainer-page__info d-flex flex-wrap">
+        <div class="trainer-page__info-top d-flex">
+          <span class="trainer-page__info-id d-flex">#{{coachInfo.id}}</span>
+          <span class="trainer-page__info-text">{{coachInfo.year}}</span>
+          <span class="trainer-page__info-text">{{coachInfo.region}}</span>
+          <span class="trainer-page__info-text">{{coachInfo.city}}</span>
+        </div>
+
+        <span class="trainer-page__info-name">{{coachInfo.fio}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="trainer-page__tabs-wrapper d-flex flex-wrap col-12">
+    <div class="trainer-page__tabs-text d-none d-lg-flex">Информация</div>
+
+    <div class="trainer-page__tabs-block d-flex col">
+      <ul class="nav trainer-page__tabs d-none d-md-flex flex-wrap">
+        <li class="trainer-page__tab">
+          <a class="trainer-page__tab-link active d-flex transition" data-toggle="tab" href="#main">
+            Оснвовное
+          </a>
+        </li>
+        <li class="trainer-page__tab">
+          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#competition">
+            Соревнования
+          </a>
+        </li>
+        <li class="trainer-page__tab">
+          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#awards">
+            Награды
+          </a>
+        </li>
+        <li class="trainer-page__tab">
+          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#photos">
+            Фотографии
+          </a>
+        </li>
+        <li class="trainer-page__tab">
+          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#videos">
+            Видео
+          </a>
+        </li>
+      </ul>
+
+      <div class="trainer-page__tabs-email d-flex transition"><span class="icon-mail"></span> Написать тренеру</div>
+    </div>
+  </div>
+
+  <div class="trainer-page__content-wrapper d-flex flex-wrap col-12">
+    <div class="trainer-page__aside">
+      <div class="verified-account d-flex col-12" *ngIf="coachInfo.confirmation==='1'">
+        <span class="icon-check"></span>
+        <span class="verified-account__text">Подтвержденный аккаунт</span>
+      </div>
+
+      <div class="notverified-account d-flex col-12" *ngIf="coachInfo.confirmation==='0'">
+          <span class="icon-question"></span>
+          <span class="notverified-account__text">Аккаунт не подтвержден</span>
+      </div>
+
+      <div class="aside-items d-flex flex-wrap col-12">
+        <div class="aside-items__item col-12 col-sm-6 col-lg-12">
+          <span class="aside-items__item-title col-12">Дата рождения</span>
+          <div class="aside-items__item-block col-12">
+            {{coachInfo.birth_date}}
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-lg-12">
+          <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
+          <div class="aside-items__item-block col-12">
+            ДЮСШ №2, “Заря”11111
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-lg-12">
+          <span class="aside-items__item-title col-12">Электронная почта</span>
+          <div class="aside-items__item-block col-12">
+            <a href="mailto:nikitinmama@gmail.com">{{coachInfo.email}}</a>
+          </div>
+        </div>
+
+        <div class="aside-items__item col-12 col-sm-6 col-lg-12">
+          <span class="aside-items__item-title col-12">Номер телефона</span>
+          <div class="aside-items__item-block col-12">
+            <a href="tel:+79564536280">{{coachInfo.phone|telephoneNumber}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trainer-page__content d-flex flex-wrap">
+      <div class="tab-content profile-edit__tabs-content col-12">
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Оснвовное
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade show active col-12" id="main">
+          <div class="teams col-12">
+            <span class="teams__title col-12">Команды</span>
+
+            <div class="teams__list col-12">
+              <div class="teams__item d-flex col-12">
+                <div class="teams__item-info col">
+                  <span class="teams__item-title">ДЮСШ №2</span>
+                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
+                  <span class="teams__item-city">г. Елизово</span>
+                </div>
+                <div class="teams__item-statistic d-flex flex-wrap">
+                  <span class="teams__item-text">коэффициент команды</span>
+                  <span class="teams__item-value">4.3</span>
+                </div>
+              </div>
+
+              <div class="teams__item d-flex col-12">
+                <div class="teams__item-info col">
+                  <span class="teams__item-title">ДЮСШ №2</span>
+                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
+                  <span class="teams__item-city">г. Елизово</span>
+                </div>
+                <div class="teams__item-statistic d-flex flex-wrap">
+                  <span class="teams__item-text">коэффициент команды</span>
+                  <span class="teams__item-value">4.3</span>
+                </div>
+              </div>
+
+              <div class="teams__item d-flex col-12">
+                <div class="teams__item-info col">
+                  <span class="teams__item-title">ДЮСШ №2</span>
+                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
+                  <span class="teams__item-city">г. Елизово</span>
+                </div>
+                <div class="teams__item-statistic d-flex flex-wrap">
+                  <span class="teams__item-text">коэффициент команды</span>
+                  <span class="teams__item-value">4.3</span>
+                </div>
+              </div>
+
+              <div class="teams__item d-flex col-12">
+                <div class="teams__item-info col">
+                  <span class="teams__item-title">ДЮСШ №2</span>
+                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
+                  <span class="teams__item-city">г. Елизово</span>
+                </div>
+                <div class="teams__item-statistic d-flex flex-wrap">
+                  <span class="teams__item-text">коэффициент команды</span>
+                  <span class="teams__item-value">4.3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trainer-page__description col-12">
+            <span class="trainer-page__description-title col-12">Краткая биография</span>
+            <p class="trainer-page__description-text col-12">Окончил факультет физической культуры и спорта
+              Дальневосточного государственного университета. Учитель физкультуры в средней школе г. Елизово. В
+              дальнейшем футбольный тренер ДЮСШ «Заря» г. Елизово.</p>
+            <p class="trainer-page__description-text col-12">Команды тренера регулярно занимали призовые места на
+              областных соревнованиях по футболу. Имеет награды администрации города и области. С 2015г. проживает в г.
+              Новокузнецк, Кемеровская область. В настоящее время тренирует любительскую команду Заводского района г.
+              Новокузнецк. Тренерский стаж 28 лет.</p>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Соревнования
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="competition">
+          <div class="competition-results col-12">
+            <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
+
+            <div class="competition-results__filter d-flex flex-wrap col-12">
+              <div class="competition-results__filter-item d-flex transition active">Все</div>
+              <div class="competition-results__filter-item d-flex transition">2019</div>
+              <div class="competition-results__filter-item d-flex transition">2018</div>
+              <div class="competition-results__filter-item d-flex transition">2017</div>
+              <div class="competition-results__filter-item d-flex transition">2016</div>
+            </div>
+
+            <div class="competition-list col-12">
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                </div>
+                <div class="competition-item__place">1 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-on"></span>
+                  <span class="competition-item__title-text">Второй дивизион</span>
+                </div>
+                <div class="competition-item__place">3 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Wonderful Life</span>
+                </div>
+                <div class="competition-item__place">2 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Fire Water Burn</span>
+                </div>
+                <div class="competition-item__place">12 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-on"></span>
+                  <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
+                </div>
+                <div class="competition-item__place">1 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">I Woke Up Today</span>
+                </div>
+                <div class="competition-item__place">2 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item__title d-flex">
+                  <span class="competition-item__title-icon icon-star-off"></span>
+                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                </div>
+                <div class="competition-item__place">1 место</div>
+                <div class="competition-item__date d-flex">
+                  21/08/18
+                  <a href="" class="competition-item__info d-flex">
+                    <span class="icon-info"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="competition-results__more-wrapper col-12">
+              <div class="competition-results__more d-flex transition col-12">
+                <span class="icon-arrow-down transition"></span>
+                Загрузить больше
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Награды
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="awards">
+          <div class="awards col-12">
+            <span class="awards__title col-12">Награды тренера</span>
+
+            <div class="awards__list d-flex flex-wrap col-12">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="awards__item-image col-12">
+                  <img src="images/award.png" alt="award photo">
+                </div>
+                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
+                <span class="awards__item-date col-12">24/01/18</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab transition d-flex d-md-none col-12">
+          Фотографии
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="photos">
+          <div class="photos col-12">
+            <span class="photos__title col-12">Фотографии с соревнований</span>
+
+            <div class="big-slider col-12">
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+              <div class="big-slider__slide d-flex col-12">
+                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              </div>
+            </div>
+
+            <div class="small-slider d-flex flex-wrap col-12">
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+              <div class="small-slider__slide">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-tab last transition d-flex d-md-none col-12">
+          Видео
+          <span class="icon-arrow-down transition"></span>
+        </div>
+        <div class="tab-pane fade col-12" id="videos">
+          <div class="videos col-12">
+            <span class="videos__title col-12">Видео с соревнований</span>
+
+            <div class="videos__list d-flex flex-wrap col-12">
+              <div class="videos__list-item col-12 col-sm-6">
+                <div class="video">
+                  <div class="video__inner col-12 js-videoWrapper">
+                    <div class="video__container js-videoIframe"
+                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
+                         data-video-id="QgoJCOcsuCE" id="136">
+
+                      <img src="images/play-icon.png" class="video__button" alt="play icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="videos__list-item col-12 col-sm-6">
+                <div class="video">
+                  <div class="video__inner col-12 js-videoWrapper">
+                    <div class="video__container js-videoIframe"
+                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
+                         data-video-id="QgoJCOcsuCE" id="137">
+
+                      <img src="images/play-icon.png" class="video__button" alt="play icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="videos__list-item col-12 col-sm-6">
+                <div class="video">
+                  <div class="video__inner col-12 js-videoWrapper">
+                    <div class="video__container js-videoIframe"
+                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
+                         data-video-id="QgoJCOcsuCE" id="138">
+
+                      <img src="images/play-icon.png" class="video__button" alt="play icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="videos__list-item col-12 col-sm-6">
+                <div class="video">
+                  <div class="video__inner col-12 js-videoWrapper">
+                    <div class="video__container js-videoIframe"
+                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
+                         data-video-id="QgoJCOcsuCE" id="139">
+
+                      <img src="images/play-icon.png" class="video__button" alt="play icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+<!-- Slick -->
+<script src="slick/slick.min.js"></script>
+
+<!-- Video youtube -->
+<script src="https://www.youtube.com/coachInfo_api"></script>
+
+<script>
+  $(document).ready(function () {
+
+    <!-- Mobile tabs  -->
+    $('.trainer-page__content .tab-content .mobile-tab').click(function () {
+
+      if ($(this).hasClass('active')) {
+        $(this).toggleClass('active');
+        $(this).next().slideToggle();
+      } else {
+        $('.trainer-page__content .tab-content .mobile-tab.active').next().slideToggle('fast');
+        $('.trainer-page__content .tab-content .mobile-tab.active').toggleClass('active');
+        $(this).toggleClass('active');
+        $(this).next().slideDown(400, "linear", function () {
+          let thisTopPos = $(this).offset().top;
+
+          $('body, html').animate({
+            scrollTop: thisTopPos - 50
+          }, 400);
+        });
+      }
+    });
+    <!-- Mobile tabs  (END) -->
+
+    $('.compare-slider').slick({
+      autoplay: false,
+      infinite: true,
+      speed: 300,
+      draggable: true,
+      dots: false,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    $('.big-slider').slick({
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      asNavFor: '.small-slider'
+    });
+
+    $('.small-slider').slick({
+      infinite: false,
+      slidesToShow: 10,
+      slidesToScroll: 1,
+      arrows: true,
+      asNavFor: '.big-slider',
+      focusOnSelect: true,
+      responsive: [
+        {
+          breakpoint: 1540,
+          settings: {
+            slidesToShow: 8,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 400,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    $('.big-slider').slick('resize');
+    $('.small-slider').slick('resize');
+
+    $('[href="#photos"]').on("shown.bs.tab", function (e) {
+      $('.big-slider').slick("refresh");
+      $('.small-slider').slick("refresh");
+    })
+
+    $('.mobile-tab').click(function () {
+      $('.big-slider').slick("refresh");
+      $('.small-slider').slick("refresh");
+    });
+
+    /* Youtube coachInfo */
+    var k = []; // id local coachInfo
+    var currentActivecoachInfo = '';
+    var i = 0;
+
+    function oncoachInfoStateChange(event) {
+
+      if (event.data == 1) {
+
+        k.forEach(function (elem) {
+          firstvideo = document.getElementById(elem);
+          firstvideo.pause();
+        });
+
+        if (currentActivecoachInfo != event.target && i <= 0) {
+          currentActivecoachInfo = event.target;
+          i++;
+        } else {
+          if (currentActivecoachInfo != event.target) {
+            currentActivecoachInfo.pauseVideo();
+            currentActivecoachInfo = event.target;
+            // currentActivecoachInfo.playVideo();
+          }
+        }
+      }
+    }
+
+    var coachInfos = [];
+
+    $("body").on("click", ".js-videoIframe", function () {
+      let $coachInfoBlock = $(this);
+
+      coachInfos.push(new YT.coachInfo($coachInfoBlock.attr('id'), {
+        videoId: $coachInfoBlock.data('video-id'),
+        coachInfoVars: {
+          autoplay: 1,
+          rel: 0
+        },
+        events: {
+          onStateChange: oncoachInfoStateChange
+        }
+      }));
+    });
+
+    /* Youtube coachInfo (END) */
+
+  });
+</script>

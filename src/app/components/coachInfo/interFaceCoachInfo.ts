@@ -1,4 +1,12 @@
 interface InterFaceCoachInfo {
-  sale: number;
-  branch: number;
+  id: string;
+  images: string;
+  year: string;
+  region: string;
+  city: string;
+  fio: string;
+  birth_date: string;
+  email: string;
+  confirmation: string;
+  phone: string;
 }

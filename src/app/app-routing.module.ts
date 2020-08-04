@@ -17,6 +17,7 @@ import {YourOffersComponents} from './components/your_offers/your_offers.compone
 import {FaqComponent} from './components/faq/faq.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
+import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'player/:id',
     component: PlayerInfoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'coach/:id',
+    component: CoachInfoComponent,
     canActivate: [AuthGuard]
   },
   {
