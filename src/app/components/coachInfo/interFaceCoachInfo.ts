@@ -9,4 +9,7 @@ interface InterFaceCoachInfo {
   email: string;
   confirmation: string;
   phone: string;
+  videosList: any;
+  imagesList: any;
+  awardsList: { photo: string, name: string }[];
 }

@@ -62,8 +62,8 @@
       </div>
 
       <div class="notverified-account d-flex col-12" *ngIf="coachInfo.confirmation==='0'">
-          <span class="icon-question"></span>
-          <span class="notverified-account__text">Аккаунт не подтвержден</span>
+        <span class="icon-question"></span>
+        <span class="notverified-account__text">Аккаунт не подтвержден</span>
       </div>
 
       <div class="aside-items d-flex flex-wrap col-12">
@@ -302,52 +302,11 @@
             <span class="awards__title col-12">Награды тренера</span>
 
             <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let awards of coachInfo.awardsList">
                 <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
+                  <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
                 </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
-              </div>
-
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="awards__item-image col-12">
-                  <img src="images/award.png" alt="award photo">
-                </div>
-                <span class="awards__item-title col-12">Sed ut perspiciatis unde omnis iste natus</span>
-                <span class="awards__item-date col-12">24/01/18</span>
+                <span class="awards__item-title col-12">{{awards.name}}</span>
               </div>
             </div>
           </div>
@@ -361,95 +320,16 @@
             <span class="photos__title col-12">Фотографии с соревнований</span>
 
             <div class="big-slider col-12">
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
-              </div>
-              <div class="big-slider__slide d-flex col-12">
-                <img src="images/slider-img.png" class="big-slider__slide-image" alt="slider image">
+              <div class="big-slider__slide d-flex col-12" *ngFor="let img of coachInfo.imagesList">
+                <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image" alt="slider image">
               </div>
             </div>
 
             <div class="small-slider d-flex flex-wrap col-12">
               <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
-                </div>
-              </div>
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition">
-                  <img src="images/slider-img.png" class="small-slider__slide-image" alt="slider image">
+                <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of coachInfo.imagesList">
+                  <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
+                       alt="slider image">
                 </div>
               </div>
             </div>
@@ -464,54 +344,13 @@
             <span class="videos__title col-12">Видео с соревнований</span>
 
             <div class="videos__list d-flex flex-wrap col-12">
-              <div class="videos__list-item col-12 col-sm-6">
+              <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of coachInfo.videosList">
                 <div class="video">
                   <div class="video__inner col-12 js-videoWrapper">
-                    <div class="video__container js-videoIframe"
-                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
-                         data-video-id="QgoJCOcsuCE" id="136">
-
-                      <img src="images/play-icon.png" class="video__button" alt="play icon">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="videos__list-item col-12 col-sm-6">
-                <div class="video">
-                  <div class="video__inner col-12 js-videoWrapper">
-                    <div class="video__container js-videoIframe"
-                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
-                         data-video-id="QgoJCOcsuCE" id="137">
-
-                      <img src="images/play-icon.png" class="video__button" alt="play icon">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="videos__list-item col-12 col-sm-6">
-                <div class="video">
-                  <div class="video__inner col-12 js-videoWrapper">
-                    <div class="video__container js-videoIframe"
-                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
-                         data-video-id="QgoJCOcsuCE" id="138">
-
-                      <img src="images/play-icon.png" class="video__button" alt="play icon">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="videos__list-item col-12 col-sm-6">
-                <div class="video">
-                  <div class="video__inner col-12 js-videoWrapper">
-                    <div class="video__container js-videoIframe"
-                         style="background-image: url('http://img.youtube.com/vi/QgoJCOcsuCE/maxresdefault.jpg')"
-                         data-video-id="QgoJCOcsuCE" id="139">
-
-                      <img src="images/play-icon.png" class="video__button" alt="play icon">
-                    </div>
+                    <video #videoPlayer class="video__container js-videoIframe" controls>
+                      <source [src]="video"
+                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    </video>
                   </div>
                 </div>
               </div>

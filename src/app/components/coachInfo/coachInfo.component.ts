@@ -17,7 +17,10 @@ export class CoachInfoComponent {
     birth_date: '',
     email: '',
     confirmation: '',
-    phone: ''
+    phone: '',
+    videosList: [],
+    imagesList: [],
+    awardsList: []
   };
   coachId: null;
 
