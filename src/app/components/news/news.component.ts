@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsService} from './news.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-news',
@@ -8,7 +9,9 @@ import {NewsService} from './news.service';
 export class NewsComponent implements OnInit {
   news: InterFaceNews[] = [];
 
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: NewsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Новости';
   }
 
   ngOnInit() {

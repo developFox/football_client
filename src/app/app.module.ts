@@ -43,10 +43,12 @@ import {NewsProjectInfoComponent} from './components/news_project_info/news_proj
 import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
 import {CooperationComponent} from './components/cooperation/cooperation.component';
 import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
-import {YourOffersComponents} from './components/your_offers/your_offers.component';
+import {YourOffersComponent} from './components/your_offers/your_offers.component';
 import {FaqComponent} from './components/faq/faq.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
+import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
+import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-breadcrumbs';
 
 @NgModule({
   declarations: [
@@ -72,10 +74,11 @@ import {MapComponent} from './components/map/map.component';
     TelephoneNumberPipe,
     CooperationComponent,
     WhatIGetComponent,
-    YourOffersComponents,
+    YourOffersComponent,
     FaqComponent,
     ContactsComponent,
-    MapComponent
+    MapComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +103,8 @@ import {MapComponent} from './components/map/map.component';
     CoachInfoService,
     RatingsService,
     TopService,
-    ClubsService
+    ClubsService,
+    GlobalParamsBreadcrumbs
   ],
   bootstrap: [AppComponent]
 })

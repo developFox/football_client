@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MainService} from './main.service';
 import {RatingsService} from '../ratings/ratings.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-main',
@@ -15,8 +16,10 @@ export class MainComponent {
   };
 
   constructor(private mainService: MainService,
-              private ratingsService: RatingsService) {
+              private ratingsService: RatingsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
     this.getPlayers();
+    this.globalParamsBreadcrumbs.title = '';
   }
 
   getPlayers() {

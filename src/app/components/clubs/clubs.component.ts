@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClubsService} from './clubs.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-clubs',
@@ -12,7 +13,9 @@ export class ClubsComponent {
     sort: 'id',
   };
 
-  constructor(private clubsService: ClubsService) {
+  constructor(private clubsService: ClubsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Клубы';
     this.getClubs();
   }
 

@@ -13,7 +13,7 @@ import {NewsProjectInfoComponent} from './components/news_project_info/news_proj
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 import {CooperationComponent} from './components/cooperation/cooperation.component';
 import {WhatIGetComponent} from './components/whatIGet/whatIGet.component';
-import {YourOffersComponents} from './components/your_offers/your_offers.component';
+import {YourOffersComponent} from './components/your_offers/your_offers.component';
 import {FaqComponent} from './components/faq/faq.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
@@ -80,7 +80,7 @@ const routes: Routes = [
   },
   {
     path: 'your-offers',
-    component: YourOffersComponents
+    component: YourOffersComponent
   },
   {
     path: 'faq',

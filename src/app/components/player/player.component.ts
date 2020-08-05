@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PlayerService} from './player.service';
 import {Options} from 'ng5-slider';
 import {ClubsService} from '../clubs/clubs.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-player',
@@ -54,7 +55,9 @@ export class PlayerComponent {
   };
 
   constructor(private playerService: PlayerService,
-              private clubsService: ClubsService) {
+              private clubsService: ClubsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Каталог';
     this.getPlayers();
 
     this.playerService.getRegions().then((data: InterFaceRegions[]) => {

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RatingsService} from './ratings.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-ratings',
@@ -16,7 +17,9 @@ export class RatingsComponent {
   years = [];
   showFilter = true;
 
-  constructor(private ratingsService: RatingsService) {
+  constructor(private ratingsService: RatingsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Рейтинг';
     this.getPlayers();
     this.getPlayersFilter();
 

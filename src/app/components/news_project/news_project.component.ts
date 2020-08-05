@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NewsService} from '../news/news.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-news-project',
@@ -9,7 +10,9 @@ export class NewsProjectComponent {
   news: InterFaceNewsProject[] = [];
   limit: 5;
 
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: NewsService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Новости проекта';
     this.getNews();
   }
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CoachService} from './coach.service';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-coaches',
@@ -8,7 +9,9 @@ import {CoachService} from './coach.service';
 export class CoachesComponent implements OnInit {
   coaches: InterFacePlayers[] = [];
 
-  constructor(private coachService: CoachService) {
+  constructor(private coachService: CoachService,
+              public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Каталог тренеров';
   }
 
   ngOnInit() {
