@@ -6,8 +6,6 @@ interface InterFacePlayerInfo {
   fio: string;
   coefficient: string;
   images: string;
-  played: string;
-  wins: string;
   birth_date: string;
   address: string;
   mother: string;
@@ -31,4 +29,11 @@ interface InterFacePlayerInfo {
   }[];
   coach: string;
   coach_img: string;
+  statistics: {
+    played: string;
+    wins: string;
+    draw: string;
+    goals: string;
+    pass: string;
+  };
 }

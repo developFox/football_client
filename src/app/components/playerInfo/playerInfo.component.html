@@ -35,7 +35,7 @@
         </div>
         <div class="main-statistic__item-info d-flex">
           <span class="main-statistic__item-title">сыграно</span>
-          <span class="main-statistic__item-value">{{player.played}}</span>
+          <span class="main-statistic__item-value">{{player.statistics.played}}</span>
         </div>
       </div>
       <div class="main-statistic__item d-flex">
@@ -44,7 +44,7 @@
         </div>
         <div class="main-statistic__item-info d-flex">
           <span class="main-statistic__item-title">побед</span>
-          <span class="main-statistic__item-value">{{player.wins}}</span>
+          <span class="main-statistic__item-value">{{player.statistics.wins}}</span>
         </div>
       </div>
     </div>
@@ -283,7 +283,7 @@
               </div>
               <div class="competition-statistic__item-info d-flex">
                 <span class="competition-statistic__item-title">матчей</span>
-                <span class="competition-statistic__item-value">201</span>
+                <span class="competition-statistic__item-value">{{player.statistics.played}}</span>
               </div>
             </div>
             <div class="competition-statistic__item d-flex col">
@@ -292,7 +292,7 @@
               </div>
               <div class="competition-statistic__item-info d-flex">
                 <span class="competition-statistic__item-title">побед</span>
-                <span class="competition-statistic__item-value">201</span>
+                <span class="competition-statistic__item-value">{{player.statistics.wins}}</span>
               </div>
             </div>
             <div class="competition-statistic__item d-flex col">
@@ -301,7 +301,7 @@
               </div>
               <div class="competition-statistic__item-info d-flex">
                 <span class="competition-statistic__item-title">ничей</span>
-                <span class="competition-statistic__item-value">201</span>
+                <span class="competition-statistic__item-value">{{player.statistics.draw}}</span>
               </div>
             </div>
             <div class="competition-statistic__item d-flex col">
@@ -310,7 +310,7 @@
               </div>
               <div class="competition-statistic__item-info d-flex">
                 <span class="competition-statistic__item-title">голов</span>
-                <span class="competition-statistic__item-value">201</span>
+                <span class="competition-statistic__item-value">{{player.statistics.goals}}</span>
               </div>
             </div>
             <div class="competition-statistic__item d-flex col">
@@ -319,7 +319,7 @@
               </div>
               <div class="competition-statistic__item-info d-flex">
                 <span class="competition-statistic__item-title">передач</span>
-                <span class="competition-statistic__item-value">201</span>
+                <span class="competition-statistic__item-value">{{player.statistics.pass}}</span>
               </div>
             </div>
           </div>

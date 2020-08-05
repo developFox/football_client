@@ -15,8 +15,6 @@ export class PlayerInfoComponent {
     fio: '',
     coefficient: '',
     images: '',
-    played: '',
-    wins: '',
     birth_date: '',
     address: '',
     mother: '',
@@ -40,6 +38,13 @@ export class PlayerInfoComponent {
     }],
     coach: '',
     coach_img: '',
+    statistics: {
+      played: '',
+      wins: '',
+      draw: '',
+      goals: '',
+      pass: '',
+    }
   };
   playerId: null;
   playersSimilar: InterFacePlayers[] = [];
