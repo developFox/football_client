@@ -147,20 +147,21 @@
         <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
           <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
           <div class="aside-items__item-block col-12">
-            ДЮСШ №2, “Заря”
+            {{player.clubs}}
           </div>
         </div>
 
         <div class="aside-items__item col-12 col-sm-6 col-md-4 col-lg-12">
-          <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
+          <span class="aside-items__item-title col-12">Тренер игрока</span>
           <div class="aside-items__item-block col-12">
             <div class="aside-trainer d-flex col-12">
               <div class="aside-trainer__photo d-flex">
-                <img src="/src/assets/images/trainer-photo.png" class="aside-trainer__photo-img" alt="trainer photo">
+                <img [src]="'/src/assets/images/'+player.coach_img" class="aside-trainer__photo-img"
+                     alt="trainer photo">
               </div>
               <div class="aside-trainer__info">
-                <span class="aside-trainer__info-name">Олег Фомин</span>
-                <span class="aside-trainer__info-club">ДЮСШ №2, “Заря”</span>
+                <span class="aside-trainer__info-name">{{player.coach}}</span>
+                <span class="aside-trainer__info-club">{{player.clubs}}</span>
               </div>
             </div>
           </div>

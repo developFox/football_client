@@ -25,6 +25,7 @@ export class PlayerInfoComponent {
     father_telephone: '',
     phone: '',
     email: '',
+    clubs: '',
     imagesList: [],
     videosList: [],
     awardsList: [],
@@ -36,7 +37,9 @@ export class PlayerInfoComponent {
         markcol: '',
         val: ''
       }]
-    }]
+    }],
+    coach: '',
+    coach_img: '',
   };
   playerId: null;
   playersSimilar: InterFacePlayers[] = [];

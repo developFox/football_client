@@ -77,7 +77,7 @@
         <div class="aside-items__item col-12 col-sm-6 col-lg-12">
           <span class="aside-items__item-title col-12">Спорт. школа, клуб</span>
           <div class="aside-items__item-block col-12">
-            ДЮСШ №2, “Заря”11111
+            {{coachInfo.clubs}}
           </div>
         </div>
 
@@ -160,13 +160,9 @@
 
           <div class="trainer-page__description col-12">
             <span class="trainer-page__description-title col-12">Краткая биография</span>
-            <p class="trainer-page__description-text col-12">Окончил факультет физической культуры и спорта
-              Дальневосточного государственного университета. Учитель физкультуры в средней школе г. Елизово. В
-              дальнейшем футбольный тренер ДЮСШ «Заря» г. Елизово.</p>
-            <p class="trainer-page__description-text col-12">Команды тренера регулярно занимали призовые места на
-              областных соревнованиях по футболу. Имеет награды администрации города и области. С 2015г. проживает в г.
-              Новокузнецк, Кемеровская область. В настоящее время тренирует любительскую команду Заводского района г.
-              Новокузнецк. Тренерский стаж 28 лет.</p>
+            <p class="trainer-page__description-text col-12">
+              {{coachInfo.description}}
+            </p>
           </div>
         </div>
         <div class="mobile-tab transition d-flex d-md-none col-12">

@@ -20,7 +20,9 @@ export class CoachInfoComponent {
     phone: '',
     videosList: [],
     imagesList: [],
-    awardsList: []
+    awardsList: [],
+    description: '',
+    clubs: ''
   };
   coachId: null;
 

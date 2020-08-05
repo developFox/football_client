@@ -15,6 +15,7 @@ interface InterFacePlayerInfo {
   mother_telephone: string;
   father_telephone: string;
   phone: string;
+  clubs: string;
   email: string;
   imagesList: any;
   videosList: any;
@@ -28,4 +29,6 @@ interface InterFacePlayerInfo {
       val: string;
     }[];
   }[];
+  coach: string;
+  coach_img: string;
 }
