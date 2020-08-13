@@ -14,4 +14,5 @@ interface InterFaceCoachInfo {
   awardsList: { photo: string, name: string }[];
   description: string;
   clubs: string;
+  clubs_list: { name: string, string: string }[];
 }

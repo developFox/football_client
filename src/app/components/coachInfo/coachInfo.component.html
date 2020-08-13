@@ -103,57 +103,20 @@
           Оснвовное
           <span class="icon-arrow-down transition"></span>
         </div>
-        <div class="tab-pane fade show active col-12" id="main">
+        <div class="tab-pane fade show active col-12" id="main" *ngIf="coachInfo.clubs_list.length>0">
           <div class="teams col-12">
             <span class="teams__title col-12">Команды</span>
 
             <div class="teams__list col-12">
-              <div class="teams__item d-flex col-12">
+              <div class="teams__item d-flex col-12" *ngFor="let clubs of coachInfo.clubs_list">
                 <div class="teams__item-info col">
-                  <span class="teams__item-title">ДЮСШ №2</span>
-                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
-                  <span class="teams__item-city">г. Елизово</span>
+                  <span class="teams__item-club">{{clubs.name}}</span>
+                  <span class="teams__item-city">{{clubs.branch}}</span>
                 </div>
-                <div class="teams__item-statistic d-flex flex-wrap">
+               <!-- <div class="teams__item-statistic d-flex flex-wrap">
                   <span class="teams__item-text">коэффициент команды</span>
                   <span class="teams__item-value">4.3</span>
-                </div>
-              </div>
-
-              <div class="teams__item d-flex col-12">
-                <div class="teams__item-info col">
-                  <span class="teams__item-title">ДЮСШ №2</span>
-                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
-                  <span class="teams__item-city">г. Елизово</span>
-                </div>
-                <div class="teams__item-statistic d-flex flex-wrap">
-                  <span class="teams__item-text">коэффициент команды</span>
-                  <span class="teams__item-value">4.3</span>
-                </div>
-              </div>
-
-              <div class="teams__item d-flex col-12">
-                <div class="teams__item-info col">
-                  <span class="teams__item-title">ДЮСШ №2</span>
-                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
-                  <span class="teams__item-city">г. Елизово</span>
-                </div>
-                <div class="teams__item-statistic d-flex flex-wrap">
-                  <span class="teams__item-text">коэффициент команды</span>
-                  <span class="teams__item-value">4.3</span>
-                </div>
-              </div>
-
-              <div class="teams__item d-flex col-12">
-                <div class="teams__item-info col">
-                  <span class="teams__item-title">ДЮСШ №2</span>
-                  <span class="teams__item-club">Команда “Заря” (7-10 лет)</span>
-                  <span class="teams__item-city">г. Елизово</span>
-                </div>
-                <div class="teams__item-statistic d-flex flex-wrap">
-                  <span class="teams__item-text">коэффициент команды</span>
-                  <span class="teams__item-value">4.3</span>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
@@ -298,7 +261,8 @@
             <span class="awards__title col-12">Награды тренера</span>
 
             <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let awards of coachInfo.awardsList">
+              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
+                   *ngFor="let awards of coachInfo.awardsList">
                 <div class="awards__item-image col-12">
                   <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
                 </div>
@@ -317,13 +281,15 @@
 
             <div class="big-slider col-12">
               <div class="big-slider__slide d-flex col-12" *ngFor="let img of coachInfo.imagesList">
-                <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image" alt="slider image">
+                <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image"
+                     alt="slider image">
               </div>
             </div>
 
             <div class="small-slider d-flex flex-wrap col-12">
               <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of coachInfo.imagesList">
+                <div class="small-slider__slide-inner d-flex col-12 transition"
+                     *ngFor="let img of coachInfo.imagesList">
                   <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
                        alt="slider image">
                 </div>

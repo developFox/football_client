@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {CoachInfoService} from './coachInfo.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-coach-info',
@@ -22,12 +23,16 @@ export class CoachInfoComponent {
     imagesList: [],
     awardsList: [],
     description: '',
-    clubs: ''
+    clubs: '',
+    clubs_list: [{name: '', string: ''}]
   };
   coachId: null;
 
   constructor(private coachInfoService: CoachInfoService,
-              private router: ActivatedRoute) {
+              private router: ActivatedRoute,
+              private globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
+    this.globalParamsBreadcrumbs.title = 'Информация о тренере';
+
     this.router.params.subscribe(
       (params: Params): void => {
         this.coachId = params.id;
