@@ -113,10 +113,10 @@
                   <span class="teams__item-club">{{clubs.name}}</span>
                   <span class="teams__item-city">{{clubs.branch}}</span>
                 </div>
-               <!-- <div class="teams__item-statistic d-flex flex-wrap">
-                  <span class="teams__item-text">коэффициент команды</span>
-                  <span class="teams__item-value">4.3</span>
-                </div>-->
+                <!-- <div class="teams__item-statistic d-flex flex-wrap">
+                   <span class="teams__item-text">коэффициент команды</span>
+                   <span class="teams__item-value">4.3</span>
+                 </div>-->
               </div>
             </div>
           </div>
@@ -133,110 +133,30 @@
           <span class="icon-arrow-down transition"></span>
         </div>
         <div class="tab-pane fade col-12" id="competition">
-          <div class="competition-results col-12">
+          <div class="competition-results col-12" *ngIf="coachInfo.tournament.listYear.length>0">
             <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
 
             <div class="competition-results__filter d-flex flex-wrap col-12">
-              <div class="competition-results__filter-item d-flex transition active">Все</div>
-              <div class="competition-results__filter-item d-flex transition">2019</div>
-              <div class="competition-results__filter-item d-flex transition">2018</div>
-              <div class="competition-results__filter-item d-flex transition">2017</div>
-              <div class="competition-results__filter-item d-flex transition">2016</div>
+              <div (click)="changeTournament('')" [ngClass]="{'active':currentTournamentYear===''}"
+                   class="competition-results__filter-item d-flex transition">Все
+              </div>
+              <div *ngFor="let year of coachInfo.tournament.listYear"
+                   [ngClass]="{'active':currentTournamentYear===year}"
+                   (click)="changeTournament(year)"
+                   class="competition-results__filter-item d-flex transition">{{year}}
+              </div>
             </div>
 
             <div class="competition-list col-12">
-              <div class="competition-item d-flex flex-wrap col-12">
+              <div class="competition-item d-flex flex-wrap col-12"
+                   *ngFor="let tournament of showTournament">
                 <div class="competition-item__title d-flex">
                   <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                  <span class="competition-item__title-text">{{tournament.name}}</span>
                 </div>
-                <div class="competition-item__place">1 место</div>
+                <div class="competition-item__place">{{tournament.state}} место</div>
                 <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-on"></span>
-                  <span class="competition-item__title-text">Второй дивизион</span>
-                </div>
-                <div class="competition-item__place">3 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Wonderful Life</span>
-                </div>
-                <div class="competition-item__place">2 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Fire Water Burn</span>
-                </div>
-                <div class="competition-item__place">12 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-on"></span>
-                  <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
-                </div>
-                <div class="competition-item__place">1 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">I Woke Up Today</span>
-                </div>
-                <div class="competition-item__place">2 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
-                </div>
-                <div class="competition-item__place">1 место</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
+                  {{tournament.date}}
                   <a href="" class="competition-item__info d-flex">
                     <span class="icon-info"></span>
                   </a>

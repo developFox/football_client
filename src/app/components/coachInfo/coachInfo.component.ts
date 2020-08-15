@@ -24,9 +24,12 @@ export class CoachInfoComponent {
     awardsList: [],
     description: '',
     clubs: '',
-    clubs_list: [{name: '', string: ''}]
+    clubs_list: [{name: '', string: ''}],
+    tournament: {list: [], listYear: []}
   };
   coachId: null;
+  currentTournamentYear = '';
+  showTournament = [];
 
   constructor(private coachInfoService: CoachInfoService,
               private router: ActivatedRoute,
@@ -45,10 +48,21 @@ export class CoachInfoComponent {
   getCoach() {
     this.coachInfoService.getCoachInfo({id: this.coachId}).then((data: InterFaceCoachInfo) => {
         this.coachInfo = data;
+        this.showTournament = data.tournament.list;
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по футболисту: ', error);
       });
+  }
+
+  // выбор города для турнира
+  changeTournament(data) {
+    this.currentTournamentYear = data;
+    if (data !== '') {
+      this.showTournament = this.coachInfo.tournament.list.filter(item => item.year === data[0]);
+    } else {
+      this.showTournament = this.coachInfo.tournament.list;
+    }
   }
 }
 

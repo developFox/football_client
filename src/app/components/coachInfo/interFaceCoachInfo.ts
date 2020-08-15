@@ -15,4 +15,5 @@ interface InterFaceCoachInfo {
   description: string;
   clubs: string;
   clubs_list: { name: string, string: string }[];
+  tournament: { list: { name: string, state: string, date: string, year: string }[], listYear: any };
 }
