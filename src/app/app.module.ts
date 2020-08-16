@@ -49,6 +49,12 @@ import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
 import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
 import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-breadcrumbs';
+import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -86,7 +92,8 @@ import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-br
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    SwiperModule
   ],
   providers: [
     HttpService,
@@ -104,7 +111,8 @@ import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-br
     RatingsService,
     TopService,
     ClubsService,
-    GlobalParamsBreadcrumbs
+    GlobalParamsBreadcrumbs,
+    {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]
 })

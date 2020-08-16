@@ -24,29 +24,34 @@
     <div class="trainer-page__tabs-block d-flex col">
       <ul class="nav trainer-page__tabs d-none d-md-flex flex-wrap">
         <li class="trainer-page__tab">
-          <a class="trainer-page__tab-link active d-flex transition" data-toggle="tab" href="#main">
+          <div [ngClass]="{'active':currentTab==='main'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='main'">
             Оснвовное
-          </a>
+          </div>
         </li>
         <li class="trainer-page__tab">
-          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#competition">
+          <div [ngClass]="{'active':currentTab==='competition'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='competition'">
             Соревнования
-          </a>
+          </div>
         </li>
         <li class="trainer-page__tab">
-          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#awards">
+          <div [ngClass]="{'active':currentTab==='awards'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='awards'">
             Награды
-          </a>
+          </div>
         </li>
         <li class="trainer-page__tab">
-          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#photos">
+          <div [ngClass]="{'active':currentTab==='photos'}" class="trainer-page__tab-link d-flex transition"
+               (click)="changeCurrentTab('photos')">
             Фотографии
-          </a>
+          </div>
         </li>
         <li class="trainer-page__tab">
-          <a class="trainer-page__tab-link d-flex transition" data-toggle="tab" href="#videos">
+          <div [ngClass]="{'active':currentTab==='videos'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='videos'">
             Видео
-          </a>
+          </div>
         </li>
       </ul>
 
@@ -99,140 +104,154 @@
 
     <div class="trainer-page__content d-flex flex-wrap">
       <div class="tab-content profile-edit__tabs-content col-12">
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Оснвовное
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade show active col-12" id="main" *ngIf="coachInfo.clubs_list.length>0">
-          <div class="teams col-12">
-            <span class="teams__title col-12">Команды</span>
-
-            <div class="teams__list col-12">
-              <div class="teams__item d-flex col-12" *ngFor="let clubs of coachInfo.clubs_list">
-                <div class="teams__item-info col">
-                  <span class="teams__item-club">{{clubs.name}}</span>
-                  <span class="teams__item-city">{{clubs.branch}}</span>
-                </div>
-                <!-- <div class="teams__item-statistic d-flex flex-wrap">
-                   <span class="teams__item-text">коэффициент команды</span>
-                   <span class="teams__item-value">4.3</span>
-                 </div>-->
-              </div>
-            </div>
+        <div *ngIf="currentTab==='main'">
+          <div class="mobile-tab transition d-flex col-12">
+            Оснвовное
+            <span class="icon-arrow-down transition"></span>
           </div>
+          <div class="tab-pane show active col-12" *ngIf="coachInfo.clubs_list.length>0">
+            <div class="teams col-12">
+              <span class="teams__title col-12">Команды</span>
 
-          <div class="trainer-page__description col-12">
-            <span class="trainer-page__description-title col-12">Краткая биография</span>
-            <p class="trainer-page__description-text col-12">
-              {{coachInfo.description}}
-            </p>
-          </div>
-        </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Соревнования
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="competition">
-          <div class="competition-results col-12" *ngIf="coachInfo.tournament.listYear.length>0">
-            <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
-
-            <div class="competition-results__filter d-flex flex-wrap col-12">
-              <div (click)="changeTournament('')" [ngClass]="{'active':currentTournamentYear===''}"
-                   class="competition-results__filter-item d-flex transition">Все
-              </div>
-              <div *ngFor="let year of coachInfo.tournament.listYear"
-                   [ngClass]="{'active':currentTournamentYear===year}"
-                   (click)="changeTournament(year)"
-                   class="competition-results__filter-item d-flex transition">{{year}}
-              </div>
-            </div>
-
-            <div class="competition-list col-12">
-              <div class="competition-item d-flex flex-wrap col-12"
-                   *ngFor="let tournament of showTournament">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">{{tournament.name}}</span>
-                </div>
-                <div class="competition-item__place">{{tournament.state}} место</div>
-                <div class="competition-item__date d-flex">
-                  {{tournament.date}}
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
+              <div class="teams__list col-12">
+                <div class="teams__item d-flex col-12" *ngFor="let clubs of coachInfo.clubs_list">
+                  <div class="teams__item-info col">
+                    <span class="teams__item-club">{{clubs.name}}</span>
+                    <span class="teams__item-city">{{clubs.branch}}</span>
+                  </div>
+                  <!-- <div class="teams__item-statistic d-flex flex-wrap">
+                     <span class="teams__item-text">коэффициент команды</span>
+                     <span class="teams__item-value">4.3</span>
+                   </div>-->
                 </div>
               </div>
             </div>
 
-            <div class="competition-results__more-wrapper col-12">
-              <div class="competition-results__more d-flex transition col-12">
-                <span class="icon-arrow-down transition"></span>
-                Загрузить больше
-              </div>
+            <div class="trainer-page__description col-12">
+              <span class="trainer-page__description-title col-12">Краткая биография</span>
+              <p class="trainer-page__description-text col-12">
+                {{coachInfo.description}}
+              </p>
             </div>
           </div>
         </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Награды
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="awards">
-          <div class="awards col-12">
-            <span class="awards__title col-12">Награды тренера</span>
+        <div *ngIf="currentTab==='competition'">
+          <div class="mobile-tab transition d-flex col-12">
+            Соревнования
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12">
+            <div class="competition-results col-12" *ngIf="coachInfo.tournament.listYear.length>0">
+              <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
 
-            <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
-                   *ngFor="let awards of coachInfo.awardsList">
-                <div class="awards__item-image col-12">
-                  <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+              <div class="competition-results__filter d-flex flex-wrap col-12">
+                <div (click)="changeTournament('')" [ngClass]="{'active':currentTournamentYear===''}"
+                     class="competition-results__filter-item d-flex transition">Все
                 </div>
-                <span class="awards__item-title col-12">{{awards.name}}</span>
+                <div *ngFor="let year of coachInfo.tournament.listYear"
+                     [ngClass]="{'active':currentTournamentYear===year}"
+                     (click)="changeTournament(year)"
+                     class="competition-results__filter-item d-flex transition">{{year}}
+                </div>
+              </div>
+
+              <div class="competition-list col-12">
+                <div class="competition-item d-flex flex-wrap col-12"
+                     *ngFor="let tournament of showTournament">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">{{tournament.name}}</span>
+                  </div>
+                  <div class="competition-item__place">{{tournament.state}} место</div>
+                  <div class="competition-item__date d-flex">
+                    {{tournament.date}}
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="competition-results__more-wrapper col-12">
+                <div class="competition-results__more d-flex transition col-12">
+                  <span class="icon-arrow-down transition"></span>
+                  Загрузить больше
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Фотографии
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="photos">
-          <div class="photos col-12">
-            <span class="photos__title col-12">Фотографии с соревнований</span>
+        <div *ngIf="currentTab==='awards'">
+          <div class="mobile-tab transition d-flex col-12">
+            Награды
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12">
+            <div class="awards col-12">
+              <span class="awards__title col-12">Награды тренера</span>
 
-            <div class="big-slider col-12">
-              <div class="big-slider__slide d-flex col-12" *ngFor="let img of coachInfo.imagesList">
-                <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image"
-                     alt="slider image">
+              <div class="awards__list d-flex flex-wrap col-12">
+                <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
+                     *ngFor="let awards of coachInfo.awardsList">
+                  <div class="awards__item-image col-12">
+                    <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+                  </div>
+                  <span class="awards__item-title col-12">{{awards.name}}</span>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div *ngIf="currentTab==='photos'">
+          <div class="mobile-tab transition d-flex col-12">
+            Фотографии
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12">
+            <div class="photos col-12">
+              <span class="photos__title col-12">Фотографии с соревнований</span>
 
-            <div class="small-slider d-flex flex-wrap col-12">
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition"
-                     *ngFor="let img of coachInfo.imagesList">
-                  <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
+              <div class="big-slider col-12">
+                <div class="small-slider__slide-inner d-flex col-12 transition" >
+                  <img [src]="'http://localhost:8005/uploads/img/'+currentImg" class="small-slider__slide-image"
                        alt="slider image">
                 </div>
               </div>
+
+              <div style="height: 600px">
+                <div class="swiper-container gallery-thumbs" [swiper]="galleryThumbs" (indexChange)="changeSlider($event)">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" *ngFor="let img of coachInfo.imagesList" >
+                      <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image"
+                           alt="slider image">
+                    </div>
+                  </div>
+
+                  <div class="swiper-button-next swiper-button-white"></div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="mobile-tab last transition d-flex d-md-none col-12">
-          Видео
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="videos">
-          <div class="videos col-12">
-            <span class="videos__title col-12">Видео с соревнований</span>
+        <div *ngIf="currentTab==='videos'">
+          <div class="mobile-tab last transition d-flex col-12">
+            Видео
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12" id="videos">
+            <div class="videos col-12">
+              <span class="videos__title col-12">Видео с соревнований</span>
 
-            <div class="videos__list d-flex flex-wrap col-12">
-              <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of coachInfo.videosList">
-                <div class="video">
-                  <div class="video__inner col-12 js-videoWrapper">
-                    <video #videoPlayer class="video__container js-videoIframe" controls>
-                      <source [src]="video"
-                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                    </video>
+              <div class="videos__list d-flex flex-wrap col-12">
+                <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of coachInfo.videosList">
+                  <div class="video">
+                    <div class="video__inner col-12 js-videoWrapper">
+                      <video #videoPlayer class="video__container js-videoIframe" controls>
+                        <source [src]="video"
+                                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                      </video>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -243,203 +262,3 @@
     </div>
   </div>
 </section>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-
-<!-- Slick -->
-<script src="slick/slick.min.js"></script>
-
-<!-- Video youtube -->
-<script src="https://www.youtube.com/coachInfo_api"></script>
-
-<script>
-  $(document).ready(function () {
-
-    <!-- Mobile tabs  -->
-    $('.trainer-page__content .tab-content .mobile-tab').click(function () {
-
-      if ($(this).hasClass('active')) {
-        $(this).toggleClass('active');
-        $(this).next().slideToggle();
-      } else {
-        $('.trainer-page__content .tab-content .mobile-tab.active').next().slideToggle('fast');
-        $('.trainer-page__content .tab-content .mobile-tab.active').toggleClass('active');
-        $(this).toggleClass('active');
-        $(this).next().slideDown(400, "linear", function () {
-          let thisTopPos = $(this).offset().top;
-
-          $('body, html').animate({
-            scrollTop: thisTopPos - 50
-          }, 400);
-        });
-      }
-    });
-    <!-- Mobile tabs  (END) -->
-
-    $('.compare-slider').slick({
-      autoplay: false,
-      infinite: true,
-      speed: 300,
-      draggable: true,
-      dots: false,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 575,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    $('.big-slider').slick({
-      infinite: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      asNavFor: '.small-slider'
-    });
-
-    $('.small-slider').slick({
-      infinite: false,
-      slidesToShow: 10,
-      slidesToScroll: 1,
-      arrows: true,
-      asNavFor: '.big-slider',
-      focusOnSelect: true,
-      responsive: [
-        {
-          breakpoint: 1540,
-          settings: {
-            slidesToShow: 8,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 575,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 400,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    $('.big-slider').slick('resize');
-    $('.small-slider').slick('resize');
-
-    $('[href="#photos"]').on("shown.bs.tab", function (e) {
-      $('.big-slider').slick("refresh");
-      $('.small-slider').slick("refresh");
-    })
-
-    $('.mobile-tab').click(function () {
-      $('.big-slider').slick("refresh");
-      $('.small-slider').slick("refresh");
-    });
-
-    /* Youtube coachInfo */
-    var k = []; // id local coachInfo
-    var currentActivecoachInfo = '';
-    var i = 0;
-
-    function oncoachInfoStateChange(event) {
-
-      if (event.data == 1) {
-
-        k.forEach(function (elem) {
-          firstvideo = document.getElementById(elem);
-          firstvideo.pause();
-        });
-
-        if (currentActivecoachInfo != event.target && i <= 0) {
-          currentActivecoachInfo = event.target;
-          i++;
-        } else {
-          if (currentActivecoachInfo != event.target) {
-            currentActivecoachInfo.pauseVideo();
-            currentActivecoachInfo = event.target;
-            // currentActivecoachInfo.playVideo();
-          }
-        }
-      }
-    }
-
-    var coachInfos = [];
-
-    $("body").on("click", ".js-videoIframe", function () {
-      let $coachInfoBlock = $(this);
-
-      coachInfos.push(new YT.coachInfo($coachInfoBlock.attr('id'), {
-        videoId: $coachInfoBlock.data('video-id'),
-        coachInfoVars: {
-          autoplay: 1,
-          rel: 0
-        },
-        events: {
-          onStateChange: oncoachInfoStateChange
-        }
-      }));
-    });
-
-    /* Youtube coachInfo (END) */
-
-  });
-</script>

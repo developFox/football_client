@@ -14,6 +14,6 @@ interface InterFaceCoachInfo {
   awardsList: { photo: string, name: string }[];
   description: string;
   clubs: string;
-  clubs_list: { name: string, string: string }[];
+  clubs_list: { name: string, string: string, branch: string }[];
   tournament: { list: { name: string, state: string, date: string, year: string }[], listYear: any };
 }
