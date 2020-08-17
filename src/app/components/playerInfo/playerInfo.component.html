@@ -54,31 +54,36 @@
     <div class="player-page__tabs-text d-none d-lg-flex">Информация</div>
 
     <div class="player-page__tabs-block d-flex col">
-      <ul class="nav player-page__tabs d-none d-md-flex flex-wrap">
-        <li class="player-page__tab">
-          <a class="player-page__tab-link active d-flex transition" data-toggle="tab" href="#main">
+      <ul class="nav trainer-page__tabs d-none d-md-flex flex-wrap">
+        <li class="trainer-page__tab">
+          <div [ngClass]="{'active':currentTab==='main'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='main'">
             Оснвовное
-          </a>
+          </div>
         </li>
-        <li class="player-page__tab">
-          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#competition">
+        <li class="trainer-page__tab">
+          <div [ngClass]="{'active':currentTab==='competition'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='competition'">
             Соревнования
-          </a>
+          </div>
         </li>
-        <li class="player-page__tab">
-          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#awards">
+        <li class="trainer-page__tab">
+          <div [ngClass]="{'active':currentTab==='awards'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='awards'">
             Награды
-          </a>
+          </div>
         </li>
-        <li class="player-page__tab">
-          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#photos">
+        <li class="trainer-page__tab">
+          <div [ngClass]="{'active':currentTab==='photos'}" class="trainer-page__tab-link d-flex transition"
+               (click)="changeCurrentTab('photos')">
             Фотографии
-          </a>
+          </div>
         </li>
-        <li class="player-page__tab">
-          <a class="player-page__tab-link d-flex transition" data-toggle="tab" href="#videos">
+        <li class="trainer-page__tab">
+          <div [ngClass]="{'active':currentTab==='videos'}" class="trainer-page__tab-link d-flex transition"
+               (click)="currentTab='videos'">
             Видео
-          </a>
+          </div>
         </li>
       </ul>
 
@@ -185,338 +190,354 @@
 
     <div class="player-page__content d-flex flex-wrap">
       <div class="tab-content profile-edit__tabs-content col-12">
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Оснвовное
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade show active col-12" id="main">
-          <div class="growth-chart col-12">
-            <div class="growth-chart__top d-flex flex-wrap col-12">
-              <span class="growth-chart__top-title">График роста показателей</span>
+        <div *ngIf="currentTab==='main'">
+          <div class="mobile-tab transition d-flex d-md-none col-12">
+            Оснвовное
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane show active col-12" id="main">
+            <div class="growth-chart col-12">
+              <div class="growth-chart__top d-flex flex-wrap col-12">
+                <span class="growth-chart__top-title">График роста показателей</span>
 
-              <div class="sort-block d-flex">
-                <span class="sort-block__text">Фильтр</span>
-                <div class="sort-block__select d-flex">
-                  Игровые данные
-                  <span class="icon-arrow-down"></span>
+                <div class="sort-block d-flex">
+                  <span class="sort-block__text">Фильтр</span>
+                  <div class="sort-block__select d-flex">
+                    Игровые данные
+                    <span class="icon-arrow-down"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="growth-chart__items d-flex flex-wrap col-12">
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 44px"></div>
+                  <!-- height = value * 20, но надо смотреть какой максимальный показатель - сейчас если максимальный показатель = 5 -->
+                  <span class="growth-chart__item-text col-12">2013</span>
+                  <span class="growth-chart__item-value col-12">2.2</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 60px"></div>
+                  <span class="growth-chart__item-text col-12">2014</span>
+                  <span class="growth-chart__item-value col-12">3</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 78px"></div>
+                  <span class="growth-chart__item-text col-12">2015</span>
+                  <span class="growth-chart__item-value col-12">3.9</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 76px"></div>
+                  <span class="growth-chart__item-text col-12">2016</span>
+                  <span class="growth-chart__item-value col-12">3.8</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 92px"></div>
+                  <span class="growth-chart__item-text col-12">2017</span>
+                  <span class="growth-chart__item-value col-12">4.6</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 88px"></div>
+                  <span class="growth-chart__item-text col-12">2018</span>
+                  <span class="growth-chart__item-value col-12">4.4</span>
+                </div>
+                <div class="growth-chart__item d-flex flex-wrap col">
+                  <div class="growth-chart__item-area" style="height: 82px"></div>
+                  <span class="growth-chart__item-text col-12">2019</span>
+                  <span class="growth-chart__item-value col-12">4.1</span>
                 </div>
               </div>
             </div>
 
-            <div class="growth-chart__items d-flex flex-wrap col-12">
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 44px"></div>
-                <!-- height = value * 20, но надо смотреть какой максимальный показатель - сейчас если максимальный показатель = 5 -->
-                <span class="growth-chart__item-text col-12">2013</span>
-                <span class="growth-chart__item-value col-12">2.2</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 60px"></div>
-                <span class="growth-chart__item-text col-12">2014</span>
-                <span class="growth-chart__item-value col-12">3</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 78px"></div>
-                <span class="growth-chart__item-text col-12">2015</span>
-                <span class="growth-chart__item-value col-12">3.9</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 76px"></div>
-                <span class="growth-chart__item-text col-12">2016</span>
-                <span class="growth-chart__item-value col-12">3.8</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 92px"></div>
-                <span class="growth-chart__item-text col-12">2017</span>
-                <span class="growth-chart__item-value col-12">4.6</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 88px"></div>
-                <span class="growth-chart__item-text col-12">2018</span>
-                <span class="growth-chart__item-value col-12">4.4</span>
-              </div>
-              <div class="growth-chart__item d-flex flex-wrap col">
-                <div class="growth-chart__item-area" style="height: 82px"></div>
-                <span class="growth-chart__item-text col-12">2019</span>
-                <span class="growth-chart__item-value col-12">4.1</span>
-              </div>
-            </div>
-          </div>
+            <div class="other-data d-flex flex-wrap col-12">
+              <div class="data-block d-flex col-12 col-sm-6 col-md-4" *ngFor="let data of player.marks">
+                <div class="data-block__inner col-12">
+                  <span class="data-block__title col-12">{{data.name}}</span>
 
-          <div class="other-data d-flex flex-wrap col-12">
-            <div class="data-block d-flex col-12 col-sm-6 col-md-4" *ngFor="let data of player.marks">
-              <div class="data-block__inner col-12">
-                <span class="data-block__title col-12">{{data.name}}</span>
-
-                <div class="data-block__item d-flex col-12" *ngFor="let params of data.params">
-                  <span class="data-block__item-icon icon-tendency"></span>
-                  <div class="data-block__item-info col">
-                    <div class="data-block__item-title d-flex col-12">
-                      {{params.name}}
-                      <div class="data-block__item-value d-flex">
-                        {{params.val}}
-                        <span class="data-block__item-param" *ngIf="params.markcol!=null">{{params.markcol}}</span>
+                  <div class="data-block__item d-flex col-12" *ngFor="let params of data.params">
+                    <span class="data-block__item-icon icon-tendency"></span>
+                    <div class="data-block__item-info col">
+                      <div class="data-block__item-title d-flex col-12">
+                        {{params.name}}
+                        <div class="data-block__item-value d-flex">
+                          {{params.val}}
+                          <span class="data-block__item-param" *ngIf="params.markcol!=null">{{params.markcol}}</span>
+                        </div>
                       </div>
-                    </div>
-                    <div class="data-block__item-progress col-12">
-                      <div class="progress-value" style="width: 75%"></div>
+                      <div class="data-block__item-progress col-12">
+                        <div class="progress-value" style="width: 75%"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="player-page__description col-12">
-            <span class="player-page__description-title">Краткая биография</span>
-            <p class="player-page__description-text col-12">{{player.description}}</p>
-          </div>
-        </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Соревнования
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="competition">
-          <div class="competition-statistic d-flex flex-wrap col-12">
-            <div class="competition-statistic__item d-flex col">
-              <div class="competition-statistic__item-icon d-flex">
-                <span class="icon-played"></span>
-              </div>
-              <div class="competition-statistic__item-info d-flex">
-                <span class="competition-statistic__item-title">матчей</span>
-                <span class="competition-statistic__item-value">{{player.statistics.played}}</span>
-              </div>
-            </div>
-            <div class="competition-statistic__item d-flex col">
-              <div class="competition-statistic__item-icon d-flex">
-                <span class="icon-played"></span>
-              </div>
-              <div class="competition-statistic__item-info d-flex">
-                <span class="competition-statistic__item-title">побед</span>
-                <span class="competition-statistic__item-value">{{player.statistics.wins}}</span>
-              </div>
-            </div>
-            <div class="competition-statistic__item d-flex col">
-              <div class="competition-statistic__item-icon d-flex">
-                <span class="icon-played"></span>
-              </div>
-              <div class="competition-statistic__item-info d-flex">
-                <span class="competition-statistic__item-title">ничей</span>
-                <span class="competition-statistic__item-value">{{player.statistics.draw}}</span>
-              </div>
-            </div>
-            <div class="competition-statistic__item d-flex col">
-              <div class="competition-statistic__item-icon d-flex">
-                <span class="icon-played"></span>
-              </div>
-              <div class="competition-statistic__item-info d-flex">
-                <span class="competition-statistic__item-title">голов</span>
-                <span class="competition-statistic__item-value">{{player.statistics.goals}}</span>
-              </div>
-            </div>
-            <div class="competition-statistic__item d-flex col">
-              <div class="competition-statistic__item-icon d-flex">
-                <span class="icon-played"></span>
-              </div>
-              <div class="competition-statistic__item-info d-flex">
-                <span class="competition-statistic__item-title">передач</span>
-                <span class="competition-statistic__item-value">{{player.statistics.pass}}</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="competition-results col-12">
-            <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
-
-            <div class="competition-results__filter d-flex flex-wrap col-12">
-              <div class="competition-results__filter-item d-flex transition active">Все</div>
-              <div class="competition-results__filter-item d-flex transition">2019</div>
-              <div class="competition-results__filter-item d-flex transition">2018</div>
-              <div class="competition-results__filter-item d-flex transition">2017</div>
-              <div class="competition-results__filter-item d-flex transition">2016</div>
-            </div>
-
-            <div class="competition-list col-12">
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Nogliki</div>
-                <div class="competition-item__match-result d-flex">5 - 1</div>
-                <div class="competition-item__team">СКА Хабаровск II</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-on"></span>
-                  <span class="competition-item__title-text">Второй дивизион</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Торпедо Москва</div>
-                <div class="competition-item__match-result d-flex">0 - 2</div>
-                <div class="competition-item__team">Квант</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Wonderful Life</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Salyut-Belgorod</div>
-                <div class="competition-item__match-result d-flex">1 - 1</div>
-                <div class="competition-item__team">Химки II</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Fire Water Burn</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Динамо Брянск</div>
-                <div class="competition-item__match-result d-flex">0 - 4</div>
-                <div class="competition-item__team">Металлург Липецк</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-on"></span>
-                  <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Ротор-2</div>
-                <div class="competition-item__match-result d-flex">5 - 1</div>
-                <div class="competition-item__team">Химик Новомосковск</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">I Woke Up Today</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Звезда Рязань</div>
-                <div class="competition-item__match-result d-flex">2 - 1</div>
-                <div class="competition-item__team">Строгино</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-
-              <div class="competition-item d-flex flex-wrap col-12">
-                <div class="competition-item__title d-flex">
-                  <span class="competition-item__title-icon icon-star-off"></span>
-                  <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
-                </div>
-                <div class="competition-item__team competition-item__team--left">Nogliki</div>
-                <div class="competition-item__match-result d-flex">5 - 1</div>
-                <div class="competition-item__team">СКА Хабаровск II</div>
-                <div class="competition-item__date d-flex">
-                  21/08/18
-                  <a href="" class="competition-item__info d-flex">
-                    <span class="icon-info"></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="competition-results__more-wrapper col-12">
-              <div class="competition-results__more d-flex transition col-12">
-                <span class="icon-arrow-down transition"></span>
-                Загрузить больше
-              </div>
+            <div class="player-page__description col-12">
+              <span class="player-page__description-title">Краткая биография</span>
+              <p class="player-page__description-text col-12">{{player.description}}</p>
             </div>
           </div>
         </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Награды
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="awards">
-          <div class="awards col-12">
-            <span class="awards__title col-12">Награды на соревнованиях</span>
-
-            <div class="awards__list d-flex flex-wrap col-12">
-              <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
-                   *ngFor="let awards of player.awardsList">
-                <div class="awards__item-image col-12">
-                  <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+        <div *ngIf="currentTab==='competition'">
+          <div class="mobile-tab transition d-flex d-md-none col-12">
+            Соревнования
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12" id="competition">
+            <div class="competition-statistic d-flex flex-wrap col-12">
+              <div class="competition-statistic__item d-flex col">
+                <div class="competition-statistic__item-icon d-flex">
+                  <span class="icon-played"></span>
                 </div>
-                <span class="awards__item-title col-12">{{awards.name}}</span>
+                <div class="competition-statistic__item-info d-flex">
+                  <span class="competition-statistic__item-title">матчей</span>
+                  <span class="competition-statistic__item-value">{{player.statistics.played}}</span>
+                </div>
+              </div>
+              <div class="competition-statistic__item d-flex col">
+                <div class="competition-statistic__item-icon d-flex">
+                  <span class="icon-played"></span>
+                </div>
+                <div class="competition-statistic__item-info d-flex">
+                  <span class="competition-statistic__item-title">побед</span>
+                  <span class="competition-statistic__item-value">{{player.statistics.wins}}</span>
+                </div>
+              </div>
+              <div class="competition-statistic__item d-flex col">
+                <div class="competition-statistic__item-icon d-flex">
+                  <span class="icon-played"></span>
+                </div>
+                <div class="competition-statistic__item-info d-flex">
+                  <span class="competition-statistic__item-title">ничей</span>
+                  <span class="competition-statistic__item-value">{{player.statistics.draw}}</span>
+                </div>
+              </div>
+              <div class="competition-statistic__item d-flex col">
+                <div class="competition-statistic__item-icon d-flex">
+                  <span class="icon-played"></span>
+                </div>
+                <div class="competition-statistic__item-info d-flex">
+                  <span class="competition-statistic__item-title">голов</span>
+                  <span class="competition-statistic__item-value">{{player.statistics.goals}}</span>
+                </div>
+              </div>
+              <div class="competition-statistic__item d-flex col">
+                <div class="competition-statistic__item-icon d-flex">
+                  <span class="icon-played"></span>
+                </div>
+                <div class="competition-statistic__item-info d-flex">
+                  <span class="competition-statistic__item-title">передач</span>
+                  <span class="competition-statistic__item-value">{{player.statistics.pass}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="competition-results col-12">
+              <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
+
+              <div class="competition-results__filter d-flex flex-wrap col-12">
+                <div class="competition-results__filter-item d-flex transition active">Все</div>
+                <div class="competition-results__filter-item d-flex transition">2019</div>
+                <div class="competition-results__filter-item d-flex transition">2018</div>
+                <div class="competition-results__filter-item d-flex transition">2017</div>
+                <div class="competition-results__filter-item d-flex transition">2016</div>
+              </div>
+
+              <div class="competition-list col-12">
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Nogliki</div>
+                  <div class="competition-item__match-result d-flex">5 - 1</div>
+                  <div class="competition-item__team">СКА Хабаровск II</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-on"></span>
+                    <span class="competition-item__title-text">Второй дивизион</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Торпедо Москва</div>
+                  <div class="competition-item__match-result d-flex">0 - 2</div>
+                  <div class="competition-item__team">Квант</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">Wonderful Life</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Salyut-Belgorod</div>
+                  <div class="competition-item__match-result d-flex">1 - 1</div>
+                  <div class="competition-item__team">Химки II</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">Fire Water Burn</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Динамо Брянск</div>
+                  <div class="competition-item__match-result d-flex">0 - 4</div>
+                  <div class="competition-item__team">Металлург Липецк</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-on"></span>
+                    <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Ротор-2</div>
+                  <div class="competition-item__match-result d-flex">5 - 1</div>
+                  <div class="competition-item__team">Химик Новомосковск</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">I Woke Up Today</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Звезда Рязань</div>
+                  <div class="competition-item__match-result d-flex">2 - 1</div>
+                  <div class="competition-item__team">Строгино</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="competition-item d-flex flex-wrap col-12">
+                  <div class="competition-item__title d-flex">
+                    <span class="competition-item__title-icon icon-star-off"></span>
+                    <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                  </div>
+                  <div class="competition-item__team competition-item__team--left">Nogliki</div>
+                  <div class="competition-item__match-result d-flex">5 - 1</div>
+                  <div class="competition-item__team">СКА Хабаровск II</div>
+                  <div class="competition-item__date d-flex">
+                    21/08/18
+                    <a href="" class="competition-item__info d-flex">
+                      <span class="icon-info"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="competition-results__more-wrapper col-12">
+                <div class="competition-results__more d-flex transition col-12">
+                  <span class="icon-arrow-down transition"></span>
+                  Загрузить больше
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="mobile-tab transition d-flex d-md-none col-12">
-          Фотографии
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="photos">
-          <div class="photos col-12">
-            <span class="photos__title col-12">Фотографии с соревнований</span>
+        <div *ngIf="currentTab==='awards'">
+          <div class="mobile-tab transition d-flex d-md-none col-12">
+            Награды
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12" id="awards">
+            <div class="awards col-12">
+              <span class="awards__title col-12">Награды на соревнованиях</span>
 
-            <div class="big-slider col-12">
-              <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of player.imagesList">
-                <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
-                     alt="slider image">
+              <div class="awards__list d-flex flex-wrap col-12">
+                <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
+                     *ngFor="let awards of player.awardsList">
+                  <div class="awards__item-image col-12">
+                    <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+                  </div>
+                  <span class="awards__item-title col-12">{{awards.name}}</span>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div *ngIf="currentTab==='photos'">
+          <div class="mobile-tab transition d-flex d-md-none col-12">
+            Фотографии
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12" id="photos">
+            <div class="photos col-12">
+              <span class="photos__title col-12">Фотографии с соревнований</span>
 
-            <div class="small-slider d-flex flex-wrap col-12">
-              <div class="small-slider__slide">
-                <div class="small-slider__slide-inner d-flex col-12 transition" *ngFor="let img of player.imagesList">
-                  <img [src]="'http://localhost:8005/uploads/img/'+img" class="small-slider__slide-image"
+              <div class="big-slider col-12">
+                <div class="small-slider__slide-inner d-flex col-12 transition">
+                  <img [src]="'http://localhost:8005/uploads/img/'+currentImg" class="small-slider__slide-image"
                        alt="slider image">
                 </div>
               </div>
+
+              <div style="height: 600px">
+                <div class="swiper-container gallery-thumbs" [swiper]="galleryThumbs"
+                     (indexChange)="changeSlider($event)">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" *ngFor="let img of player.imagesList">
+                      <img [src]="'http://localhost:8005/uploads/img/'+img" class="big-slider__slide-image"
+                           alt="slider image">
+                    </div>
+                  </div>
+
+                  <div class="swiper-button-next swiper-button-white"></div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="mobile-tab last transition d-flex d-md-none col-12">
-          Видео
-          <span class="icon-arrow-down transition"></span>
-        </div>
-        <div class="tab-pane fade col-12" id="videos">
-          <div class="videos col-12">
-            <span class="videos__title col-12">Видео с соревнований</span>
+        <div *ngIf="currentTab==='videos'">
+          <div class="mobile-tab last transition d-flex d-md-none col-12">
+            Видео
+            <span class="icon-arrow-down transition"></span>
+          </div>
+          <div class="tab-pane col-12" id="videos">
+            <div class="videos col-12">
+              <span class="videos__title col-12">Видео с соревнований</span>
 
-            <div class="videos__list d-flex flex-wrap col-12">
-              <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of player.videosList">
-                <div class="video">
-                  <div class="video__inner col-12 js-videoWrapper">
-                    <video #videoPlayer class="video__container js-videoIframe" controls>
-                      <source [src]="video"
-                              type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                    </video>
+              <div class="videos__list d-flex flex-wrap col-12">
+                <div class="videos__list-item col-12 col-sm-6" *ngFor="let video of player.videosList">
+                  <div class="video">
+                    <div class="video__inner col-12 js-videoWrapper">
+                      <video #videoPlayer class="video__container js-videoIframe" controls>
+                        <source [src]="video"
+                                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                      </video>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -563,190 +584,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  $(document).ready(function () {
-
-    <!-- Mobile tabs  -->
-    $('.player-page__content .tab-content .mobile-tab').click(function () {
-
-      if ($(this).hasClass('active')) {
-        $(this).toggleClass('active');
-        $(this).next().slideToggle();
-      } else {
-        $('.player-page__content .tab-content .mobile-tab.active').next().slideToggle('fast');
-        $('.player-page__content .tab-content .mobile-tab.active').toggleClass('active');
-        $(this).toggleClass('active');
-        $(this).next().slideDown(400, "linear", function () {
-          let thisTopPos = $(this).offset().top;
-
-          $('body, html').animate({
-            scrollTop: thisTopPos - 50
-          }, 400);
-        });
-      }
-    });
-    <!-- Mobile tabs  (END) -->
-
-    $('.compare-slider').slick({
-      autoplay: false,
-      infinite: true,
-      speed: 300,
-      draggable: true,
-      dots: false,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 575,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    $('.big-slider').slick({
-      infinite: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      asNavFor: '.small-slider'
-    });
-
-    $('.small-slider').slick({
-      infinite: false,
-      slidesToShow: 10,
-      slidesToScroll: 1,
-      arrows: true,
-      asNavFor: '.big-slider',
-      focusOnSelect: true,
-      responsive: [
-        {
-          breakpoint: 1540,
-          settings: {
-            slidesToShow: 8,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 4,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 575,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 400,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    $('.big-slider').slick('resize');
-    $('.small-slider').slick('resize');
-
-    $('[href="#photos"]').on("shown.bs.tab", function (e) {
-      $('.big-slider').slick("refresh");
-      $('.small-slider').slick("refresh");
-    })
-
-    $('.mobile-tab').click(function () {
-      $('.big-slider').slick("refresh");
-      $('.small-slider').slick("refresh");
-    });
-
-    /* Youtube player */
-    var k = []; // id local player
-    var currentActivePlayer = '';
-    var i = 0;
-
-    function onPlayerStateChange(event) {
-
-      if (event.data == 1) {
-
-        k.forEach(function (elem) {
-          firstvideo = document.getElementById(elem);
-          firstvideo.pause();
-        });
-
-        if (currentActivePlayer != event.target && i <= 0) {
-          currentActivePlayer = event.target;
-          i++;
-        } else {
-          if (currentActivePlayer != event.target) {
-            currentActivePlayer.pauseVideo();
-            currentActivePlayer = event.target;
-            // currentActivePlayer.playVideo();
-          }
-        }
-      }
-    }
-
-    var players = [];
-
-    $("body").on("click", ".js-videoIframe", function () {
-      let $playerBlock = $(this);
-
-      players.push(new YT.Player($playerBlock.attr('id'), {
-        videoId: $playerBlock.data('video-id'),
-        playerVars: {
-          autoplay: 1,
-          rel: 0
-        },
-        events: {
-          onStateChange: onPlayerStateChange
-        }
-      }));
-    });
-
-    /* Youtube player (END) */
-
-  });
-</script>

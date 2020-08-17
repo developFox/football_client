@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlayerInfoService} from './playerInfo.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-player',
@@ -49,8 +50,27 @@ export class PlayerInfoComponent {
   playerId: null;
   playersSimilar: InterFacePlayers[] = [];
 
+  galleryThumbs = {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    slideToClickedSlide: true,
+    centeredSlides: true,
+    loop: true,
+    virtualTranslate: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  };
+
+  currentTab = 'main';
+  currentImg = '';
+
   constructor(private playerInfoService: PlayerInfoService,
+              private changeDetector: ChangeDetectorRef,
+              private globalParamsBreadcrumbs: GlobalParamsBreadcrumbs,
               private router: ActivatedRoute) {
+    this.globalParamsBreadcrumbs.title = 'Информация об игроке';
     this.router.params.subscribe(
       (params: Params): void => {
         this.playerId = params.id;
@@ -61,9 +81,15 @@ export class PlayerInfoComponent {
     );
   }
 
+  changeCurrentTab(data) {
+    this.currentTab = data;
+    this.changeDetector.detectChanges();
+  }
+
   getPlayers() {
     this.playerInfoService.getPlayerInfo({id: this.playerId}).then((data: InterFacePlayerInfo) => {
         this.player = data;
+        this.currentImg = this.player.imagesList[0];
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по футболисту: ', error);
@@ -77,6 +103,11 @@ export class PlayerInfoComponent {
       (error) => {
         console.log('Ошибка при получении списка фыутболистов: ', error);
       });
+  }
+
+  changeSlider(data) {
+    const index = data === 0 ? 0 : data - 1;
+    this.currentImg = this.player.imagesList[index];
   }
 }
 
