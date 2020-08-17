@@ -36,4 +36,5 @@ interface InterFacePlayerInfo {
     goals: string;
     pass: string;
   };
+  tournament: { list: { tournament: string, state: string, date: string, year: string, club: string, club_2: string, goal: string, goal_2: string, }[], listYear: any };
 }

@@ -45,10 +45,13 @@ export class PlayerInfoComponent {
       draw: '',
       goals: '',
       pass: '',
-    }
+    },
+    tournament: {list: [], listYear: []}
   };
   playerId: null;
   playersSimilar: InterFacePlayers[] = [];
+  currentTournamentYear = '';
+  showTournament: any = [];
 
   galleryThumbs = {
     spaceBetween: 10,
@@ -90,6 +93,7 @@ export class PlayerInfoComponent {
     this.playerInfoService.getPlayerInfo({id: this.playerId}).then((data: InterFacePlayerInfo) => {
         this.player = data;
         this.currentImg = this.player.imagesList[0];
+        this.showTournament = data.tournament.list;
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по футболисту: ', error);
@@ -108,6 +112,16 @@ export class PlayerInfoComponent {
   changeSlider(data) {
     const index = data === 0 ? 0 : data - 1;
     this.currentImg = this.player.imagesList[index];
+  }
+
+  changeTournament(data) {
+    this.currentTournamentYear = data;
+
+    if (data !== '') {
+      this.showTournament = this.player.tournament.list.filter(item => item.year === data);
+    } else {
+      this.showTournament = this.player.tournament.list;
+    }
   }
 }
 

@@ -332,124 +332,31 @@
               </div>
             </div>
 
-            <div class="competition-results col-12">
+            <div class="competition-results col-12" *ngIf="player.tournament.listYear.length>0">
               <span class="competition-results__title col-12">Участие и результат в соревнованиях</span>
 
               <div class="competition-results__filter d-flex flex-wrap col-12">
-                <div class="competition-results__filter-item d-flex transition active">Все</div>
-                <div class="competition-results__filter-item d-flex transition">2019</div>
-                <div class="competition-results__filter-item d-flex transition">2018</div>
-                <div class="competition-results__filter-item d-flex transition">2017</div>
-                <div class="competition-results__filter-item d-flex transition">2016</div>
+                <div (click)="changeTournament('')" [ngClass]="{'active':currentTournamentYear===''}"
+                     class="competition-results__filter-item d-flex transition">Все
+                </div>
+                <div *ngFor="let year of player.tournament.listYear"
+                     [ngClass]="{'active':currentTournamentYear===year}"
+                     (click)="changeTournament(year)"
+                     class="competition-results__filter-item d-flex transition">{{year}}
+                </div>
               </div>
 
               <div class="competition-list col-12">
-                <div class="competition-item d-flex flex-wrap col-12">
+                <div class="competition-item d-flex flex-wrap col-12" *ngFor="let tournament of showTournament">
                   <div class="competition-item__title d-flex">
                     <span class="competition-item__title-icon icon-star-off"></span>
-                    <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
+                    <span class="competition-item__title-text">{{tournament.tournament}}</span>
                   </div>
-                  <div class="competition-item__team competition-item__team--left">Nogliki</div>
-                  <div class="competition-item__match-result d-flex">5 - 1</div>
-                  <div class="competition-item__team">СКА Хабаровск II</div>
+                  <div class="competition-item__team competition-item__team--left">{{tournament.club}}</div>
+                  <div class="competition-item__match-result d-flex">{{tournament.goal}} - {{tournament.goal_2}}</div>
+                  <div class="competition-item__team">{{tournament.club_2}}</div>
                   <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-on"></span>
-                    <span class="competition-item__title-text">Второй дивизион</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Торпедо Москва</div>
-                  <div class="competition-item__match-result d-flex">0 - 2</div>
-                  <div class="competition-item__team">Квант</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-off"></span>
-                    <span class="competition-item__title-text">Wonderful Life</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Salyut-Belgorod</div>
-                  <div class="competition-item__match-result d-flex">1 - 1</div>
-                  <div class="competition-item__team">Химки II</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-off"></span>
-                    <span class="competition-item__title-text">Fire Water Burn</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Динамо Брянск</div>
-                  <div class="competition-item__match-result d-flex">0 - 4</div>
-                  <div class="competition-item__team">Металлург Липецк</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-on"></span>
-                    <span class="competition-item__title-text">Help yourself (ost up in the air)</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Ротор-2</div>
-                  <div class="competition-item__match-result d-flex">5 - 1</div>
-                  <div class="competition-item__team">Химик Новомосковск</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-off"></span>
-                    <span class="competition-item__title-text">I Woke Up Today</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Звезда Рязань</div>
-                  <div class="competition-item__match-result d-flex">2 - 1</div>
-                  <div class="competition-item__team">Строгино</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
-                    <a href="" class="competition-item__info d-flex">
-                      <span class="icon-info"></span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="competition-item d-flex flex-wrap col-12">
-                  <div class="competition-item__title d-flex">
-                    <span class="competition-item__title-icon icon-star-off"></span>
-                    <span class="competition-item__title-text">Kazan Pre Season-tournament</span>
-                  </div>
-                  <div class="competition-item__team competition-item__team--left">Nogliki</div>
-                  <div class="competition-item__match-result d-flex">5 - 1</div>
-                  <div class="competition-item__team">СКА Хабаровск II</div>
-                  <div class="competition-item__date d-flex">
-                    21/08/18
+                    {{tournament.date}}
                     <a href="" class="competition-item__info d-flex">
                       <span class="icon-info"></span>
                     </a>
