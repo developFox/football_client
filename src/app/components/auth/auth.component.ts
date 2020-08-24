@@ -29,8 +29,8 @@ export class AuthComponent {
         } else if (result.code === 'ok' && this.state === 1) {
           this.state = 2;
         } else if (result.code === 'ok' && this.state === 2) {
-          this.userStorageService.userData = result.data;
-          this.router.navigate(['/player']);
+          this.userStorageService.user = result.data;
+          this.router.navigate(['/']);
         }
       },
       () => {

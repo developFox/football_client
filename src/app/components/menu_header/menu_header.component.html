@@ -24,7 +24,7 @@
         <a routerLink="/contacts" class="top-menu__item-link transition">Контакты</a>
       </div>
       <div class="top-menu__item">
-        <a href="" class="top-menu__item-link transition">Регистрация футболиста</a>
+        <a routerLink="/auth" class="top-menu__item-link transition">Регистрация футболиста</a>
       </div>
     </div>
 
@@ -76,7 +76,7 @@
         <img src="/src/assets/images/user-img.png" class="header-auth__photo-img" alt="user photo">
       </div>
       <div class="header-auth__block d-flex">
-        <span class="header-auth__block-text d-none d-lg-block">Виталий</span>
+        <span class="header-auth__block-text d-none d-lg-block">{{user.user.fio}}</span>
 
         <span class="icon-arrow-down"></span>
       </div>

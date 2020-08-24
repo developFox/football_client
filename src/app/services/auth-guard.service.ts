@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {CanActivate} from '@angular/router';
 import {Router} from '@angular/router';
 import {SessionStorageService} from '../storage/session-storage.service';
+import {UserStorageService} from '../storage/user-storage.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -10,7 +11,7 @@ export class AuthGuard implements CanActivate {
   canActivate() {
     this.sessionStorage.getAuthenticatedStatic().then((data) => {
         if (data !== true) {
-          //this.router.navigate(['/']);
+          this.router.navigate(['/']);
         }
       },
       (error) => {

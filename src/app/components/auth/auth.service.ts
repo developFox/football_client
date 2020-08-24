@@ -51,7 +51,7 @@ export class AuthService {
     localStorage.removeItem('pubId');
     this.sessionStorage.authenticated.emit(false);
     this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
-    //this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 
   // выход
