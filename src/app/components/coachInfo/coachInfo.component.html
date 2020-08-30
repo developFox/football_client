@@ -2,7 +2,7 @@
   <div class="trainer-page__top d-flex flex-wrap col-12">
     <div class="trainer-page__info-block d-flex flex-wrap">
       <div class="trainer-image d-flex">
-        <img [src]="'/src/assets/images/'+coachInfo.images" class="trainer-image__img" alt="coachInfo photo">
+        <img [src]="'/assets/images/'+coachInfo.images" class="trainer-image__img" alt="coachInfo photo">
       </div>
 
       <div class="trainer-page__info d-flex flex-wrap">
@@ -194,7 +194,7 @@
                 <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
                      *ngFor="let awards of coachInfo.awardsList">
                   <div class="awards__item-image col-12">
-                    <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+                    <img [src]="'/assets/images/'+awards.photo" alt="award photo">
                   </div>
                   <span class="awards__item-title col-12">{{awards.name}}</span>
                 </div>

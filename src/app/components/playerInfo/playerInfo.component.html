@@ -2,7 +2,7 @@
   <div class="player-page__top d-flex flex-wrap col-12">
     <div class="player-page__info-block d-flex flex-wrap">
       <div class="player-image d-flex">
-        <img [src]="'/src/assets/images/'+player.images" class="player-image__img" alt="player photo">
+        <img [src]="'/assets/images/'+player.images" class="player-image__img" alt="player photo">
       </div>
 
       <div class="player-page__info d-flex flex-wrap">
@@ -161,7 +161,7 @@
           <div class="aside-items__item-block col-12">
             <div class="aside-trainer d-flex col-12">
               <div class="aside-trainer__photo d-flex">
-                <img [src]="'/src/assets/images/'+player.coach_img" class="aside-trainer__photo-img"
+                <img [src]="'/assets/images/'+player.coach_img" class="aside-trainer__photo-img"
                      alt="trainer photo">
               </div>
               <div class="aside-trainer__info">
@@ -386,7 +386,7 @@
                 <div class="awards__item-wrapper col-12 col-sm-6 col-md-4 col-lg-3"
                      *ngFor="let awards of player.awardsList">
                   <div class="awards__item-image col-12">
-                    <img [src]="'/src/assets/images/'+awards.photo" alt="award photo">
+                    <img [src]="'/assets/images/'+awards.photo" alt="award photo">
                   </div>
                   <span class="awards__item-title col-12">{{awards.name}}</span>
                 </div>
@@ -464,7 +464,7 @@
       <div class="player col-12">
         <a href="" class="player__inner transition d-flex flex-wrap col-12">
           <div class="player__photo d-flex">
-            <img [src]="'/src/assets/images/'+player.images" class="player__photo-img" alt="player photo">
+            <img [src]="'/assets/images/'+player.images" class="player__photo-img" alt="player photo">
           </div>
 
           <div class="player__info col">
