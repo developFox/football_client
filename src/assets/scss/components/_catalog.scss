@@ -110,11 +110,11 @@
                 position: absolute;
 
                 &--min {
-                    right: 40px;
+                    right: 78px;
                     top: 0;
                 }
                 &--max {
-                    right: 20px;
+                    right: 25px;
                     top: 0;
                 }
             }
@@ -130,7 +130,7 @@
                 &:after {
                     content: '';
                     position: absolute;
-                    background: red;
+                    background: #f3f5f9;
                     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
                     width: 15px;
                     height: 15px;
@@ -156,7 +156,7 @@
                 &:after {
                     content: '';
                     position: absolute;
-                    background: red;
+                    background: #f3f5f9;
                     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
                     width: 15px;
                     height: 15px;
@@ -431,6 +431,9 @@
     }
     .ng5-slider {
 
+        .ng5-slider-bar-wrapper {
+            padding-top: 7px;
+        }
         .ng5-slider-bar {
             left: 0;
             width: 100%;
@@ -449,7 +452,7 @@
             cursor: pointer;
             width: 14px;
             height: 18px;
-            top: -7px;
+            top: -16px;
             z-index: 3;
             border-radius: 3px;
             background: #FFF;
@@ -481,20 +484,25 @@
             display: none !important;
         }
         .ng5-slider-model-value {
-            right: 30px !important;
+            right: 35px !important;
             bottom: 18px;
             left: auto !important;
             font-size: 14px;
             font-weight: 500;
             color: #2e48a7;
+            opacity: 1 !important;
         }
         .ng5-slider-model-high {
-            right: 0 !important;
-            bottom: 18px;
+            right: -18px!important;
+            bottom: 25px;
             left: auto !important;
             font-size: 14px;
             font-weight: 500;
             color: #2e48a7;
+            opacity: 1 !important;
+        }
+        .ng5-slider-combined {
+            display: none !important;
         }
     }
 }
