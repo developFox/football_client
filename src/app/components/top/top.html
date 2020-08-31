@@ -18,7 +18,7 @@
   <div class="top__content d-flex flex-wrap col-12">
     <div class="players d-flex flex-wrap col-12">
       <div class="player active col-12 col-md-6 col-xl-4" *ngFor="let player of tops;let i = index">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+        <a [routerLink]="'/player/'+player.id" class="player__inner transition d-flex flex-wrap col-12">
           <div class="player__rating d-flex">{{i + 1}}</div>
           <span class="icon-check" *ngIf="player.confirmation!=='1'"></span>
           <div class="player__photo d-flex">

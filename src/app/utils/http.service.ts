@@ -96,8 +96,8 @@ export class HttpService {
     };
     const headers = new HttpHeaders();
 
-    return this.http.post('http://www.backend-football.ru/' + api, request, {headers: headers})
-      //return this.http.post('http://localhost:8005' + api, request, {headers: headers})
+    //return this.http.post('http://www.backend-football.ru/' + api, request, {headers: headers})
+    return this.http.post('http://localhost:8005/' + api, request, {headers: headers})
       .pipe(
         catchError(HttpService.handlerError)
       );

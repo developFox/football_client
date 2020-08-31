@@ -41,7 +41,7 @@
 
     <div class="players d-flex flex-wrap col">
       <div class="player active col-12 col-sm-6 col-xl-4" *ngFor="let player of ratings">
-        <a href="" class="player__inner transition d-flex flex-wrap col-12">
+        <a [routerLink]="'/player/'+player.id" class="player__inner transition d-flex flex-wrap col-12">
           <span *ngIf="player.confirmation!=='1'" class="icon-check"></span>
           <div class="player__photo d-flex">
             <img [src]="'/assets/images/'+player.images" class="player__photo-img" alt="player photo">
