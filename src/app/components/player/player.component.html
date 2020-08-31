@@ -56,10 +56,12 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Пол</span>
           <div class="filters__item-select d-flex col-12">
-            <select [(ngModel)]="filter.floor" (change)="getPlayers()">
-              <option [ngValue]="1">Мужской</option>
-              <option [ngValue]="2">Женский</option>
-            </select>
+            <ng-select [(ngModel)]="filter.floor"
+                       (change)="getPlayers()"
+                       [items]="floors"
+                       bindValue="id"
+                       bindLabel="name">
+            </ng-select>
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -67,12 +69,13 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Регион</span>
           <div class="filters__item-select d-flex col-12">
-            <select [(ngModel)]="filter.region" (change)="getChangeRegion()">
-              <option [ngValue]="0">Выбрите регион</option>
-              <option *ngFor="let region of regions" [ngValue]="region.id">
-                {{region.name}}
-              </option>
-            </select>
+            <ng-select [(ngModel)]="filter.region"
+                       (change)="getChangeRegion()"
+                       [items]="regions"
+                       bindValue="id"
+                       bindLabel="name">
+            </ng-select>
+
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -80,12 +83,13 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Насел. пункт</span>
           <div class="filters__item-select d-flex col-12">
-            <select [(ngModel)]="filter.city" (change)="getPlayers()">
-              <option [ngValue]="0">Выбрать насел. пункт</option>
-              <option *ngFor="let city of cities" [ngValue]="city.id">
-                {{city.name}}
-              </option>
-            </select>
+            <ng-select [(ngModel)]="filter.city"
+                       (change)="getPlayers()"
+                       [items]="cities"
+                       bindValue="id"
+                       bindLabel="name">
+            </ng-select>
+
             <span class="icon-arrow-down"></span>
           </div>
         </div>
@@ -93,12 +97,12 @@
         <div class="filters__item">
           <span class="filters__item-text col-12">Клуб</span>
           <div class="filters__item-select d-flex col-12">
-            <select [(ngModel)]="filter.club" (change)="getPlayers()">
-              <option [ngValue]="0">Выбрать клуб</option>
-              <option *ngFor="let club of clubs" [ngValue]="club.id">
-                {{club.name}}
-              </option>
-            </select>
+            <ng-select [(ngModel)]="filter.club"
+                       (change)="getPlayers()"
+                       [items]="clubs"
+                       bindValue="id"
+                       bindLabel="name">
+            </ng-select>
           </div>
         </div>
 

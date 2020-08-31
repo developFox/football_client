@@ -18,9 +18,9 @@ export class AppComponent implements OnInit {
         if (result.code === 'ok') {
           this.userStorageService.userData = result.data;
         }
-        if (result.code === 'exit') {
+        /*if (result.code === 'exit') {
           this.authService.clear();
-        }
+        }*/
       },
       (error) => {
         console.log('Ошибка при получении авторизации клиента: ', error);
