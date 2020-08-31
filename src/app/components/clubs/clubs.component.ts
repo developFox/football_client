@@ -13,6 +13,8 @@ export class ClubsComponent {
     sort: 'id',
   };
 
+  sorts = [{id: 'id', name: 'Крупные'}];
+
   constructor(private clubsService: ClubsService,
               public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
     this.globalParamsBreadcrumbs.title = 'Клубы';

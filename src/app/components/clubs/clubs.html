@@ -5,9 +5,12 @@
     <div class="sort-block d-flex">
       <span class="sort-block__text">Сортировка</span>
       <div class="sort-block__select d-flex">
-        <select [(ngModel)]="filter.sort" (change)="getClubs()">
-          <option [ngValue]="'id'">Крупные</option>
-        </select>
+        <ng-select [(ngModel)]="filter.sort"
+                   (change)="getClubs()"
+                   [items]="sorts"
+                   bindValue="id"
+                   bindLabel="name">
+        </ng-select>
       </div>
     </div>
   </div>
