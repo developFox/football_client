@@ -37,16 +37,16 @@
 
       <div class="filters__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
         <div class="filters__item">
-          <span class="filters__item-text col-12">Коэффициент</span>
-          <div class="filters__item-select d-flex col-12">
+          <div class="filters__item-text col-12">Коэффициент <span class="filters__item-value filters__item-value--min">от</span><span class="filters__item-value filters__item-value--max">до</span></div>
+          <div class="filters__item-range d-flex col-12">
             <ng5-slider [(value)]="filter.coefficient_start" (valueChange)="getPlayers()"
                         [(highValue)]="filter.coefficient_end" [options]="options"></ng5-slider>
           </div>
         </div>
 
         <div class="filters__item">
-          <span class="filters__item-text col-12">Возраст</span>
-          <div class="filters__item-select d-flex col-12">
+          <div class="filters__item-text col-12">Возраст <span class="filters__item-value filters__item-value--min">от</span><span class="filters__item-value filters__item-value--max">до</span></div>
+          <div class="filters__item-range d-flex col-12">
             <ng5-slider [(value)]="filter.year_start" (valueChange)="getPlayers()" [(highValue)]="filter.year_end"
                         [options]="optionsYear"></ng5-slider>
           </div>
@@ -102,8 +102,8 @@
         </div>
 
         <div class="filters__item">
-          <span class="filters__item-text col-12">Побед</span>
-          <div class="filters__item-select d-flex col-12">
+          <div class="filters__item-text col-12">Побед <span class="filters__item-value filters__item-value--min">от</span><span class="filters__item-value filters__item-value--max">до</span></div>
+          <div class="filters__item-range d-flex col-12">
             <ng5-slider [(value)]="filter.wins_start" (valueChange)="getPlayers()" [(highValue)]="filter.wins_end"
                         [options]="optionsWins"></ng5-slider>
             <span class="icon-arrow-down"></span>
