@@ -12,11 +12,12 @@
       <div class="sort-block d-flex">
         <span class="sort-block__text">Сортировка</span>
         <div class="sort-block__select d-flex">
-          <select [(ngModel)]="filter.sort" (change)="getPlayers()">
-            <option *ngFor="let sort of sorts" [ngValue]="sort.id">
-              {{sort.name}}
-            </option>
-          </select>
+          <ng-select [(ngModel)]="filter.sort"
+                     (change)="getPlayers()"
+                     [items]="sorts"
+                     bindValue="id"
+                     bindLabel="name">
+          </ng-select>
           <span class="icon-arrow-down"></span>
         </div>
 

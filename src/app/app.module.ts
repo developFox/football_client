@@ -50,6 +50,7 @@ import {MapComponent} from './components/map/map.component';
 import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
 import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-breadcrumbs';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -93,7 +94,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppRoutingModule,
     FormsModule,
     Ng5SliderModule,
-    SwiperModule
+    SwiperModule,
+    NgSelectModule
   ],
   providers: [
     HttpService,

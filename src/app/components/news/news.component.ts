@@ -16,7 +16,9 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.newsService.getNews().then((data: InterFaceNews[]) => {
-        this.news = data;
+        if (data.length > 0) {
+          this.news = data;
+        }
       },
       (error) => {
         console.log('Ошибка при получении списка новостей: ', error);
