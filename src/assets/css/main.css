@@ -980,15 +980,13 @@ textarea:focus:-ms-input-placeholder {
         font-weight: 600;
         font-size: 14px;
         padding: 0;
-        margin-bottom: 3px;
         display: block;
-        position: absolute; }
+        position: absolute;
+        top: -2px; }
         .catalog .filters__item-value--min {
-          right: 78px;
-          top: 0; }
+          right: 78px; }
         .catalog .filters__item-value--max {
-          right: 25px;
-          top: 0; }
+          right: 25px; }
       .catalog .filters__item-select {
         height: 30px;
         padding: 0 15px;
@@ -1267,7 +1265,7 @@ textarea:focus:-ms-input-placeholder {
     display: none !important; }
   .catalog .ng5-slider .ng5-slider-model-value {
     right: 35px !important;
-    bottom: 18px;
+    bottom: 27px;
     left: auto !important;
     font-size: 14px;
     font-weight: 500;
@@ -1275,7 +1273,7 @@ textarea:focus:-ms-input-placeholder {
     opacity: 1 !important; }
   .catalog .ng5-slider .ng5-slider-model-high {
     right: -18px !important;
-    bottom: 25px;
+    bottom: 27px;
     left: auto !important;
     font-size: 14px;
     font-weight: 500;

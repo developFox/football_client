@@ -105,17 +105,15 @@
                 font-weight: 600;
                 font-size: 14px;
                 padding: 0;
-                margin-bottom: 3px;
                 display: block;
                 position: absolute;
+                top: -2px;
 
                 &--min {
                     right: 78px;
-                    top: 0;
                 }
                 &--max {
                     right: 25px;
-                    top: 0;
                 }
             }
             &-select {
@@ -485,7 +483,7 @@
         }
         .ng5-slider-model-value {
             right: 35px !important;
-            bottom: 18px;
+            bottom: 27px;
             left: auto !important;
             font-size: 14px;
             font-weight: 500;
@@ -494,7 +492,7 @@
         }
         .ng5-slider-model-high {
             right: -18px!important;
-            bottom: 25px;
+            bottom: 27px;
             left: auto !important;
             font-size: 14px;
             font-weight: 500;
