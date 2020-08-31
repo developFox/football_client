@@ -1049,7 +1049,8 @@ textarea:focus:-ms-input-placeholder {
           background: #DEE0E6; }
   .catalog .players {
     padding: 0;
-    margin-bottom: 90px; }
+    margin-bottom: 90px;
+    align-content: flex-start; }
     .catalog .players .player {
       padding: 0 10px 20px 10px; }
       .catalog .players .player__inner {
