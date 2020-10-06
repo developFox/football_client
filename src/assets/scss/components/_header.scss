@@ -205,7 +205,7 @@
             height: 40px;
             clip-path: polygon(14% 0, 100% 0, 86% 100%, 0% 100%);
             background: #F3F5F9;
-
+            cursor: pointer;
             position: relative;
             align-items: center;
             padding: 0 35px 0 45px;
@@ -786,6 +786,7 @@
                 top: 77px;
                 left: 0;
                 width: 100%;
+                z-index: 30;
             }
             &-left {
                 display: none;
