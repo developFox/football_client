@@ -177,6 +177,9 @@ textarea:focus:-ms-input-placeholder {
     .ng-select .ng-option .ng-option-label:hover {
       color: #FFF; }
 
+.ng-select.ng-select-opened .ng-select-container {
+  z-index: 1002; }
+
 .icon-arrow-down {
   transition: .3s linear all;
   z-index: 1040; }
