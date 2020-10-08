@@ -150,7 +150,6 @@ textarea:focus:-ms-input-placeholder {
     .ng-select-container {
         height: 30px;
         background: #FFF;
-        z-index: 1002;
     }
     .ng-clear-wrapper {
         display: none;
@@ -187,10 +186,10 @@ textarea:focus:-ms-input-placeholder {
                 -webkit-clip-path: polygon(100% 0,0 100%,100% 100%);
                 clip-path: polygon(100% 0,0 100%,100% 100%);
                 width: 13px;
-                height: 13px;
+                height: 15px;
                 right: 0;
-                bottom: -1px;
-                z-index: 1002;
+                bottom: -2px;
+                z-index: 1003;
             }
         }
     }
@@ -203,6 +202,12 @@ textarea:focus:-ms-input-placeholder {
     }
     .ng-option {
 
+        &:last-child {
+
+            .ng-option-label {
+                border-bottom: 0;
+            }
+        }
         &.ng-option-selected {
 
             .ng-option-label {
@@ -217,9 +222,6 @@ textarea:focus:-ms-input-placeholder {
             border-bottom: 1px solid #3959ce;
             transition: .3s linear all;
 
-            &:last-child {
-                border-bottom: 0;
-            }
             &:hover {
                 color: #FFF;
             }
@@ -227,7 +229,7 @@ textarea:focus:-ms-input-placeholder {
     }
 }
 .ng-select.ng-select-opened .ng-select-container {
-    z-index: 1002;
+    z-index: 1002 !important;
 }
 .icon-arrow-down {
     transition: .3s linear all;
