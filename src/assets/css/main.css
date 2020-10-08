@@ -131,7 +131,9 @@ textarea:focus:-ms-input-placeholder {
 .ng-select {
   width: 100%; }
   .ng-select .ng-select-container {
-    height: 30px; }
+    height: 30px;
+    background: #FFF;
+    z-index: 1002; }
   .ng-select .ng-clear-wrapper {
     display: none; }
   .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
@@ -147,12 +149,13 @@ textarea:focus:-ms-input-placeholder {
   .ng-select.ng-select-single.ng-select-opened:after {
     content: '';
     position: absolute;
-    background: #f3f5f9;
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    width: 15px;
-    height: 15px;
-    right: -3px;
-    bottom: 0;
+    background: #2e48a7;
+    -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    width: 13px;
+    height: 13px;
+    right: 0;
+    bottom: -1px;
     z-index: 1002; }
   .ng-select .ng-dropdown-panel {
     width: 100%;

@@ -149,6 +149,8 @@ textarea:focus:-ms-input-placeholder {
 
     .ng-select-container {
         height: 30px;
+        background: #FFF;
+        z-index: 1002;
     }
     .ng-clear-wrapper {
         display: none;
@@ -181,12 +183,13 @@ textarea:focus:-ms-input-placeholder {
             &:after {
                 content: '';
                 position: absolute;
-                background: #f3f5f9;
-                clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-                width: 15px;
-                height: 15px;
-                right: -3px;
-                bottom: 0;
+                background: #2e48a7;
+                -webkit-clip-path: polygon(100% 0,0 100%,100% 100%);
+                clip-path: polygon(100% 0,0 100%,100% 100%);
+                width: 13px;
+                height: 13px;
+                right: 0;
+                bottom: -1px;
                 z-index: 1002;
             }
         }
