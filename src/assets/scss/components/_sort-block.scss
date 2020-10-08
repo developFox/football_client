@@ -10,14 +10,26 @@
     &__select {
         height: 30px;
         width: 190px;
-        padding: 0 15px;
+        padding: 0;
         align-items: center;
         color: #2e48a7;
         background: #FFF;
-        clip-path: polygon(0 0, 100% 0, 100% 60%, 95% 100%, 0 100%);
+        //clip-path: polygon(0 0, 100% 0, 100% 60%, 95% 100%, 0 100%);
         position: relative;
         font-size: 14px;
 
+        &:after {
+            content: '';
+            position: absolute;
+            background: #f3f5f9;
+            -webkit-clip-path: polygon(100% 0,0 100%,100% 100%);
+            clip-path: polygon(100% 0,0 100%,100% 100%);
+            width: 15px;
+            height: 15px;
+            right: -3px;
+            bottom: -1px;
+            z-index: 1000;
+        }
         .icon-arrow-down {
             color: #2e48a7;
             position: absolute;
