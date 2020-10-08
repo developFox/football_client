@@ -161,7 +161,7 @@ textarea:focus:-ms-input-placeholder {
     z-index: 1001;
     background: #2e48a7;
     margin-top: -15px;
-    padding: 25px 15px 15px 15px; }
+    padding: 25px 15px 10px 15px; }
   .ng-select .ng-option:last-child .ng-option-label {
     border-bottom: 0; }
   .ng-select .ng-option.ng-option-selected .ng-option-label {
@@ -1523,7 +1523,7 @@ textarea:focus:-ms-input-placeholder {
       height: 15px;
       right: -3px;
       bottom: -1px;
-      z-index: 1002; }
+      z-index: 1000; }
     .sort-block__select .icon-arrow-down {
       color: #2e48a7;
       position: absolute;
