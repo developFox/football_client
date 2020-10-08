@@ -144,3 +144,70 @@ textarea:focus:-ms-input-placeholder {
         min-height: calc(100vh - 618px);
     }
 }
+.ng-select {
+    width: 100%;
+
+    .ng-select-container {
+        height: 30px;
+    }
+    .ng-clear-wrapper {
+        display: none;
+    }
+    &.ng-select-single {
+
+        .ng-select-container {
+
+            .ng-value-container {
+
+                .ng-input {
+                    height: 30px;
+                }
+                .ng-value {
+                    line-height: 30px;
+                    padding: 0 15px;
+                }
+            }
+        }
+        &.ng-select-opened {
+
+            & + .icon-arrow-down {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .ng-dropdown-panel {
+        width: 100%;
+        z-index: 900;
+        background: #2e48a7;
+        margin-top: -5px;
+        padding: 25px 15px 15px 15px;
+    }
+    .ng-option {
+
+        &.ng-option-selected {
+
+            .ng-option-label {
+                color: #FFF;
+            }
+        }
+        .ng-option-label {
+            width: 100%;
+            color: #8da5fc;
+            padding: 5px 0;
+            display: block;
+            border-bottom: 1px solid #3959ce;
+            transition: .3s linear all;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+            &:hover {
+                color: #FFF;
+            }
+        }
+    }
+
+}
+.icon-arrow-down {
+    transition: .3s linear all;
+}
