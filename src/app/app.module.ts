@@ -54,6 +54,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {GlobalParamsAuth} from './components/auth/global-params-auth';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {RegistrationService} from './components/registration/registration.service';
+import {OnlineModalComponent} from './components/online_modal/online_modal.component';
+import {OnlineModalService} from './components/online_modal/online_modal.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -89,7 +91,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ContactsComponent,
     MapComponent,
     BreadcrumbsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    OnlineModalComponent
   ],
   imports: [
     BrowserModule,
@@ -120,6 +123,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GlobalParamsBreadcrumbs,
     GlobalParamsAuth,
     RegistrationService,
+    OnlineModalService,
     {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]

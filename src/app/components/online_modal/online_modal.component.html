@@ -1,0 +1,79 @@
+<div class="modal fade online-modal" id="online-modal" tabindex="-1" role="dialog" aria-labelledby="online-modal-form">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="online-modal-form" method="post">
+
+          <div class="form-content col-12">
+            <span class="title col-12">Онлайн заявка</span>
+
+            <div class="form-fields d-flex flex-wrap col-12">
+              <div class="form-fields__item error col-12">
+                <input type="text" name="name" class="form-fields__item-input col-12" placeholder="Ваше имя" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+              <div class="form-fields__item col-12">
+                <input type="tel" name="phone" class="form-fields__item-input col-12" placeholder="Номер телефона"
+                       required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+              <div class="form-fields__item col-12">
+                <input type="text" name="city" class="form-fields__item-input col-12" placeholder="Ваш город" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+              <div class="form-fields__item col-12">
+                <textarea class="form-fields__item-textarea col-12" name="comment"
+                          placeholder="Ваш комментарий"></textarea>
+              </div>
+              <div class="form-fields__btn-wrapper d-flex col-12">
+                <input type="submit" name="button" class="form-fields__btn transition d-flex" value="Отправить">
+              </div>
+
+              <div class="form-checkbox">
+                <input id="professional" type="checkbox" class="form-checkbox__input" checked="">
+                <label for="professional" class="form-checkbox__label noselect">Принимаю <a href="" target="_blank">условия</a>
+                  обработки данных</label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="icon-close transition"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade apply-modal" id="apply-modal" tabindex="-1" role="dialog" aria-labelledby="apply-modal-form">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="apply-modal-form" method="post">
+
+          <div class="form-content col-12">
+            <span class="subtitle col-12">Отлично!</span>
+            <span class="title col-12">Ваша заявка принята</span>
+
+            <div class="image d-flex col-12">
+              <span class="image__icon icon-check1"></span>
+            </div>
+
+            <span class="description col-12">В скором времени мы свяжеся с вами по указанному телефону. <br>Оставвайтесь на связи</span>
+
+            <div class="form-fields d-flex flex-wrap col-12">
+              <div class="form-fields__btn-wrapper d-flex col-12">
+                <input type="submit" name="button" class="form-fields__btn transition d-flex" data-dismiss="modal"
+                       aria-label="Close" value="прекрасно">
+              </div>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="icon-close transition"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
