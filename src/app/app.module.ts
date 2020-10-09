@@ -51,6 +51,7 @@ import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.compone
 import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-breadcrumbs';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {GlobalParamsAuth} from './components/auth/global-params-auth';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -114,6 +115,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     TopService,
     ClubsService,
     GlobalParamsBreadcrumbs,
+    GlobalParamsAuth,
     {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]

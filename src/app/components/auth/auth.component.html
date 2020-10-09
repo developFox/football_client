@@ -1,11 +1,48 @@
-<div *ngIf="state===1">
-  <input type="text" placeholder="Телефон" [(ngModel)]="phone">
-  <input type="text" placeholder="Пароль" [(ngModel)]="password">
-  <div (click)="auth()">Войти</div>
-</div>
+<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-form"
+     *ngIf="globalParamsAuth.show">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="login-modal-form" method="post">
 
+          <div class="form-content col-12">
+            <span class="title col-12">Вход</span>
 
-<div *ngIf="state===2">
-    <input type="text" placeholder="smsCode" [(ngModel)]="smsCode">
-    <div (click)="auth()">Отправить</div>
+            <div class="form-fields d-flex flex-wrap col-12">
+              <div class="form-fields__item col-12" [ngClass]="{'error':phone.error}" *ngIf="state===1">
+                <span class="form-fields__item-icon icon-user1"></span>
+                <input [(ngModel)]="phone.val" type="text" name="login" class="form-fields__item-input col-12"
+                       placeholder="Ваш логин" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+              <div class="form-fields__item col-12" [ngClass]="{'error':password.error}" *ngIf="state===1">
+                <span class="form-fields__item-icon icon-key"></span>
+                <input type="password" [(ngModel)]="password.val" name="password" class="form-fields__item-input col-12"
+                       placeholder="Ваш пароль" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+
+              <div class="form-fields__item error col-12" [ngClass]="{'error':smsCode.error}" *ngIf="state===2">
+                <span class="form-fields__item-icon icon-user1"></span>
+                <input [(ngModel)]="smsCode.val" type="text" name="login" class="form-fields__item-input col-12"
+                       placeholder="Смс код" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+
+              <div class="form-fields__btn-wrapper d-flex col-12" (click)="auth()">
+                <input type="submit" name="button" class="form-fields__btn transition d-flex" value="Войти">
+              </div>
+
+              <div class="forgot-pass d-flex col-12">
+                <a href="" class="transition">Забыли пароль?</a>
+              </div>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="icon-close transition"></span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

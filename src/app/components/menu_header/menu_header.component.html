@@ -1,77 +1,78 @@
- <div class="header__top col-12"><!-- add/remove class 'active' after click '.navbar-header' -->
-    <div class="header__top-left"></div>
+<div class="header__top col-12"><!-- add/remove class 'active' after click '.navbar-header' -->
+  <div class="header__top-left"></div>
 
-    <div class="top-menu d-flex flex-wrap col-12">
-      <div class="top-menu__item">
-        <a routerLink="/about" class="top-menu__item-link transition">О проекте</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/cooperation" class="top-menu__item-link transition">Сотрудничество</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/news-project" class="top-menu__item-link transition">Новости проекта</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/your-offers" class="top-menu__item-link transition">Ваши предложения</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/faq" class="top-menu__item-link transition">Ответы на вопросы</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/what-i-get" class="top-menu__item-link transition">Что я получу вступив?</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/contacts" class="top-menu__item-link transition">Контакты</a>
-      </div>
-      <div class="top-menu__item">
-        <a routerLink="/auth" class="top-menu__item-link transition">Регистрация футболиста</a>
-      </div>
+  <div class="top-menu d-flex flex-wrap col-12">
+    <div class="top-menu__item">
+      <a routerLink="/about" class="top-menu__item-link transition">О проекте</a>
     </div>
-
-    <div class="header__top-right"></div>
+    <div class="top-menu__item">
+      <a routerLink="/cooperation" class="top-menu__item-link transition">Сотрудничество</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/news-project" class="top-menu__item-link transition">Новости проекта</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/your-offers" class="top-menu__item-link transition">Ваши предложения</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/faq" class="top-menu__item-link transition">Ответы на вопросы</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/what-i-get" class="top-menu__item-link transition">Что я получу вступив?</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/contacts" class="top-menu__item-link transition">Контакты</a>
+    </div>
+    <div class="top-menu__item">
+      <a routerLink="/auth" class="top-menu__item-link transition">Регистрация футболиста</a>
+    </div>
   </div>
 
-  <div class="header__bottom d-flex col-12">
-    <a routerLink="/" class="header__logo">
-      <img src="/assets/images/logo.png" class="header__logo-img" alt="logo">
-    </a>
+  <div class="header__top-right"></div>
+</div>
 
-    <div class="header-menu d-flex flex-wrap">
-      <div class="header-menu__item">
-        <span class="header-menu__item-link">Каталог</span>
+<div class="header__bottom d-flex col-12">
+  <a routerLink="/" class="header__logo">
+    <img src="/assets/images/logo.png" class="header__logo-img" alt="logo">
+  </a>
 
-        <div class="header-menu__submenu">
-          <div class="header-menu__submenu-item col-12">
-            <a routerLink="/players" class="header-menu__submenu-link">Футболисты</a>
-          </div>
-          <div class="header-menu__submenu-item col-12">
-            <a href="" class="header-menu__submenu-link">Тренеры</a>
-          </div>
+  <div class="header-menu d-flex flex-wrap">
+    <div class="header-menu__item">
+      <span class="header-menu__item-link">Каталог</span>
+
+      <div class="header-menu__submenu">
+        <div class="header-menu__submenu-item col-12">
+          <a routerLink="/players" class="header-menu__submenu-link">Футболисты</a>
+        </div>
+        <div class="header-menu__submenu-item col-12">
+          <a href="" class="header-menu__submenu-link">Тренеры</a>
         </div>
       </div>
-      <div class="header-menu__item">
-        <a routerLink="/ratings" class="header-menu__item-link transition">Рейтинги</a>
-      </div>
-      <div class="header-menu__item">
-        <a routerLink="/top" class="header-menu__item-link transition">Топ 100</a>
-      </div>
-      <div class="header-menu__item">
-        <a routerLink="/clubs" class="header-menu__item-link transition">Клубы</a>
-      </div>
-      <div class="header-menu__item">
-        <a routerLink="/map" class="header-menu__item-link transition">Карта</a>
-      </div>
     </div>
-
-    <div class="header__search d-flex">
-      <span class="icon-search"></span>
-      <input type="text" class="header__search-input" placeholder="Поиск">
-      <a href="" class="header__search-link d-flex">
-        <span class="icon-filter"></span>
-      </a>
+    <div class="header-menu__item">
+      <a routerLink="/ratings" class="header-menu__item-link transition">Рейтинги</a>
     </div>
+    <div class="header-menu__item">
+      <a routerLink="/top" class="header-menu__item-link transition">Топ 100</a>
+    </div>
+    <div class="header-menu__item">
+      <a routerLink="/clubs" class="header-menu__item-link transition">Клубы</a>
+    </div>
+    <div class="header-menu__item">
+      <a routerLink="/map" class="header-menu__item-link transition">Карта</a>
+    </div>
+  </div>
 
-    <div class="header-auth d-flex">
+  <div class="header__search d-flex">
+    <span class="icon-search"></span>
+    <input type="text" class="header__search-input" placeholder="Поиск">
+    <a href="" class="header__search-link d-flex">
+      <span class="icon-filter"></span>
+    </a>
+  </div>
+
+  <div class="header-auth d-flex">
+    <div *ngIf="user.user.fio!==''">
       <div class="header-auth__photo d-flex">
         <img src="/assets/images/user-img.png" class="header-auth__photo-img" alt="user photo">
       </div>
@@ -80,12 +81,24 @@
 
         <span class="icon-arrow-down"></span>
       </div>
-      <div class="navbar-header d-flex d-lg-none">
-        <button type="button" class="navbar-toggle collapsed"><!-- add/remove class 'active' after click '.navbar-header' -->
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+    </div>
+
+    <div class="header-auth__block-wrapper" data-toggle="modal" data-target="#login-modal" *ngIf="user.user.fio===''">
+      <div class="header-auth__photo d-flex">
+        <span class="icon-user"></span>
+      </div>
+      <div class="header-auth__block d-flex" (click)="showAuth()">
+        <span class="header-auth__block-text transition d-none d-lg-block">Войти</span>
       </div>
     </div>
+
+    <div class="navbar-header d-flex d-lg-none">
+      <button type="button" class="navbar-toggle collapsed">
+        <!-- add/remove class 'active' after click '.navbar-header' -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
   </div>
+</div>
