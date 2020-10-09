@@ -56,6 +56,8 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {RegistrationService} from './components/registration/registration.service';
 import {OnlineModalComponent} from './components/online_modal/online_modal.component';
 import {OnlineModalService} from './components/online_modal/online_modal.service';
+import {PlayerMessageComponent} from './components/player_message/player_message.component';
+import {PlayerMessageService} from './components/player_message/player_message.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -92,7 +94,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MapComponent,
     BreadcrumbsComponent,
     RegistrationComponent,
-    OnlineModalComponent
+    OnlineModalComponent,
+    PlayerMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +127,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GlobalParamsAuth,
     RegistrationService,
     OnlineModalService,
+    PlayerMessageService,
     {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]
