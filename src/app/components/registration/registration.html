@@ -1,0 +1,202 @@
+<section class="registration d-flex flex-wrap col-12">
+  <div class="registration__top d-flex col-12">
+    <span class="title">Регистрация</span>
+
+    <span
+      class="registration__top-description col-12">Выберите роль и заполните короткий опросник для регистрации</span>
+  </div>
+
+  <div class="registration__content d-flex flex-wrap col-12">
+    <ul class="nav registration__tabs d-flex flex-wrap col-12">
+      <li class="registration__tab">
+        <div class="registration__tab-link d-flex transition" [ngClass]="{'active':profile==='player'}"
+             (click)="profile='player'">
+          Вы футболист
+        </div>
+      </li>
+      <li class="registration__tab">
+        <div class="registration__tab-link d-flex transition" [ngClass]="{'active':profile==='coach'}"
+             (click)="profile='coach'">
+          Вы тренер
+        </div>
+      </li>
+    </ul>
+    <div class="tab-content profile-edit__tabs-content col-12">
+      <div class="tab-pane fade show active col-12" id="foolball-player" *ngIf="profile==='player'">
+        <form action="" class="registration__form col-12" method="post">
+          <div class="questions d-flex flex-wrap col-12">
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Занимаетесь у тренера или с ребятами во дворе?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition">
+                  <input id="trainer" type="radio" class="radio-block__input" name="place" value="1" [ngModel]="player.type_1.val">
+                  <label for="trainer" class="radio-block__label transition noselect">У тренера</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="garden" type="radio" class="radio-block__input" name="place" value="2" [ngModel]="player.type_1.val">
+                  <label for="garden" class="radio-block__label transition noselect">Во дворе</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Участвуете в соревнованиях, турнирах?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="participate" type="radio" class="radio-block__input" name="tournament" value="1" [ngModel]="player.type_2.val">
+                  <label for="participate" class="radio-block__label transition noselect">Участвую</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-participate" type="radio" class="radio-block__input" name="tournament" value="2" [ngModel]="player.type_2.val">
+                  <label for="not-participate" class="radio-block__label transition noselect">Не участвую</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Проходили отбор, просмотр в спортшколу, академию, профессиональному тренеру?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="selection" type="radio" class="radio-block__input" name="selection" value="1" [ngModel]="player.type_3.val">
+                  <label for="selection" class="radio-block__label transition noselect">Проходил</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-selection" type="radio" class="radio-block__input" name="selection" value="2" [ngModel]="player.type_3.val">
+                  <label for="not-selection" class="radio-block__label transition noselect">Не проходил</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Актуальна для Вас интернет платформа, где можно будет загружать информацию  о своих результатах, личную статистику, видео файлы?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="actual" type="radio" class="radio-block__input" name="platform" value="1" [ngModel]="player.type_4.val">
+                  <label for="actual" class="radio-block__label transition noselect">Актуально</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-actual" type="radio" class="radio-block__input" name="platform" value="2" [ngModel]="player.type_4.val">
+                  <label for="not-actual" class="radio-block__label transition noselect">Не актуально</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tab-pane fade show active col-12" id="foolball-trainer" *ngIf="profile==='coach'">
+        <form action="" class="registration__form col-12" method="post">
+          <div class="questions d-flex flex-wrap col-12">
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Проводите отбор футболистов или набираете всех желающих?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition">
+                  <input id="selection-players" type="radio" class="radio-block__input" name="selection-players"
+                         value="1" [ngModel]="player.type_5.val">
+                  <label for="selection-players" class="radio-block__label transition noselect">Отбор</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-selection-players" type="radio" class="radio-block__input" name="selection-players" value="2" [ngModel]="player.type_5.val">
+                  <label for="not-selection-players" class="radio-block__label transition noselect">Всех
+                    желающих</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Ваши футболисты участвуют в турнирах, соревнованиях?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="competition" type="radio" class="radio-block__input" name="competition" value="1" [ngModel]="player.type_6.val">
+                  <label for="competition" class="radio-block__label transition noselect">Да</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-competition" type="radio" class="radio-block__input" name="competition" value="2" [ngModel]="player.type_6.val">
+                  <label for="not-competition" class="radio-block__label transition noselect">Нет</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span
+                class="questions__item-title col-12">Ведете статистику своих футболистов, фиксируете результаты?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="statistic" type="radio" class="radio-block__input" name="statistic" value="1" [ngModel]="player.type_7.val">
+                  <label for="statistic" class="radio-block__label transition noselect">Да</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-statistic" type="radio" class="radio-block__input" name="statistic" value="2" [ngModel]="player.type_7.val">
+                  <label for="not-statistic" class="radio-block__label transition noselect">Нет</label>
+                </div>
+              </div>
+            </div>
+            <div class="questions__item col-12">
+              <span class="questions__item-title col-12">Актуальна для Вас интернет платформа, где можно будет загружать информацию  о своих результатах, личную статистику, видео файлы?</span>
+              <div class="questions__item-radio d-flex col-12">
+                <div class="radio-block d-flex transition active">
+                  <input id="relevant" type="radio" class="radio-block__input" name="platform" value="1" [ngModel]="player.type_8.val">
+                  <label for="relevant" class="radio-block__label transition noselect">Актуально</label>
+                </div>
+                <div class="radio-block d-flex transition">
+                  <input id="not-relevant" type="radio" class="radio-block__input" name="platform" value="2" [ngModel]="player.type_8.val">
+                  <label for="not-relevant" class="radio-block__label transition noselect">Не актуально</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="tab-pane fade show active col-12">
+        <form action="" class="registration__form col-12" method="post">
+          <div class="questions d-flex flex-wrap col-12">
+            <div class="information-fields d-flex flex-wrap col-12 col-md-10 col-lg-8">
+              <div class="information-fields__inner d-flex flex-wrap">
+                <span class="information-fields__title col-12">Ваши контактные данные</span>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.name.error}">
+                  <input type="text" class="information-fields__field-input col-12" id="name" name="name"
+                         placeholder="Ваше имя" [(ngModel)]="player.name.val" required>
+                  <label for="name" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.surname.error}">
+                  <input type="text" class="information-fields__field-input col-12" id="second-name" name="second-name"
+                         placeholder="Фамилия" [(ngModel)]="player.surname.val" required>
+                  <label for="second-name" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.phone.error}">
+                  <input type="tel" class="information-fields__field-input col-12" id="phone" name="phone"
+                         placeholder="Номер телефона" [(ngModel)]="player.phone.val" required>
+                  <label for="phone" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.email.error}">
+                  <input type="email" class="information-fields__field-input col-12" id="email" name="email"
+                         placeholder="Электронная почта" [(ngModel)]="player.email.val" required>
+                  <label for="email" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.year.error}">
+                  <input type="text" class="information-fields__field-input col-12" id="age" name="age"
+                         placeholder="Ваш возраст" [(ngModel)]="player.year.val" required>
+                  <label for="age" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+                <div class="information-fields__field col-12 col-sm-4" [ngClass]="{'error':player.city.error}">
+                  <input type="text" class="information-fields__field-input col-12" id="city" name="city"
+                         placeholder="Ваш город" [(ngModel)]="player.city.val" required>
+                  <label for="city" class="information-fields__field-error col-12">Это поле обязательное для
+                    заполнения</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="registration__button-wrapper d-flex col-12">
+              <div class="registration__button">
+                <input type="submit" (click)="sendRegistration()" class="registration__button-btn" value="Отправить заявку">
+              </div>
+              <span class="registration__button-text">Нажимая кнопку ”Отправить заявку” вы принимаете условия обработки данных</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -17,6 +17,7 @@ import {FaqComponent} from './components/faq/faq.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
 import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
+import {RegistrationComponent} from './components/registration/registration.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
   {
     path: 'map',
     component: MapComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
   }
 ];
 
