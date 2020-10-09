@@ -15,6 +15,12 @@ export class AuthComponent {
 
   state = 1;
 
+  // окно сброса пароля
+  showForgot = false;
+
+  // окно успешного сброса пароля
+  showForgotSuccess = false;
+
   constructor(private authService: AuthService,
               private userStorageService: UserStorageService,
               private globalParamsAuth: GlobalParamsAuth) {
@@ -72,7 +78,8 @@ export class AuthComponent {
     }
 
     this.authService.forgot(this.email.val).then(() => {
-        this.globalParamsAuth.showForgot = false;
+        this.showForgot = false;
+        this.showForgotSuccess = true;
         this.email.val = '';
         this.email.error = false;
       },
@@ -83,6 +90,6 @@ export class AuthComponent {
 
   showForgotChange() {
     this.globalParamsAuth.showLogin = false;
-    this.globalParamsAuth.showForgot = true;
+    this.showForgot = true;
   }
 }
