@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from './auth.service';
-import {Router} from '@angular/router';
 import {UserStorageService} from '../../storage/user-storage.service';
 import {GlobalParamsAuth} from './global-params-auth';
 
@@ -12,6 +11,7 @@ export class AuthComponent {
   phone = {val: '', error: false};
   password = {val: '', error: false};
   smsCode = {val: '', error: false};
+  email = {val: '', error: false};
 
   state = 1;
 
@@ -55,11 +55,34 @@ export class AuthComponent {
           this.state = 2;
         } else if (result.code === 'ok' && this.state === 2) {
           this.userStorageService.user = result.data;
-          this.globalParamsAuth.show = false;
+          this.globalParamsAuth.showLogin = false;
         }
       },
       () => {
         console.log('Ошибка при авторизации');
       });
+  }
+
+  sendForgot() {
+    if (this.email.val === '') {
+      this.email.error = true;
+      return false;
+    } else {
+      this.email.error = false;
+    }
+
+    this.authService.forgot(this.email.val).then(() => {
+        this.globalParamsAuth.showForgot = false;
+        this.email.val = '';
+        this.email.error = false;
+      },
+      () => {
+        console.log('Ошибка при авторизации');
+      });
+  }
+
+  showForgotChange() {
+    this.globalParamsAuth.showLogin = false;
+    this.globalParamsAuth.showForgot = true;
   }
 }

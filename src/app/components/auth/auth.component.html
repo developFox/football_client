@@ -1,5 +1,5 @@
 <div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-form"
-     *ngIf="globalParamsAuth.show">
+     *ngIf="globalParamsAuth.showLogin">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -34,7 +34,38 @@
               </div>
 
               <div class="forgot-pass d-flex col-12">
-                <a href="" class="transition">Забыли пароль?</a>
+                <div (click)="showForgotChange()" data-dismiss="modal" data-toggle="modal" data-target="#forgot-modal" class="transition">Забыли пароль?</div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="icon-close transition"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade forgot-modal" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="apply-modal-form" *ngIf="globalParamsAuth.showForgot">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form id="forgot-modal-form">
+
+          <div class="form-content col-12">
+            <span class="title col-12">Забыли пароль?</span>
+
+            <span class="description col-12" style="margin-top: 20px">Введите электронную почту к которой был подвязан пароль</span>
+
+            <div class="form-fields d-flex flex-wrap col-12">
+              <div class="form-fields__item col-12" [ngClass]="{'error':email.error}">
+                <input type="email" [(ngModel)]="email.val" name="email" class="form-fields__item-input col-12" placeholder="Электронная почта" required>
+                <label class="error">Поле обезательное для заполнения</label>
+              </div>
+              <div class="form-fields__btn-wrapper d-flex col-12">
+                <input type="submit" (click)="sendForgot()" name="button" class="form-fields__btn transition d-flex" aria-label="Close" value="отправить">
               </div>
             </div>
           </div>

@@ -2,5 +2,6 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class GlobalParamsAuth {
-  show: boolean;
+  showLogin: boolean;
+  showForgot: boolean;
 }

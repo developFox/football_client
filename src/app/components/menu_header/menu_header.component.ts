@@ -19,7 +19,11 @@ export class MenuHeaderComponent implements OnInit {
   }
 
   showAuth() {
-    this.globalParamsAuth.show = true;
+    this.globalParamsAuth.showLogin = true;
+  }
+
+  showForgot() {
+    this.globalParamsAuth.showForgot = true;
   }
 }
 
