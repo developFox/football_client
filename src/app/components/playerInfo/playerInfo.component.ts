@@ -2,6 +2,7 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {PlayerInfoService} from './playerInfo.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
+import {GlobalParamsPlayerMessage} from '../player_message/global-params-player-message';
 
 @Component({
   selector: 'app-player',
@@ -72,6 +73,7 @@ export class PlayerInfoComponent {
   constructor(private playerInfoService: PlayerInfoService,
               private changeDetector: ChangeDetectorRef,
               private globalParamsBreadcrumbs: GlobalParamsBreadcrumbs,
+              private globalParamsPlayerMessage: GlobalParamsPlayerMessage,
               private router: ActivatedRoute) {
     this.globalParamsBreadcrumbs.title = 'Информация об игроке';
     this.router.params.subscribe(
@@ -122,6 +124,11 @@ export class PlayerInfoComponent {
     } else {
       this.showTournament = this.player.tournament.list;
     }
+  }
+
+  showMessage() {
+    this.globalParamsPlayerMessage.fio = this.player.fio;
+    this.globalParamsPlayerMessage.showMessage = true;
   }
 }
 
