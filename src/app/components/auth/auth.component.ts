@@ -23,7 +23,7 @@ export class AuthComponent {
 
   constructor(private authService: AuthService,
               private userStorageService: UserStorageService,
-              private globalParamsAuth: GlobalParamsAuth) {
+              public globalParamsAuth: GlobalParamsAuth) {
   }
 
   auth() {

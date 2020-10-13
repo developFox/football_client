@@ -16,7 +16,7 @@ export class PlayerMessageComponent {
   };
 
   constructor(private playerMessageService: PlayerMessageService,
-              private globalParamsPlayerMessage: GlobalParamsPlayerMessage) {
+              public globalParamsPlayerMessage: GlobalParamsPlayerMessage) {
   }
 
   sendMessage() {
