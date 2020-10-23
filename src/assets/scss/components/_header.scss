@@ -201,7 +201,8 @@
         position: relative;
 
         &__block {
-            width: 180px;
+            min-width: 180px;
+            max-width: 230px;
             height: 40px;
             clip-path: polygon(14% 0, 100% 0, 86% 100%, 0% 100%);
             background: #F3F5F9;
@@ -211,6 +212,7 @@
             padding: 0 35px 0 45px;
             font-weight: 600;
             justify-content: center;
+            line-height: normal;
 
             &-wrapper {
                 color: #1a2733;
