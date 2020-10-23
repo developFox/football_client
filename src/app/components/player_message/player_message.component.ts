@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PlayerMessageService} from './player_message.service';
 import {GlobalParamsPlayerMessage} from './global-params-player-message';
 
@@ -7,6 +7,8 @@ import {GlobalParamsPlayerMessage} from './global-params-player-message';
   templateUrl: './player_message.component.html',
 })
 export class PlayerMessageComponent {
+  @ViewChild('closeBtn3') closeBtn3: ElementRef;
+
   message = {
     name: {val: '', error: false},
     phone: {val: '', error: false},
@@ -34,6 +36,8 @@ export class PlayerMessageComponent {
 
     this.playerMessageService.playerSendMessage().then(() => {
       this.globalParamsPlayerMessage.showMessage = false;
+      this.closeBtn3.nativeElement.click();
+
     }, () => {
       console.log('Ошибка при регистрации');
     });
