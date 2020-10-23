@@ -51,6 +51,14 @@ import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.compone
 import {GlobalParamsBreadcrumbs} from './components/breadcrumbs/global-params-breadcrumbs';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {GlobalParamsAuth} from './components/auth/global-params-auth';
+import {RegistrationComponent} from './components/registration/registration.component';
+import {RegistrationService} from './components/registration/registration.service';
+import {OnlineModalComponent} from './components/online_modal/online_modal.component';
+import {OnlineModalService} from './components/online_modal/online_modal.service';
+import {PlayerMessageComponent} from './components/player_message/player_message.component';
+import {PlayerMessageService} from './components/player_message/player_message.service';
+import {GlobalParamsPlayerMessage} from './components/player_message/global-params-player-message';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -85,7 +93,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     FaqComponent,
     ContactsComponent,
     MapComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    RegistrationComponent,
+    OnlineModalComponent,
+    PlayerMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -114,6 +125,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     TopService,
     ClubsService,
     GlobalParamsBreadcrumbs,
+    GlobalParamsAuth,
+    GlobalParamsPlayerMessage,
+    RegistrationService,
+    OnlineModalService,
+    PlayerMessageService,
     {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]

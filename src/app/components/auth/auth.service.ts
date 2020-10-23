@@ -47,6 +47,23 @@ export class AuthService {
     });
   }
 
+  // сброс пароля
+  public forgot(email) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-forgot', {
+        email: email,
+      })
+        .then((result: { code: string }) => {
+            resolve(result);
+          },
+          () => {
+            console.log('Ошибка при сбросе пароля');
+            reject();
+          }
+        );
+    });
+  }
+
   clear() {
     localStorage.removeItem('pubId');
     this.sessionStorage.authenticated.emit(false);

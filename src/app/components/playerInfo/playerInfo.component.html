@@ -87,7 +87,9 @@
         </li>
       </ul>
 
-      <div class="player-page__tabs-email d-flex transition"><span class="icon-mail"></span> Написать игроку</div>
+      <div (click)="showMessage()" data-toggle="modal" data-target="#message-modal" class="player-page__tabs-email d-flex transition"><span
+        class="icon-mail"></span> Написать игроку
+      </div>
     </div>
   </div>
 
