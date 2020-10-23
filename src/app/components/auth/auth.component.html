@@ -1,5 +1,4 @@
-<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-form"
-     *ngIf="globalParamsAuth.showLogin">
+<div class="modal fade login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal-form">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -41,7 +40,7 @@
             </div>
           </div>
         </form>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" #closeBtn>
           <span class="icon-close transition"></span>
         </button>
       </div>
@@ -50,8 +49,7 @@
 </div>
 
 
-<div class="modal fade forgot-modal" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="apply-modal-form"
-     *ngIf="showForgot">
+<div class="modal fade forgot-modal" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="apply-modal-form">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -75,7 +73,7 @@
             </div>
           </div>
         </form>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#apply-modal1" #closeBtn2>
           <span class="icon-close transition"></span>
         </button>
       </div>
@@ -83,8 +81,7 @@
   </div>
 </div>
 
-<div class="modal fade apply-modal" id="apply-modal1" tabindex="-1" role="dialog" aria-labelledby="apply-modal1-form"
-     *ngIf="showForgotSuccess">
+<div class="modal fade apply-modal" id="apply-modal1" tabindex="-1" role="dialog" aria-labelledby="apply-modal1-form">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">

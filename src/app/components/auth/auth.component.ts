@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {AuthService} from './auth.service';
 import {UserStorageService} from '../../storage/user-storage.service';
 import {GlobalParamsAuth} from './global-params-auth';
@@ -8,6 +8,8 @@ import {GlobalParamsAuth} from './global-params-auth';
   templateUrl: './auth.component.html',
 })
 export class AuthComponent {
+  @ViewChild('closeBtn') closeBtn: ElementRef;
+  @ViewChild('closeBtn2') closeBtn2: ElementRef;
   phone = {val: '', error: false};
   password = {val: '', error: false};
   smsCode = {val: '', error: false};
@@ -17,9 +19,6 @@ export class AuthComponent {
 
   // окно сброса пароля
   showForgot = false;
-
-  // окно успешного сброса пароля
-  showForgotSuccess = false;
 
   constructor(private authService: AuthService,
               private userStorageService: UserStorageService,
@@ -60,6 +59,7 @@ export class AuthComponent {
         } else if (result.code === 'ok' && this.state === 1) {
           this.state = 2;
         } else if (result.code === 'ok' && this.state === 2) {
+          this.closeBtn.nativeElement.click();
           this.userStorageService.user = result.data;
           this.globalParamsAuth.showLogin = false;
         }
@@ -79,9 +79,9 @@ export class AuthComponent {
 
     this.authService.forgot(this.email.val).then(() => {
         this.showForgot = false;
-        this.showForgotSuccess = true;
         this.email.val = '';
         this.email.error = false;
+        this.closeBtn2.nativeElement.click();
       },
       () => {
         console.log('Ошибка при авторизации');
