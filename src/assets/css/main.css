@@ -1722,6 +1722,140 @@ textarea:focus:-ms-input-placeholder {
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .news-block {
     padding: 25px 5px 5px 5px; } }
+.news-page {
+  padding: 0; }
+  .news-page__top {
+    padding: 0 10% 15px 10%;
+    position: relative; }
+    .news-page__top:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      height: 4px;
+      width: 45px;
+      background: #2e48a7; }
+  .news-page .news-list {
+    padding: 50px calc(10% - 50px);
+    background: #FFF; }
+    .news-page .news-list .news {
+      padding: 0 50px 50px 50px; }
+      .news-page .news-list .news__image {
+        height: 350px; }
+      .news-page .news-list .news__more {
+        margin-top: 10px;
+        display: block;
+        cursor: pointer;
+        padding: 0 25px;
+        height: 50px;
+        align-items: center;
+        color: #2e48a7;
+        font-size: 17px;
+        font-weight: 600;
+        background: #ebeef4;
+        position: relative; }
+        .news-page .news-list .news__more:before {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 25px;
+          clip-path: polygon(0 100%, 75% 0, 0 0);
+          background: #FFF;
+          left: -1px;
+          top: -1px;
+          z-index: 5; }
+        .news-page .news-list .news__more:after {
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 25px;
+          clip-path: polygon(100% 0, 25% 100%, 100% 100%);
+          background: #FFF;
+          right: -1px;
+          bottom: -1px;
+          z-index: 5; }
+        .news-page .news-list .news__more-wrapper {
+          padding: 0 50px; }
+        .news-page .news-list .news__more:hover {
+          background: #2e48a7;
+          color: #FFF; }
+          .news-page .news-list .news__more:hover .icon-arrow-down {
+            color: #FFF; }
+        .news-page .news-list .news__more .icon-arrow-down {
+          font-size: 20px;
+          margin-right: 15px;
+          color: #2e48a7; }
+
+@media screen and (min-width: 1200px) and (max-width: 1540px) {
+  .news-page__top {
+    padding: 0 5% 15px 5%; }
+    .news-page__top:before {
+      left: 5%; }
+  .news-page .news-list {
+    padding: 40px calc(5% - 25px); }
+    .news-page .news-list .news {
+      padding: 0 25px 25px 25px; }
+      .news-page .news-list .news__image {
+        height: 300px; }
+      .news-page .news-list .news__more-wrapper {
+        padding: 0 25px; } }
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .news-page__top {
+    padding: 0 15px 15px 15px; }
+    .news-page__top:before {
+      left: 15px; }
+  .news-page .news-list {
+    padding: 40px 0; }
+    .news-page .news-list .news {
+      padding: 0 15px 25px 15px; }
+      .news-page .news-list .news__image {
+        height: 250px; }
+      .news-page .news-list .news__more-wrapper {
+        padding: 0 15px; } }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .news-page__top {
+    padding: 0 15px 15px 15px; }
+    .news-page__top:before {
+      left: 15px; }
+  .news-page .news-list {
+    padding: 30px 5px; }
+    .news-page .news-list .news {
+      padding: 0 10px 25px 10px; }
+      .news-page .news-list .news__image {
+        height: 200px; }
+      .news-page .news-list .news__more-wrapper {
+        padding: 0 10px; } }
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .news-page__top {
+    padding: 0 15px 15px 15px; }
+    .news-page__top:before {
+      left: 15px; }
+    .news-page__top .title {
+      font-size: 32px; }
+  .news-page .news-list {
+    padding: 30px 7.5px; }
+    .news-page .news-list .news {
+      padding: 0 7.5px 25px 7.5px; }
+      .news-page .news-list .news__image {
+        height: 180px; }
+      .news-page .news-list .news__more-wrapper {
+        padding: 0 7.5px; } }
+@media screen and (min-width: 320px) and (max-width: 575px) {
+  .news-page__top {
+    padding: 0 15px 15px 15px; }
+    .news-page__top:before {
+      left: 15px; }
+    .news-page__top .title {
+      font-size: 32px; }
+  .news-page .news-list {
+    padding: 30px 7.5px; }
+    .news-page .news-list .news {
+      padding: 0 7.5px 25px 7.5px; }
+      .news-page .news-list .news__image {
+        height: 200px;
+        margin-bottom: 10px; }
+      .news-page .news-list .news__more-wrapper {
+        padding: 0 7.5px; } }
 .footer {
   margin-top: 10px;
   padding: 0; }
