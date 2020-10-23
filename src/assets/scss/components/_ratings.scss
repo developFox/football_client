@@ -70,6 +70,14 @@
             margin-top: 25px;
             width: 100%;
 
+            &-title {
+                display: block;
+                padding: 0 0 8px 0;
+                border-bottom: 1px solid #E9ECF3;
+                color: rgba(26, 39, 51, 0.5);
+                font-weight: normal;
+                font-size: 18px;
+            }
             &-link {
                 height: 35px;
                 padding: 0 15px;

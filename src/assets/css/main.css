@@ -183,6 +183,9 @@ textarea:focus:-ms-input-placeholder {
   transition: .3s linear all;
   z-index: 1040; }
 
+.show {
+  display: block; }
+
 @font-face {
   font-family: 'foot-capital';
   src: url("../fonts/foot-capital.eot");
@@ -2448,6 +2451,13 @@ textarea:focus:-ms-input-placeholder {
       padding: 0;
       margin-top: 25px;
       width: 100%; }
+      .ratings .directions__item-title {
+        display: block;
+        padding: 0 0 8px 0;
+        border-bottom: 1px solid #E9ECF3;
+        color: rgba(26, 39, 51, 0.5);
+        font-weight: normal;
+        font-size: 18px; }
       .ratings .directions__item-link {
         height: 35px;
         padding: 0 15px;

@@ -28,12 +28,9 @@
 
       <div class="directions__items flex-wrap col-12" [ngClass]="{'show':showFilter===false}">
         <div class="directions__item" *ngFor="let data of ratingsFilter">
-          <div class="directions__item-link d-flex transition col-12">
-            {{data.name}}
-
-            <div *ngFor="let sData of data.mark" (click)="changeFilter(sData.id)">
-              {{sData.name}}
-            </div>
+          <span class="directions__item-title col-12">{{data.name}}</span>
+          <div class="directions__item-link d-flex transition col-12" *ngFor="let sData of data.mark" (click)="changeFilter(sData.id)">
+            {{sData.name}}
           </div>
         </div>
       </div>
