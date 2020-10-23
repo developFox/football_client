@@ -600,7 +600,8 @@ textarea:focus:-ms-input-placeholder {
         -o-object-fit: cover;
         object-fit: cover; }
       .header-auth__photo .icon-user {
-        font-size: 35px; }
+        font-size: 35px;
+        cursor: pointer; }
     .header-auth .navbar-header {
       width: 70px;
       height: 40px;
