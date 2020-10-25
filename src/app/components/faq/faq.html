@@ -84,34 +84,35 @@
       </div>
     </div>
 
-    <form class="faq__form">
+    <div class="faq__form">
       <div class="faq__form-inner col-12">
         <div class="faq__form-title col-12">Задать свой вопрос</div>
         <div class="faq__form-fields col-12">
-          <div class="faq__form-field col-12">
-            <input type="text" [ngModel]='params.name' class="faq__form-input error d-flex col-12" placeholder="Ваше имя">
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.name.error}">
+            <input type="text" [(ngModel)]='params.name.val' [ngModelOptions]="{standalone: true}" class="faq__form-input error d-flex col-12" placeholder="Ваше имя">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="faq__form-field col-12">
-            <input type="text" [ngModel]='params.phone' class="faq__form-input d-flex col-12" placeholder="Номер телефона">
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.phone.error}">
+            <input type="text" [(ngModel)]='params.phone.val' [ngModelOptions]="{standalone: true}" class="faq__form-input d-flex col-12" placeholder="Номер телефона">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="faq__form-field col-12">
-            <input type="text" [ngModel]='params.city' class="faq__form-input d-flex col-12" placeholder="Ваш город">
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.city.error}">
+            <input type="text" [(ngModel)]='params.city.val' [ngModelOptions]="{standalone: true}" class="faq__form-input d-flex col-12" placeholder="Ваш город">
             <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="faq__form-field col-12">
-            <textarea [ngModel]='params.question' class="faq__form-textarea col-12" placeholder="Ваш вопрос"></textarea>
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.question.error}">
+            <textarea [(ngModel)]='params.question.val' [ngModelOptions]="{standalone: true}" class="faq__form-textarea col-12" placeholder="Ваш вопрос"></textarea>
+            <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
 
           <input type="submit" (click)="sendQuestion()" class="faq__form-button d-flex transition" value="Отправить">
 
           <div class="form-checkbox">
-            <input id="professional" type="checkbox" class="form-checkbox__input" checked="">
+            <input id="professional" type="checkbox" class="form-checkbox__input" [checked]="params.checked.val" (click)="params.checked.val=!params.checked.val">
             <label for="professional" class="form-checkbox__label noselect">Принимаю условия обработки данных</label>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </section>

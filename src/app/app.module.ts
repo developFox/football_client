@@ -59,6 +59,7 @@ import {OnlineModalService} from './components/online_modal/online_modal.service
 import {PlayerMessageComponent} from './components/player_message/player_message.component';
 import {PlayerMessageService} from './components/player_message/player_message.service';
 import {GlobalParamsPlayerMessage} from './components/player_message/global-params-player-message';
+import {FaqService} from './components/faq/faq.service';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -130,6 +131,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RegistrationService,
     OnlineModalService,
     PlayerMessageService,
+    FaqService,
     {provide: SWIPER_CONFIG, useValue: DEFAULT_SWIPER_CONFIG}
   ],
   bootstrap: [AppComponent]
