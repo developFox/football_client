@@ -17,7 +17,6 @@ export class NewsService {
       } else {
         this.httpService.prepareQuery('api/get-news', {})
           .then((result) => {
-            console.log(1,result)
               resolve(result);
             },
             (error) => {

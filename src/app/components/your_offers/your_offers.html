@@ -41,26 +41,27 @@
       <div class="your-offers__form-inner col-12">
         <div class="your-offers__form-title col-12">Оставьте свое предложение</div>
         <div class="your-offers__form-fields col-12">
-          <div class="your-offers__form-field col-12">
-            <input type="text" class="your-offers__form-input error d-flex col-12" placeholder="Ваше имя">
-            <div class="your-offers__form-error col-12">Поле обязательное для заполнения</div>
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.name.error}">
+            <input type="text" [(ngModel)]='params.name.val' [ngModelOptions]="{standalone: true}" class="faq__form-input error d-flex col-12" placeholder="Ваше имя">
+            <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="your-offers__form-field col-12">
-            <input type="text" class="your-offers__form-input d-flex col-12" placeholder="Номер телефона">
-            <div class="your-offers__form-error col-12">Поле обязательное для заполнения</div>
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.phone.error}">
+            <input type="text" [(ngModel)]='params.phone.val' [ngModelOptions]="{standalone: true}" class="faq__form-input d-flex col-12" placeholder="Номер телефона">
+            <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="your-offers__form-field col-12">
-            <input type="text" class="your-offers__form-input d-flex col-12" placeholder="Ваш город">
-            <div class="your-offers__form-error col-12">Поле обязательное для заполнения</div>
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.city.error}">
+            <input type="text" [(ngModel)]='params.city.val' [ngModelOptions]="{standalone: true}" class="faq__form-input d-flex col-12" placeholder="Ваш город">
+            <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
-          <div class="your-offers__form-field col-12">
-            <textarea class="your-offers__form-textarea col-12" placeholder="Ваше предложение"></textarea>
+          <div class="faq__form-field col-12" [ngClass]="{'error':params.question.error}">
+            <textarea [(ngModel)]='params.question.val' [ngModelOptions]="{standalone: true}" class="your-offers__form-textarea col-12" placeholder="Ваше предложение"></textarea>
+            <div class="faq__form-error col-12">Поле обязательное для заполнения</div>
           </div>
 
-          <input type="submit" class="your-offers__form-button d-flex transition" value="Отправить">
+          <input type="submit" (click)="sendOffers()" class="your-offers__form-button d-flex transition" value="Отправить">
 
           <div class="form-checkbox">
-            <input id="professional" type="checkbox" class="form-checkbox__input" checked="">
+            <input id="professional" type="checkbox" class="form-checkbox__input" [checked]="params.checked.val" (click)="params.checked.val=!params.checked.val">
             <label for="professional" class="form-checkbox__label noselect">Принимаю условия обработки данных</label>
           </div>
         </div>
