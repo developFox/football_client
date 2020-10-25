@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="club__players d-flex flex-wrap col-12">
+        <div class="club__players d-flex flex-wrap col-12" *ngIf="club.players.length>0">
           <span class="club__players-title col-12">Футболисты клуба</span>
 
           <div class="players-list d-flex flex-wrap col-12">
