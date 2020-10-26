@@ -161,7 +161,9 @@ textarea:focus:-ms-input-placeholder {
     z-index: 1001;
     background: #2e48a7;
     margin-top: -15px;
-    padding: 25px 15px 5px 15px; }
+    padding: 25px 0 0 0; }
+    .ng-select .ng-dropdown-panel .scroll-host {
+      padding: 0 15px 5px; }
   .ng-select .ng-option:last-child .ng-option-label {
     border-bottom: 0; }
   .ng-select .ng-option.ng-option-selected .ng-option-label {
@@ -2198,7 +2200,8 @@ textarea:focus:-ms-input-placeholder {
         font-size: 14px;
         font-weight: 800;
         color: #2e48a7;
-        align-items: center; }
+        align-items: center;
+        cursor: pointer; }
         .clubs .club__players-all:hover {
           color: #1a2733; }
           .clubs .club__players-all:hover .icon-arrow-right {
@@ -2615,7 +2618,8 @@ textarea:focus:-ms-input-placeholder {
           margin-bottom: 0; }
   .ratings .players {
     padding: 0;
-    margin-bottom: 90px; }
+    margin-bottom: 90px;
+    align-content: flex-start; }
     .ratings .players .player {
       padding: 0 10px 20px 10px; }
       .ratings .players .player__inner {

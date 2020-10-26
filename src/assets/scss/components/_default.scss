@@ -198,7 +198,11 @@ textarea:focus:-ms-input-placeholder {
         z-index: 1001;
         background: #2e48a7;
         margin-top: -15px;
-        padding: 25px 15px 5px 15px;
+        padding: 25px 0 0 0;
+
+        .scroll-host {
+            padding: 0 15px 5px;
+        }
     }
     .ng-option {
 
