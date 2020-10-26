@@ -2606,10 +2606,13 @@ textarea:focus:-ms-input-placeholder {
         font-size: 14px;
         cursor: pointer;
         line-height: normal;
-        font-weight: 600; }
+        font-weight: 600;
+        margin-bottom: 15px; }
         .ratings .directions__item-link:hover {
           color: #FFF;
           background: #2e48a7; }
+        .ratings .directions__item-link:last-child {
+          margin-bottom: 0; }
   .ratings .players {
     padding: 0;
     margin-bottom: 90px; }

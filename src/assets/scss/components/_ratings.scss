@@ -90,10 +90,14 @@
                 cursor: pointer;
                 line-height: normal;
                 font-weight: 600;
+                margin-bottom: 15px;
 
                 &:hover {
                     color: #FFF;
                     background: #2e48a7;
+                }
+                &:last-child {
+                    margin-bottom: 0;
                 }
             }
         }
