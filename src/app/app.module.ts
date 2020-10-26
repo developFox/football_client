@@ -17,7 +17,7 @@ import {ClientMenuComponent} from './components/client_menu/client_menu.componen
 import {AuthGuard} from './services/auth-guard.service';
 import {MenuHeaderComponent} from './components/menu_header/menu_header.component';
 import {MenuFooterComponent} from './components/menu_footer/menu_footer.component';
-import {NewsComponent} from './components/news/news.component';
+import {NewsMiniComponent} from './components/news_mini/news_mini.component';
 import {AuthComponent} from './components/auth/auth.component';
 import {SmsComponent} from './components/sms/sms.component';
 import {UserStorageService} from './storage/user-storage.service';
@@ -25,7 +25,7 @@ import {PlayerComponent} from './components/player/player.component';
 import {PlayerService} from './components/player/player.service';
 import {PlayerInfoComponent} from './components/playerInfo/playerInfo.component';
 import {PlayerInfoService} from './components/playerInfo/playerInfo.service';
-import {NewsService} from './components/news/news.service';
+import {NewsService} from './components/news_mini/news.service';
 import {CoachService} from './components/coach/coach.service';
 import {CoachesComponent} from './components/coach/coaches.component';
 import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
@@ -60,6 +60,8 @@ import {PlayerMessageComponent} from './components/player_message/player_message
 import {PlayerMessageService} from './components/player_message/player_message.service';
 import {GlobalParamsPlayerMessage} from './components/player_message/global-params-player-message';
 import {FaqService} from './components/faq/faq.service';
+import {NewsInfoComponent} from './components/news_info/news_info.component';
+import {NewsComponent} from './components/news/news.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -75,7 +77,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ClientMenuComponent,
     MenuHeaderComponent,
     MenuFooterComponent,
-    NewsComponent,
+    NewsMiniComponent,
     SmsComponent,
     PlayerComponent,
     PlayerInfoComponent,
@@ -97,7 +99,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     BreadcrumbsComponent,
     RegistrationComponent,
     OnlineModalComponent,
-    PlayerMessageComponent
+    PlayerMessageComponent,
+    NewsInfoComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './components/auth/auth.service';
 import {UserStorageService} from './storage/user-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,9 @@ import {UserStorageService} from './storage/user-storage.service';
 export class AppComponent implements OnInit {
 
   constructor(private authService: AuthService,
+              private router: Router,
               private userStorageService: UserStorageService) {
+    console.log(1,this.router.url)
 
   }
 

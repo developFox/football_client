@@ -28,6 +28,21 @@ export class NewsService {
     });
   }
 
+  // получение новости проекта
+  public getNewsInfo(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/get-news-info', data)
+        .then((result) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении новости проета', error);
+            reject();
+          }
+        );
+    });
+  }
+
   // получение списка новостей
   public getNewsProject(data) {
     return new Promise((resolve, reject) => {

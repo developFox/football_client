@@ -3,10 +3,10 @@ import {NewsService} from '../news_mini/news.service';
 import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
-  selector: 'app-news-project-info',
-  templateUrl: './news_project_info.html',
+  selector: 'app-news-info',
+  templateUrl: './news_info.html',
 })
-export class NewsProjectInfoComponent {
+export class NewsInfoComponent {
   newsProject: InterFaceNewsInfo = {
     id: null,
     title: '',
@@ -24,28 +24,17 @@ export class NewsProjectInfoComponent {
     this.router.params.subscribe(
       (params: Params): void => {
         this.newsId = params.id;
+        this.getNewsInfo();
       }
     );
-
-    this.getNewsInfo();
-    this.getNews();
   }
 
   getNewsInfo() {
-    this.newsService.getNewsProjectInfo({id: this.newsId}).then((data: InterFaceNewsInfo) => {
+    this.newsService.getNewsInfo({id: this.newsId}).then((data: InterFaceNewsInfo) => {
         this.newsProject = data;
       },
       (error) => {
         console.log('Ошибка при получении списка новостей проекта: ', error);
-      });
-  }
-
-  getNews() {
-    this.newsService.getNews().then((data: InterFaceNewsMini[]) => {
-        this.news = data;
-      },
-      (error) => {
-        console.log('Ошибка при получении списка новостей: ', error);
       });
   }
 }

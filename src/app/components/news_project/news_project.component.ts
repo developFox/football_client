@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NewsService} from '../news/news.service';
+import {NewsService} from '../news_mini/news.service';
 import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({

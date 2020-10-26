@@ -1,27 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {NewsService} from './news.service';
+import {Component} from '@angular/core';
+import {NewsService} from '../news_mini/news.service';
 import {GlobalParamsBreadcrumbs} from '../breadcrumbs/global-params-breadcrumbs';
 
 @Component({
   selector: 'app-news',
-  templateUrl: './news.component.html',
+  templateUrl: './news.html',
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent {
   news: InterFaceNews[] = [];
 
   constructor(private newsService: NewsService,
               public globalParamsBreadcrumbs: GlobalParamsBreadcrumbs) {
     this.globalParamsBreadcrumbs.title = 'Новости';
+    this.getNews();
   }
 
-  ngOnInit() {
-    this.newsService.getNews().then((data: InterFaceNews[]) => {
-        if (data.length > 0) {
-          this.news = data;
-        }
+  getNews() {
+    this.newsService.getNews().then((data: InterFaceNewsProject[]) => {
+        this.news = data;
       },
       (error) => {
-        console.log('Ошибка при получении списка новостей: ', error);
+        console.log('Ошибка при получении списка новостей проекта: ', error);
       });
   }
 }

@@ -18,6 +18,8 @@ import {ContactsComponent} from './components/contacts/contacts.component';
 import {MapComponent} from './components/map/map.component';
 import {CoachInfoComponent} from './components/coachInfo/coachInfo.component';
 import {RegistrationComponent} from './components/registration/registration.component';
+import {NewsInfoComponent} from './components/news_info/news_info.component';
+import {NewsComponent} from './components/news/news.component';
 
 const routes: Routes = [
   {
@@ -65,6 +67,14 @@ const routes: Routes = [
   {
     path: 'news-project/:id',
     component: NewsProjectInfoComponent
+  },
+  {
+    path: 'news',
+    component: NewsComponent
+  },
+  {
+    path: 'news/:id',
+    component: NewsInfoComponent
   },
   {
     path: 'cooperation',

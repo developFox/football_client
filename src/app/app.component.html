@@ -11,7 +11,7 @@
 
       <router-outlet></router-outlet>
 
-      <app-news class="news-block d-flex flex-wrap col-12"></app-news>
+      <app-news-mini *ngIf="this.router.url!=='/news'" class="news-block d-flex flex-wrap col-12"></app-news-mini>
     </div>
 
     <app-menu-footer class="footer col-12"></app-menu-footer>
