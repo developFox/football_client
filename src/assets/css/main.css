@@ -9019,11 +9019,11 @@ textarea:focus:-ms-input-placeholder {
       z-index: 5;
       text-transform: uppercase;
       height: 45px;
-      clip-path: polygon(6% 0%, 100% 0, 100% 50%, 94% 100%, 0 100%, 0% 50%); }
+      clip-path: polygon(6% 0%, 100% 0, 100% 50%, 94% 100%, 0 100%, 0% 50%);
+      cursor: pointer; }
       .registration__tab-link:hover {
         color: #1a2733; }
       .registration__tab-link.active {
-        color: #FFF;
         background: #2e48a7;
         z-index: 10;
         cursor: default;
