@@ -17,7 +17,7 @@ export class MessageAlertComponent {
     checked: {val: false, error: false}
   };
 
-  constructor(private globalParamsMessage: GlobalParamsMessage,
+  constructor(public globalParamsMessage: GlobalParamsMessage,
               private playerMessageService: PlayerMessageService) {}
 
   sendMessage() {
