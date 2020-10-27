@@ -67,23 +67,23 @@ export class HttpService {
             }
           } else if (result.status === 'ERROR') {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
-              this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
+              // this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
               localStorage.removeItem('pubId');
               this.sessionStorage.authenticated.emit(false);
               this.userStorageService.userData = {fio: '', type_id: null, type_name: ''};
               this.router.navigate(['/']);
             } else {
-              this.globalParamsMessage.data = {title: 'Ошибка', body: result.msg, type: 'error'};
+              // this.globalParamsMessage.data = {title: 'Ошибка', body: result.msg, type: 'error'};
             }
             reject();
           } else {
-            this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
+            // this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
             reject();
           }
         },
         (error) => {
           console.log('Ошибка после отправки запроса в CRM', error);
-          this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
+          // this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
           reject(error);
         });
     });
@@ -97,7 +97,7 @@ export class HttpService {
     const headers = new HttpHeaders();
 
     return this.http.post('http://www.backend-football.ru/' + api, request, {headers: headers})
-    //return this.http.post('http://localhost:8005/' + api, request, {headers: headers})
+      //return this.http.post('http://localhost:8005/' + api, request, {headers: headers})
       .pipe(
         catchError(HttpService.handlerError)
       );
