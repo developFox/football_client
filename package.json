@@ -25,7 +25,7 @@
     "ng5-slider": "^1.2.4",
     "ngx-swiper-wrapper": "^8.0.0",
     "rxjs": "~6.2.0",
-    "swiper": "^6.1.1",
+    "swiper": "^6.5.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
